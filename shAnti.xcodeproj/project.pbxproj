@@ -15,6 +15,21 @@
 		523862BD1545B9A500985797 /* shAntiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 523862BC1545B9A500985797 /* shAntiAppDelegate.m */; };
 		523862C01545B9A500985797 /* shAntiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523862BF1545B9A500985797 /* shAntiViewController.m */; };
 		523862C31545B9A500985797 /* shAntiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523862C11545B9A500985797 /* shAntiViewController.xib */; };
+		523862D01545BA8100985797 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862CF1545BA8100985797 /* appIcon.png */; };
+		523862D21545BA8600985797 /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862D11545BA8600985797 /* appIcon@2x.png */; };
+		523862D41545BA9100985797 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862D31545BA9100985797 /* Default.png */; };
+		523862D61545BA9300985797 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862D51545BA9300985797 /* Default@2x.png */; };
+		523862DB1545BABC00985797 /* icon-pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862D71545BABC00985797 /* icon-pause.png */; };
+		523862DC1545BABC00985797 /* icon-pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862D81545BABC00985797 /* icon-pause@2x.png */; };
+		523862DD1545BABC00985797 /* icon-play.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862D91545BABC00985797 /* icon-play.png */; };
+		523862DE1545BABC00985797 /* icon-play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862DA1545BABC00985797 /* icon-play@2x.png */; };
+		523862E11545BACC00985797 /* icon-rewind.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862DF1545BACC00985797 /* icon-rewind.png */; };
+		523862E21545BACC00985797 /* icon-rewind@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862E01545BACC00985797 /* icon-rewind@2x.png */; };
+		523862E41545BAD900985797 /* med5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 523862E31545BAD900985797 /* med5.mp3 */; };
+		523862E61545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 523862E51545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg */; };
+		5240ED181545C6F7003C0048 /* UIPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5240ED171545C6F7003C0048 /* UIPagedScrollView.m */; };
+		526634CB1545FBF500ED70AF /* shAntiUIMeditationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 526634CA1545FBF500ED70AF /* shAntiUIMeditationView.m */; };
+		526634CD1545FC2900ED70AF /* shAntiUIMeditationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526634CC1545FC2900ED70AF /* shAntiUIMeditationView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +37,32 @@
 		523862AC1545B9A400985797 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		523862AE1545B9A500985797 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		523862B01545B9A500985797 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		523862B41545B9A500985797 /* shAnti-Info.plist */ = {isa = PBXFileReference; path = "shAnti-Info.plist"; sourceTree = "<group>"; };
+		523862B41545B9A500985797 /* shAnti-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "shAnti-Info.plist"; sourceTree = "<group>"; };
 		523862B61545B9A500985797 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		523862B81545B9A500985797 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		523862BA1545B9A500985797 /* shAnti-Prefix.pch */ = {isa = PBXFileReference; path = "shAnti-Prefix.pch"; sourceTree = "<group>"; };
-		523862BB1545B9A500985797 /* shAntiAppDelegate.h */ = {isa = PBXFileReference; path = shAntiAppDelegate.h; sourceTree = "<group>"; };
+		523862BA1545B9A500985797 /* shAnti-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "shAnti-Prefix.pch"; sourceTree = "<group>"; };
+		523862BB1545B9A500985797 /* shAntiAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shAntiAppDelegate.h; sourceTree = "<group>"; };
 		523862BC1545B9A500985797 /* shAntiAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shAntiAppDelegate.m; sourceTree = "<group>"; };
-		523862BE1545B9A500985797 /* shAntiViewController.h */ = {isa = PBXFileReference; path = shAntiViewController.h; sourceTree = "<group>"; };
+		523862BE1545B9A500985797 /* shAntiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shAntiViewController.h; sourceTree = "<group>"; };
 		523862BF1545B9A500985797 /* shAntiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shAntiViewController.m; sourceTree = "<group>"; };
 		523862C21545B9A500985797 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/shAntiViewController.xib; sourceTree = "<group>"; };
+		523862CF1545BA8100985797 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
+		523862D11545BA8600985797 /* appIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@2x.png"; sourceTree = "<group>"; };
+		523862D31545BA9100985797 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		523862D51545BA9300985797 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		523862D71545BABC00985797 /* icon-pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-pause.png"; sourceTree = "<group>"; };
+		523862D81545BABC00985797 /* icon-pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-pause@2x.png"; sourceTree = "<group>"; };
+		523862D91545BABC00985797 /* icon-play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-play.png"; sourceTree = "<group>"; };
+		523862DA1545BABC00985797 /* icon-play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-play@2x.png"; sourceTree = "<group>"; };
+		523862DF1545BACC00985797 /* icon-rewind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-rewind.png"; sourceTree = "<group>"; };
+		523862E01545BACC00985797 /* icon-rewind@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-rewind@2x.png"; sourceTree = "<group>"; };
+		523862E31545BAD900985797 /* med5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = med5.mp3; sourceTree = "<group>"; };
+		523862E51545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "stock-photo-2038361-moon-meditation.jpg"; sourceTree = "<group>"; };
+		5240ED161545C6F7003C0048 /* UIPagedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPagedScrollView.h; sourceTree = "<group>"; };
+		5240ED171545C6F7003C0048 /* UIPagedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPagedScrollView.m; sourceTree = "<group>"; };
+		526634C91545FBF500ED70AF /* shAntiUIMeditationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shAntiUIMeditationView.h; sourceTree = "<group>"; };
+		526634CA1545FBF500ED70AF /* shAntiUIMeditationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shAntiUIMeditationView.m; sourceTree = "<group>"; };
+		526634CC1545FC2900ED70AF /* shAntiUIMeditationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shAntiUIMeditationView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +82,11 @@
 		5238629D1545B9A400985797 = {
 			isa = PBXGroup;
 			children = (
+				523862D51545BA9300985797 /* Default@2x.png */,
+				523862D31545BA9100985797 /* Default.png */,
+				523862D11545BA8600985797 /* appIcon@2x.png */,
+				523862CF1545BA8100985797 /* appIcon.png */,
+				523862CE1545BA5E00985797 /* Resources */,
 				523862B21545B9A500985797 /* shAnti */,
 				523862AB1545B9A400985797 /* Frameworks */,
 				523862A91545B9A400985797 /* Products */,
@@ -77,6 +114,7 @@
 		523862B21545B9A500985797 /* shAnti */ = {
 			isa = PBXGroup;
 			children = (
+				526634C71545FB7300ED70AF /* Views */,
 				523862BB1545B9A500985797 /* shAntiAppDelegate.h */,
 				523862BC1545B9A500985797 /* shAntiAppDelegate.m */,
 				523862BE1545B9A500985797 /* shAntiViewController.h */,
@@ -98,6 +136,41 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		523862CE1545BA5E00985797 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				523862E51545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg */,
+				523862E31545BAD900985797 /* med5.mp3 */,
+				523862D71545BABC00985797 /* icon-pause.png */,
+				523862D81545BABC00985797 /* icon-pause@2x.png */,
+				523862D91545BABC00985797 /* icon-play.png */,
+				523862DA1545BABC00985797 /* icon-play@2x.png */,
+				523862DF1545BACC00985797 /* icon-rewind.png */,
+				523862E01545BACC00985797 /* icon-rewind@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5240ED1A1545C711003C0048 /* Generic Views */ = {
+			isa = PBXGroup;
+			children = (
+				5240ED161545C6F7003C0048 /* UIPagedScrollView.h */,
+				5240ED171545C6F7003C0048 /* UIPagedScrollView.m */,
+			);
+			name = "Generic Views";
+			sourceTree = "<group>";
+		};
+		526634C71545FB7300ED70AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				526634C91545FBF500ED70AF /* shAntiUIMeditationView.h */,
+				526634CA1545FBF500ED70AF /* shAntiUIMeditationView.m */,
+				526634CC1545FC2900ED70AF /* shAntiUIMeditationView.xib */,
+				5240ED1A1545C711003C0048 /* Generic Views */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -107,6 +180,7 @@
 			buildPhases = (
 				523862A41545B9A400985797 /* Sources */,
 				523862A51545B9A400985797 /* Frameworks */,
+				523862CD1545B9E100985797 /* ShellScript */,
 				523862A61545B9A400985797 /* Resources */,
 			);
 			buildRules = (
@@ -126,6 +200,7 @@
 			attributes = {
 				CLASSPREFIX = shAnti;
 				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Blue Label Labs";
 			};
 			buildConfigurationList = 523862A21545B9A400985797 /* Build configuration list for PBXProject "shAnti" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -151,10 +226,39 @@
 			files = (
 				523862B71545B9A500985797 /* InfoPlist.strings in Resources */,
 				523862C31545B9A500985797 /* shAntiViewController.xib in Resources */,
+				523862D01545BA8100985797 /* appIcon.png in Resources */,
+				523862D21545BA8600985797 /* appIcon@2x.png in Resources */,
+				523862D41545BA9100985797 /* Default.png in Resources */,
+				523862D61545BA9300985797 /* Default@2x.png in Resources */,
+				523862DB1545BABC00985797 /* icon-pause.png in Resources */,
+				523862DC1545BABC00985797 /* icon-pause@2x.png in Resources */,
+				523862DD1545BABC00985797 /* icon-play.png in Resources */,
+				523862DE1545BABC00985797 /* icon-play@2x.png in Resources */,
+				523862E11545BACC00985797 /* icon-rewind.png in Resources */,
+				523862E21545BACC00985797 /* icon-rewind@2x.png in Resources */,
+				523862E41545BAD900985797 /* med5.mp3 in Resources */,
+				523862E61545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg in Resources */,
+				526634CD1545FC2900ED70AF /* shAntiUIMeditationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		523862CD1545B9E100985797 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash    \nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		523862A41545B9A400985797 /* Sources */ = {
@@ -164,6 +268,8 @@
 				523862B91545B9A500985797 /* main.m in Sources */,
 				523862BD1545B9A500985797 /* shAntiAppDelegate.m in Sources */,
 				523862C01545B9A500985797 /* shAntiViewController.m in Sources */,
+				5240ED181545C6F7003C0048 /* UIPagedScrollView.m in Sources */,
+				526634CB1545FBF500ED70AF /* shAntiUIMeditationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,7 +314,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -225,7 +331,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -238,6 +344,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "shAnti/shAnti-Prefix.pch";
 				INFOPLIST_FILE = "shAnti/shAnti-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -249,6 +356,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "shAnti/shAnti-Prefix.pch";
 				INFOPLIST_FILE = "shAnti/shAnti-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -273,6 +381,7 @@
 				523862C81545B9A500985797 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
