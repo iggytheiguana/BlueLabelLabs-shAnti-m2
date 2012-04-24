@@ -18,7 +18,7 @@
 @end
 
 
-@interface UIPagedScrollView : UIScrollView {
+@interface UIPagedScrollView : UIScrollView <UIScrollViewDelegate> {
     id<UIPagedScrollViewDelegate> m_delegate;
     
     NSMutableArray  *m_pageViews;
@@ -26,12 +26,16 @@
     NSInteger       m_pageCount;
 }
 
-@property (nonatomic, assign) id<UIPagedScrollViewDelegate> delegate;
+@property (nonatomic, assign)   id<UIPagedScrollViewDelegate> delegate;
 
 @property (nonatomic, strong)   NSMutableArray  *pageViews;
 @property                       NSInteger       pageCount;
 
-- (NSInteger)currentVisiblePage;
+
+- (UIView*)currentVisiblePageView;
+- (NSInteger)currentVisiblePageIndex;
+- (void)gotToPageAtIndex:(NSInteger)index;
+- (void)loadView;
 - (void)loadVisiblePages;
 - (void)loadPage:(int)page;
 - (void)purgePage:(int)page;

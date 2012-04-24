@@ -29,16 +29,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.pageCount = [self.delegate numberOfPagesInScrollView];
-        
-        self.pageViews = [[NSMutableArray alloc] init];                
-        for (int i = 0; i < self.pageCount; ++i) {
-            [self.pageViews addObject:[NSNull null]];
-        }
-        
-        // First, set up the scroll view frame
-        CGSize pagesScrollViewSize = self.frame.size;
-        self.contentSize = CGSizeMake(pagesScrollViewSize.width * self.pageCount, pagesScrollViewSize.height);
         
     }
     return self;
@@ -53,11 +43,47 @@
  }
  */
 
-- (NSInteger)currentVisiblePage {
+- (void)loadView {
+    [super setDelegate:self];
+    
+    self.pageCount = [self.delegate numberOfPagesInScrollView];
+    
+    self.pageViews = [[NSMutableArray alloc] init];                
+    for (int i = 0; i < self.pageCount; ++i) {
+        [self.pageViews addObject:[NSNull null]];
+    }
+    
+    // First, set up the scroll view frame
+    CGSize pagesScrollViewSize = self.frame.size;
+    self.contentSize = CGSizeMake(pagesScrollViewSize.width * self.pageCount, pagesScrollViewSize.height);  
+}
+
+- (UIView*)currentVisiblePageView {
+    // Determine which page is currently visible
+    NSInteger pageNumber = [self currentVisiblePageIndex];
+    UIView *currentView = [self.pageViews objectAtIndex:pageNumber];
+    return currentView;
+}
+
+- (NSInteger)currentVisiblePageIndex {
     // Determine which page is currently visible
     CGFloat pageWidth = self.frame.size.width;
     NSInteger page = (NSInteger)floor((self.contentOffset.x * 2.0f + pageWidth) / (pageWidth * 2.0f));
     return page;
+}
+
+- (CGPoint)contentOffsetForPageAtIndex:(NSUInteger)index {
+    CGFloat pageWidth = self.frame.size.width;
+    return CGPointMake(pageWidth*index, 0);
+}
+
+- (void)gotToPageAtIndex:(NSInteger)index {
+    if (index < 0 || index >= self.pageCount) {
+        // If it's outside the range of what you have to display, then do nothing
+        return;
+    }
+    
+    self.contentOffset = [self contentOffsetForPageAtIndex:index];
 }
 
 - (void)loadPage:(NSInteger)page {
@@ -98,7 +124,7 @@
 
 - (void)loadVisiblePages {
     // Determine which page is currently visible
-    NSInteger page = [self currentVisiblePage];
+    NSInteger page = [self currentVisiblePageIndex];
     
     // Work out which pages you want to load
     NSInteger firstPage = page - 1;
@@ -124,6 +150,9 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     // Load the pages that are now on screen
     [self loadVisiblePages];
+    
+    // Tell the delegate that the scroll view scrolled
+    [self.delegate scrollViewDidScroll:scrollView];
 }
 
 @end

@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "UIPagedScrollView.h"
 #import "shAntiUIMeditationView.h"
+#import "shAntiInfoViewController.h"
 
-@interface shAntiViewController : UIViewController <UIScrollViewDelegate, UIPagedScrollViewDelegate, shAntiUIMeditationViewDelegate> {
+@interface shAntiViewController : UIViewController < UIScrollViewDelegate, UIPagedScrollViewDelegate, shAntiUIMeditationViewDelegate, shAntiInfoViewControllerDelegate > {
+    
     UIPagedScrollView   *m_sv_pageViewSlider;
     UIPageControl       *m_pageControl;
 }

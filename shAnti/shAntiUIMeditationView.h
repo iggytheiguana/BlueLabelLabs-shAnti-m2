@@ -7,16 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVAudioPlayer.h>
 
 @protocol shAntiUIMeditationViewDelegate <NSObject>
 @required
 
 -(IBAction) onPlayPauseButtonPressed:(id)sender;
--(IBAction) onVolumeSliderChanged:(id)sender;
+-(IBAction) onRestartButtonPressed:(id)sender;
+-(IBAction) onDoneButtonPressed:(id)sender;
 
 @end
 
-@interface shAntiUIMeditationView : UIView {
+@interface shAntiUIMeditationView : UIView < AVAudioPlayerDelegate > {
     id<shAntiUIMeditationViewDelegate> m_delegate;
     
     UIView  *m_view;
@@ -25,8 +27,13 @@
     UILabel         *m_lbl_titleLabel;
     UILabel         *m_lbl_instructions;
     UIButton        *m_btn_playPause;
+    UIButton        *m_btn_restart;
     UISlider        *m_sld_volumeControl;
     UILabel         *m_lbl_swipeSkip;
+    
+    AVAudioPlayer   *m_audioPlayer;
+    
+    UIButton        *m_btn_done;
 }
 
 @property (nonatomic, assign) id<shAntiUIMeditationViewDelegate> delegate;
@@ -37,7 +44,20 @@
 @property (nonatomic, retain) IBOutlet UILabel      *lbl_titleLabel;
 @property (nonatomic, retain) IBOutlet UILabel      *lbl_instructions;
 @property (nonatomic, retain) IBOutlet UIButton     *btn_playPause;
+@property (nonatomic, retain) IBOutlet UIButton     *btn_restart;
 @property (nonatomic, retain) IBOutlet UISlider     *sld_volumeControl;
 @property (nonatomic, retain) IBOutlet UILabel      *lbl_swipeSkip;
+
+@property (nonatomic, retain) AVAudioPlayer         *audioPlayer;
+
+@property (nonatomic, retain) IBOutlet UIButton     *btn_done;
+
+
+-(void)loadAudioWithFile:(NSURL*)url;
+-(void)playAudio;
+-(void)pauseAudio;
+-(void)restartAudio;
+-(void)stopAudio;
+-(void)adjustVolume;
 
 @end

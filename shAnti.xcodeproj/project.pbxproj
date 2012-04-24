@@ -27,6 +27,9 @@
 		523862E21545BACC00985797 /* icon-rewind@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862E01545BACC00985797 /* icon-rewind@2x.png */; };
 		523862E41545BAD900985797 /* med5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 523862E31545BAD900985797 /* med5.mp3 */; };
 		523862E61545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 523862E51545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg */; };
+		5239EE3B15470BA7004BABF7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5239EE3A15470BA7004BABF7 /* AVFoundation.framework */; };
+		5239EE40154726AE004BABF7 /* shAntiInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239EE3E154726AE004BABF7 /* shAntiInfoViewController.m */; };
+		5239EE41154726AE004BABF7 /* shAntiInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE3F154726AE004BABF7 /* shAntiInfoViewController.xib */; };
 		5240ED181545C6F7003C0048 /* UIPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5240ED171545C6F7003C0048 /* UIPagedScrollView.m */; };
 		526634CB1545FBF500ED70AF /* shAntiUIMeditationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 526634CA1545FBF500ED70AF /* shAntiUIMeditationView.m */; };
 		526634CD1545FC2900ED70AF /* shAntiUIMeditationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526634CC1545FC2900ED70AF /* shAntiUIMeditationView.xib */; };
@@ -58,6 +61,10 @@
 		523862E01545BACC00985797 /* icon-rewind@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-rewind@2x.png"; sourceTree = "<group>"; };
 		523862E31545BAD900985797 /* med5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = med5.mp3; sourceTree = "<group>"; };
 		523862E51545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "stock-photo-2038361-moon-meditation.jpg"; sourceTree = "<group>"; };
+		5239EE3A15470BA7004BABF7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5239EE3D154726AE004BABF7 /* shAntiInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shAntiInfoViewController.h; sourceTree = "<group>"; };
+		5239EE3E154726AE004BABF7 /* shAntiInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shAntiInfoViewController.m; sourceTree = "<group>"; };
+		5239EE3F154726AE004BABF7 /* shAntiInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shAntiInfoViewController.xib; sourceTree = "<group>"; };
 		5240ED161545C6F7003C0048 /* UIPagedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPagedScrollView.h; sourceTree = "<group>"; };
 		5240ED171545C6F7003C0048 /* UIPagedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPagedScrollView.m; sourceTree = "<group>"; };
 		526634C91545FBF500ED70AF /* shAntiUIMeditationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shAntiUIMeditationView.h; sourceTree = "<group>"; };
@@ -70,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5239EE3B15470BA7004BABF7 /* AVFoundation.framework in Frameworks */,
 				523862AD1545B9A500985797 /* UIKit.framework in Frameworks */,
 				523862AF1545B9A500985797 /* Foundation.framework in Frameworks */,
 				523862B11545B9A500985797 /* CoreGraphics.framework in Frameworks */,
@@ -104,6 +112,7 @@
 		523862AB1545B9A400985797 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5239EE3A15470BA7004BABF7 /* AVFoundation.framework */,
 				523862AC1545B9A400985797 /* UIKit.framework */,
 				523862AE1545B9A500985797 /* Foundation.framework */,
 				523862B01545B9A500985797 /* CoreGraphics.framework */,
@@ -115,11 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				526634C71545FB7300ED70AF /* Views */,
+				5239EE4215472B4E004BABF7 /* Controllers */,
 				523862BB1545B9A500985797 /* shAntiAppDelegate.h */,
 				523862BC1545B9A500985797 /* shAntiAppDelegate.m */,
-				523862BE1545B9A500985797 /* shAntiViewController.h */,
-				523862BF1545B9A500985797 /* shAntiViewController.m */,
-				523862C11545B9A500985797 /* shAntiViewController.xib */,
 				523862B31545B9A500985797 /* Supporting Files */,
 			);
 			path = shAnti;
@@ -149,6 +156,19 @@
 				523862E01545BACC00985797 /* icon-rewind@2x.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		5239EE4215472B4E004BABF7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				523862BE1545B9A500985797 /* shAntiViewController.h */,
+				523862BF1545B9A500985797 /* shAntiViewController.m */,
+				523862C11545B9A500985797 /* shAntiViewController.xib */,
+				5239EE3D154726AE004BABF7 /* shAntiInfoViewController.h */,
+				5239EE3E154726AE004BABF7 /* shAntiInfoViewController.m */,
+				5239EE3F154726AE004BABF7 /* shAntiInfoViewController.xib */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		5240ED1A1545C711003C0048 /* Generic Views */ = {
@@ -239,6 +259,7 @@
 				523862E41545BAD900985797 /* med5.mp3 in Resources */,
 				523862E61545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg in Resources */,
 				526634CD1545FC2900ED70AF /* shAntiUIMeditationView.xib in Resources */,
+				5239EE41154726AE004BABF7 /* shAntiInfoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +291,7 @@
 				523862C01545B9A500985797 /* shAntiViewController.m in Sources */,
 				5240ED181545C6F7003C0048 /* UIPagedScrollView.m in Sources */,
 				526634CB1545FBF500ED70AF /* shAntiUIMeditationView.m in Sources */,
+				5239EE40154726AE004BABF7 /* shAntiInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
