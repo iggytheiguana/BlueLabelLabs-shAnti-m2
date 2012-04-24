@@ -7,16 +7,74 @@
 //
 
 #import "shAntiAppDelegate.h"
-
+#import "ApplicationSettings.h"
 #import "shAntiViewController.h"
 
 @implementation shAntiAppDelegate
 
 @synthesize window = _window;
 @synthesize viewController = _viewController;
+@synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
+@synthesize managedObjectModel = __managedObjectModel;
+@synthesize managedObjectContext = __managedObjectContext;;
+@synthesize applicationSettingsManager = __applicationSettingsManager;
+@synthesize authenticationManager = __authenticationManager;
+@synthesize facebook = __facebook;
+@synthesize deviceToken = m_deviceToken;
+
+#define     kFACEBOOKAPPID  @"271328586292350"
+
+- (ApplicationSettingsManager*)applicationSettingsManager {
+    if (__applicationSettingsManager != nil) {
+        return __applicationSettingsManager;
+    }
+    __applicationSettingsManager = [ApplicationSettingsManager instance];
+    return __applicationSettingsManager;
+}
+- (Facebook*) facebook {
+    if (__facebook != nil) {
+        return __facebook;
+    }
+    
+    __facebook = [[Facebook alloc]initWithAppId:kFACEBOOKAPPID];
+    
+    return __facebook;
+    
+}
+- (AuthenticationManager*) authenticationManager {
+    if (__authenticationManager != nil) {
+        return __authenticationManager;
+    }
+    
+    __authenticationManager = [AuthenticationManager instance];
+    return __authenticationManager;
+}
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    // obtain facebook instance ref
+    return [self.facebook handleOpenURL:url];
+    
+}
+
+- (NSString*) getImageCacheStorageDirectory {
+    NSString *path = nil;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(
+                                                         NSCachesDirectory, NSUserDomainMask, YES);
+    if ([paths count])
+    {
+        NSString *bundleName =
+        [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
+        path = [[paths objectAtIndex:0] stringByAppendingPathComponent:bundleName];
+    }
+    return path;
+}
+
 
 - (void)dealloc
 {
+    [__managedObjectContext release];
+    [__managedObjectModel release];
+    [__persistentStoreCoordinator release];
+
     [_window release];
     [_viewController release];
     [super dealloc];
@@ -58,5 +116,49 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (NSManagedObjectContext *) managedObjectContext {
+    if (managedObjectContext != nil) {
+        return managedObjectContext;
+    }
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [managedObjectContext setPersistentStoreCoordinator: coordinator];
+    }
+    
+    return managedObjectContext;
+}
+
+- (NSManagedObjectModel *)managedObjectModel {
+    if (managedObjectModel != nil) {
+        return managedObjectModel;
+    }
+    managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];
+    
+    return managedObjectModel;
+}
+
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+    if (persistentStoreCoordinator != nil) {
+        return persistentStoreCoordinator;
+    }
+    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory]
+                                               stringByAppendingPathComponent: @"<Project Name>.sqlite"]];
+    NSError *error = nil;
+    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]
+                                  initWithManagedObjectModel:[self managedObjectModel]];
+    if(![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                 configuration:nil URL:storeUrl options:nil error:&error]) {
+        /*Error for store creation should be handled in here*/
+    }
+    
+    return persistentStoreCoordinator;
+}
+
+- (NSString *)applicationDocumentsDirectory {
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+}
+
 
 @end
