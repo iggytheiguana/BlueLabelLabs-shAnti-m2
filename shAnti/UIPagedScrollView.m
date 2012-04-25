@@ -77,13 +77,29 @@
     return CGPointMake(pageWidth*index, 0);
 }
 
-- (void)gotToPageAtIndex:(NSInteger)index {
+- (CGRect)frameForPageAtIndex:(NSUInteger)index {
+    CGRect frame = self.frame;
+    frame.origin.x = frame.size.width * index;
+    frame.origin.y = 0;
+    
+    return frame;
+}
+
+- (void)goToPageAtIndex:(NSInteger)index animated:(BOOL)animated {
     if (index < 0 || index >= self.pageCount) {
         // If it's outside the range of what you have to display, then do nothing
         return;
     }
     
-    self.contentOffset = [self contentOffsetForPageAtIndex:index];
+    //self.contentOffset = [self contentOffsetForPageAtIndex:index];
+    [self scrollRectToVisible:[self frameForPageAtIndex:index] animated:animated];
+}
+
+- (void)goToPageAtIndexWithObjects:(NSArray*)objects {
+    NSInteger indexInt = [[objects objectAtIndex:0] intValue];
+    BOOL animatedBool = [[objects objectAtIndex:1] boolValue];
+    
+    [self goToPageAtIndex:indexInt animated:animatedBool];
 }
 
 - (void)loadPage:(NSInteger)page {

@@ -66,12 +66,14 @@
 
 #pragma mark - UI Event Handlers
 -(IBAction) onContinueButtonPressed:(id)sender {
-    // Prepare meditation scrollview to start from the next mediation
+    [self.delegate onContinueButtonPressed:(id)sender];
+    
+    /*// Prepare meditation scrollview to start from the next mediation
     shAntiViewController *scrollViewController = (shAntiViewController *)self.delegate;
     NSInteger currentPage = [scrollViewController.sv_pageViewSlider currentVisiblePageIndex];
     [scrollViewController.sv_pageViewSlider gotToPageAtIndex:currentPage+1];
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissModalViewControllerAnimated:YES];*/
 }
 
 -(IBAction) onScheduleButtonPressed:(id)sender {

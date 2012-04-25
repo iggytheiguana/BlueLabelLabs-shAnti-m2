@@ -10,6 +10,8 @@
 
 @protocol shAntiInfoViewControllerDelegate <NSObject>
 
+-(IBAction) onContinueButtonPressed:(id)sender;
+
 @end
 
 @interface shAntiInfoViewController : UIViewController {
@@ -28,7 +30,7 @@
 @property (nonatomic, retain) IBOutlet UIButton     *btn_continue;
 @property (nonatomic, retain) IBOutlet UIButton     *btn_schedule;
 
--(IBAction) onContinueButtonPressed:(id)sender;
+//-(IBAction) onContinueButtonPressed:(id)sender;
 -(IBAction) onScheduleButtonPressed:(id)sender;
 
 @end

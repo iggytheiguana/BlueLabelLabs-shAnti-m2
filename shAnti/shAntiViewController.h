@@ -15,9 +15,13 @@
     
     UIPagedScrollView   *m_sv_pageViewSlider;
     UIPageControl       *m_pageControl;
+    
+    NSArray             *m_meditations;
 }
 
 @property (nonatomic, strong) IBOutlet UIPagedScrollView    *sv_pageViewSlider;
 @property (nonatomic, strong) IBOutlet UIPageControl        *pageControl;
+
+@property (nonatomic, strong) NSArray                       *meditations;
 
 @end

@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVAudioPlayer.h>
+#import <AVFoundation/AVAudioSession.h>
 
 @protocol shAntiUIMeditationViewDelegate <NSObject>
 @required
 
--(IBAction) onPlayPauseButtonPressed:(id)sender;
--(IBAction) onRestartButtonPressed:(id)sender;
--(IBAction) onDoneButtonPressed:(id)sender;
+-(void)meditationDidStart;
+-(void)meditationDidEnd:(BOOL)completed;
+-(IBAction)onPlayPauseButtonPressed:(id)sender;
+-(IBAction)onRestartButtonPressed:(id)sender;
+-(IBAction)onDoneButtonPressed:(id)sender;
 
 @end
 

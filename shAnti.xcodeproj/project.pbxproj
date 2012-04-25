@@ -480,12 +480,7 @@
 		5238629D1545B9A400985797 = {
 			isa = PBXGroup;
 			children = (
-				C535C15915474FC3006F9148 /* Security.framework */,
 				C535C15715474E9D006F9148 /* libxml2.dylib */,
-				C535C14F15474E2E006F9148 /* CFNetwork.framework */,
-				C535C15015474E2E006F9148 /* CoreData.framework */,
-				C535C15115474E2E006F9148 /* MobileCoreServices.framework */,
-				C535C15215474E2E006F9148 /* SystemConfiguration.framework */,
 				C535C0D715474CA1006F9148 /* libxml2.2.dylib */,
 				C535C0D815474CA1006F9148 /* libz.1.1.3.dylib */,
 				C535C0D915474CA1006F9148 /* libz.1.2.5.dylib */,
@@ -513,6 +508,11 @@
 		523862AB1545B9A400985797 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C535C15915474FC3006F9148 /* Security.framework */,
+				C535C14F15474E2E006F9148 /* CFNetwork.framework */,
+				C535C15015474E2E006F9148 /* CoreData.framework */,
+				C535C15115474E2E006F9148 /* MobileCoreServices.framework */,
+				C535C15215474E2E006F9148 /* SystemConfiguration.framework */,
 				5239EE3A15470BA7004BABF7 /* AVFoundation.framework */,
 				523862AC1545B9A400985797 /* UIKit.framework */,
 				523862AE1545B9A500985797 /* Foundation.framework */,

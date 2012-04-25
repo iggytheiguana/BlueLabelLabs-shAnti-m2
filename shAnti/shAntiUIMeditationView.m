@@ -48,6 +48,25 @@
         self.sld_volumeControl.value = 0.5;
         [self.audioPlayer prepareToPlay];
     }
+    
+    // Set the audio player to keep playing when the screen locks
+    // Implicitly initializes audio session
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    
+    // Activate the audio session
+    NSError *activationError = nil;
+    [[AVAudioSession sharedInstance] setActive: YES error: &activationError];
+    if (activationError) {
+        NSLog(@"ERROR ACTIVATION AUDIO SESSION!\n");
+    }
+    
+    // Set the audio session category
+    NSError *setCategoryError = nil;
+    [[AVAudioSession sharedInstance]setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
+    if (setCategoryError) {
+        NSLog(@"ERROR SETTING AUDIO CATEGORY!\n");
+    }
+
 }
 
 #pragma mark - Initialization
@@ -98,6 +117,7 @@
 -(void)playAudio
 {    
     [self.audioPlayer play];
+    [self meditationDidStart];
 }
 
 -(void)pauseAudio
@@ -122,6 +142,15 @@
     [self.audioPlayer prepareToPlay];
     self.audioPlayer.volume = 0.5;
     self.sld_volumeControl.value = 0.5;
+    
+    // Set the appropriate state for the meditation instance
+    //if ([self.audioPlayer currentTime] != [self.audioPlayer duration] && [self.audioPlayer currentTime] != 0.0f) {
+    if ([self.audioPlayer currentTime] != [self.audioPlayer duration]) {
+        [self meditationDidEnd:NO];
+    }
+    else {
+        [self meditationDidEnd:YES];
+    }
 }
 
 -(void)adjustVolume
@@ -132,13 +161,23 @@
     }
 }
 
+
+#pragma mark - shAntiUIMeditationView Delegate Methods
+-(void)meditationDidStart {
+    [self.delegate meditationDidStart];
+}
+
+-(void)meditationDidEnd:(BOOL)completed {
+    [self.delegate meditationDidEnd:completed];
+}
+
 #pragma mark - UI Event Handlers
--(IBAction) onDoneButtonPressed:(id)sender {
+-(IBAction)onDoneButtonPressed:(id)sender {
     [self stopAudio];
     [self.delegate onDoneButtonPressed:sender];
 }
 
--(IBAction) onPlayPauseButtonPressed:(id)sender {
+-(IBAction)onPlayPauseButtonPressed:(id)sender {
     // Toggle play/pause state
     [self.btn_playPause setSelected:!self.btn_playPause.selected];
     
@@ -152,7 +191,7 @@
     [self.delegate onPlayPauseButtonPressed:sender];
 }
 
--(IBAction) onRestartButtonPressed:(id)sender {
+-(IBAction)onRestartButtonPressed:(id)sender {
     // Restart meditation from beginning
     if (self.btn_playPause.selected) {
         [self rewindAudio];
@@ -164,8 +203,34 @@
     [self.delegate onRestartButtonPressed:sender];
 }
 
--(IBAction) onVolumeSliderChanged:(id)sender {
+-(IBAction)onVolumeSliderChanged:(id)sender {
     [self adjustVolume];
+}
+
+
+#pragma mark - AVAudioPlayer Delegate Methods
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    if (flag == YES) {
+        [self meditationDidEnd:YES];
+    }
+    else {
+        [self meditationDidEnd:NO];
+    }
+}
+
+-(void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error
+{
+}
+
+-(void)audioPlayerBeginInterruption:(AVAudioPlayer *)player
+{
+    [self pauseAudio];
+}
+
+-(void)audioPlayerEndInterruption:(AVAudioPlayer *)player
+{
+    [self playAudio];
 }
 
 @end

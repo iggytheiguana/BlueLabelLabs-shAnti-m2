@@ -7,6 +7,11 @@
 //
 
 #import "shAntiViewController.h"
+#import "UserDefaultSettings.h"
+#import "Meditation.h"
+#import "MeditationInstance.h"
+#import "MeditationState.h"
+
 
 @interface shAntiViewController ()
 
@@ -16,6 +21,7 @@
 
 @synthesize sv_pageViewSlider   = m_sv_pageViewSlider;
 @synthesize pageControl         = m_pageControl;
+@synthesize meditations         = m_meditations;
 
 #pragma mark - Initialization
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,6 +38,21 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    // TEMPORARY: Load default data on first run
+    //NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    //if ([userDefaults objectForKey:setting_ISFIRSTRUN] == nil || [userDefaults boolForKey:setting_ISFIRSTRUN] == YES) {
+        // This is the first run of the app, set up default meditation objects
+        self.meditations = [Meditation loadDefaultMeditations];
+        
+        // Save the Meditation objects
+    //    ResourceContext* resourceContext = [ResourceContext instance];
+    //    [resourceContext save:NO onFinishCallback:nil trackProgressWith:nil];
+        
+        // Mark the user defalt setting for first run to false
+    //    [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_ISFIRSTRUN];
+    //    [userDefaults synchronize];
+    //}
     
     // Set up Paged Scroll View
     [self.sv_pageViewSlider loadView];
@@ -60,12 +81,18 @@
 
 #pragma mark - UIPagedScrollView Delegate
 - (NSInteger)numberOfPagesInScrollView {
-    return 3;
+    int count = [self.meditations count];
+    return count;
 }
 
 - (UIView*)viewForPage:(int)page {
     shAntiUIMeditationView *meditationView = [[[shAntiUIMeditationView alloc] initWithFrame:self.sv_pageViewSlider.frame] autorelease];
     meditationView.delegate = self;
+    
+    // Get the Meditation object for the page
+    Meditation *meditation = [self.meditations objectAtIndex:page];
+    
+    meditationView.lbl_titleLabel.text = meditation.title;
     meditationView.iv_background.image = [UIImage imageNamed:@"stock-photo-2038361-moon-meditation.jpg"];
     NSURL *audioFileURL = [NSURL fileURLWithPath:[[NSBundle mainBundle]
                                                           pathForResource:@"med5"
@@ -86,7 +113,7 @@
 }
 
 #pragma mark - shAntiUIMeditationView Delegate
--(IBAction) onDoneButtonPressed:(id)sender {
+-(IBAction)onDoneButtonPressed:(id)sender {
     shAntiInfoViewController *infoView = [[[shAntiInfoViewController alloc] initWithNibName:@"shAntiInfoViewController" bundle:nil] autorelease];
     infoView.delegate = self;
     
@@ -97,12 +124,57 @@
     [navigationController release];
 }
 
--(IBAction) onPlayPauseButtonPressed:(id)sender {
+-(IBAction)onPlayPauseButtonPressed:(id)sender {
     
 }
 
--(IBAction) onRestartButtonPressed:(id)sender {
+-(IBAction)onRestartButtonPressed:(id)sender {
     
+}
+
+-(void)meditationDidStart {
+    // Get the Meditation object for the page
+    NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
+    Meditation *meditation = [self.meditations objectAtIndex:currentPage];
+    
+    // Create a new meditation instance
+    MeditationInstance* meditationInstance = [MeditationInstance createInstanceOfMeditation:meditation.objectid forUserID:nil withState:[NSNumber numberWithInt:kINPROGRESS] withScheduledDate:[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]]];
+    
+    // Save new meditation instance
+    ResourceContext* resourceContext = [ResourceContext instance];
+    [resourceContext save:NO onFinishCallback:nil trackProgressWith:nil];
+    
+    NSInteger numTimesStarted = [meditation.numtimesstarted intValue] + 1;
+    meditation.numtimesstarted = [NSNumber numberWithInt:numTimesStarted];
+}
+
+-(void)meditationDidEnd:(BOOL)completed {
+    if (completed) {
+        // Get the Meditation object for the page
+        NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
+        Meditation *meditation = [self.meditations objectAtIndex:currentPage];
+        
+        NSInteger numTimesCompleted = [meditation.numtimescompleted intValue] + 1;
+        meditation.numtimescompleted = [NSNumber numberWithInt:numTimesCompleted];
+    }
+}
+
+#pragma mark - shAntiInfoViewController Delegate
+-(IBAction)onContinueButtonPressed:(id)sender {
+    // Dismiss the modal info view
+    [self dismissModalViewControllerAnimated:YES];
+    
+    // Move scrollview to start from the next mediation
+    NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
+    
+    NSNumber *nextPage = [NSNumber numberWithInt:(currentPage+1)];
+    NSNumber *animated = [NSNumber numberWithBool:YES];
+    
+    NSArray *selectorObjects = [NSArray arrayWithObjects: nextPage, animated, nil];
+    
+    [self.sv_pageViewSlider performSelector:@selector(goToPageAtIndexWithObjects:) withObject:selectorObjects afterDelay:1.0];
+    
+    //[self.sv_pageViewSlider goToPageAtIndex:currentPage+1];
 }
 
 

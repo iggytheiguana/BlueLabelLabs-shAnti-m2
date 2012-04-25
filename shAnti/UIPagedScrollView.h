@@ -34,7 +34,8 @@
 
 - (UIView*)currentVisiblePageView;
 - (NSInteger)currentVisiblePageIndex;
-- (void)gotToPageAtIndex:(NSInteger)index;
+- (void)goToPageAtIndex:(NSInteger)index animated:(BOOL)animated;
+- (void)goToPageAtIndexWithObjects:(NSArray*)objects;
 - (void)loadView;
 - (void)loadVisiblePages;
 - (void)loadPage:(int)page;

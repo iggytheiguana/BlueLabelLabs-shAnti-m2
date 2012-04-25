@@ -87,6 +87,10 @@
     self.viewController = [[[shAntiViewController alloc] initWithNibName:@"shAntiViewController" bundle:nil] autorelease];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    // Load default defaults
+    //[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
+    
     return YES;
 }
 
