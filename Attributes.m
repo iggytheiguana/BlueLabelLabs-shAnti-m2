@@ -110,7 +110,7 @@ NSString* const DATESCHEDULED           =@"datescheduled";
 NSString* const MEDITATIONID        =@"meditationid";
  NSString* const PERCENTCOMPLETED       =@"percentcompleted";
  NSString* const DURATION               =@"duration";
- NSString* const MUSICURL               =@"musicurl";
+ NSString* const AUDIOURL               =@"audiourl";
  NSString* const VOICEURL               =@"voiceurl";
 NSString* const NUMLIKES                =@"numlikes";
  NSString* const NUMPEOPLE              =@"numpeople";
@@ -119,4 +119,5 @@ NSString* const NUMLIKES                =@"numlikes";
 NSString* const NUMGUIDEDCOMPLETED      =@"numguidedcompleted";
  NSString* const NUMMINDFULNESSCOMPLETED=@"nummindfulnesscompleted";
 NSString* const TYPE                    =@"type";
-
+NSString* const NUMTIMESCOMPLETED       =@"numtimescompleted";
+NSString* const NUMTIMESSTARTED         =@"numtimestarted";

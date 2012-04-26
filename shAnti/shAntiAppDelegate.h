@@ -11,7 +11,7 @@
 #import "Facebook.h"
 #import "AuthenticationManager.h"
 #import "ApplicationSettingsManager.h"
-
+#import "UIProgressHUDView.h"
 @class shAntiViewController;
 
 @interface shAntiAppDelegate : UIResponder <UIApplicationDelegate>
@@ -32,7 +32,7 @@
 @property (nonatomic, retain) NSString* deviceToken;
 
 @property (strong, nonatomic) shAntiViewController *viewController;
-
+@property (nonatomic, retain) UIProgressHUDView*    progressView;
 
 
 - (NSURL *)applicationDocumentsDirectory;

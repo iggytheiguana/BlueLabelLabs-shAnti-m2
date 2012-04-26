@@ -38,12 +38,7 @@
     }
     
     
-    //HACK: training wheels to prevent these objects from being synced without the server
-    if ([typeName isEqualToString:MEDITATION] ||
-        [typeName isEqualToString:MEDITATIONINSTANCE])
-    {
-        newType.iscloudtype = [NSNumber numberWithBool:NO];
-    }
+ 
     
     [newType autorelease];
     return newType;

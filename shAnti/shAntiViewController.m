@@ -51,19 +51,24 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     // TEMPORARY: Load default data on first run
-    //NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    //if ([userDefaults objectForKey:setting_ISFIRSTRUN] == nil || [userDefaults boolForKey:setting_ISFIRSTRUN] == YES) {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if ([userDefaults objectForKey:setting_ISFIRSTRUN] == nil || [userDefaults boolForKey:setting_ISFIRSTRUN] == YES) {
         // This is the first run of the app, set up default meditation objects
         self.meditations = [Meditation loadDefaultMeditations];
         
         // Save the Meditation objects
-    //    ResourceContext* resourceContext = [ResourceContext instance];
-    //    [resourceContext save:NO onFinishCallback:nil trackProgressWith:nil];
+        ResourceContext* resourceContext = [ResourceContext instance];
+        [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
         
         // Mark the user defalt setting for first run to false
-    //    [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_ISFIRSTRUN];
-    //    [userDefaults synchronize];
-    //}
+        [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_ISFIRSTRUN];
+        [userDefaults synchronize];
+    }
+    else {
+        //we load them the meditations from the ResourceContext
+        ResourceContext* resourceContext = [ResourceContext instance];
+        self.meditations = [resourceContext resourcesWithType:MEDITATION];
+    }
     
     // Setup Paged Scroll View
 	self.sv_pageViewSlider.frame = [self frameForPagingScrollView];
@@ -79,7 +84,22 @@
     
     [self.sv_pageViewSlider loadVisiblePages];
 }
-
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (![self.authenticationManager isUserAuthenticated]) 
+    {
+        Callback* onSucccessCallback = [[Callback alloc]initWithTarget:self withSelector:@selector(onNotificationsButtonClicked:) withContext:nil];        
+        Callback* onFailCallback = [[Callback alloc]initWithTarget:self withSelector:@selector(onLoginFailed:)];
+        [self authenticateAndGetFacebook:NO getTwitter:NO onSuccessCallback:onSucccessCallback onFailureCallback:onFailCallback];
+        
+        
+        [onSucccessCallback release];
+        [onFailCallback release];
+    }
+    
+    
+}
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -151,18 +171,17 @@
     // Get the Meditation object for the page
     NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
     Meditation *meditation = [self.meditations objectAtIndex:currentPage];
-    
+    NSNumber* loggedInUserID = [[AuthenticationManager instance]m_LoggedInUserID];
     // Create a new meditation instance
-    MeditationInstance* meditationInstance = [MeditationInstance createInstanceOfMeditation:meditation.objectid forUserID:nil withState:[NSNumber numberWithInt:kINPROGRESS] withScheduledDate:[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]]];
+    MeditationInstance* meditationInstance = [MeditationInstance createInstanceOfMeditation:meditation.objectid forUserID:loggedInUserID withState:[NSNumber numberWithInt:kINPROGRESS] withScheduledDate:[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]]];
     
     // Save new meditation instance
     ResourceContext* resourceContext = [ResourceContext instance];
-    [resourceContext save:NO onFinishCallback:nil trackProgressWith:nil];
-    
+        
     // Increment the counter for the number of times this meditation has been started
     NSInteger numTimesStarted = [meditation.numtimesstarted intValue] + 1;
     meditation.numtimesstarted = [NSNumber numberWithInt:numTimesStarted];
-    
+    [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
     // Store the new meditation instance locally
     self.meditationInstanceID = meditationInstance.objectid;
 }

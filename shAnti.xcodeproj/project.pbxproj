@@ -39,14 +39,10 @@
 		C535BFCD1547498D006F9148 /* IDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C535BFCB1547498D006F9148 /* IDGenerator.m */; };
 		C535BFDF154749C5006F9148 /* FeedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C535BFD1154749C5006F9148 /* FeedManager.m */; };
 		C535BFE0154749C5006F9148 /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C535BFD4154749C5006F9148 /* ImageManager.m */; };
-		C535BFE1154749C5006F9148 /* UrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C535BFD6154749C5006F9148 /* UrlManager.m */; };
 		C535BFE2154749C5006F9148 /* ApplicationSettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C535BFD8154749C5006F9148 /* ApplicationSettingsManager.m */; };
 		C535BFE3154749C5006F9148 /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C535BFDA154749C5006F9148 /* RequestManager.m */; };
-		C535BFE4154749C5006F9148 /* AuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C535BFDC154749C5006F9148 /* AuthenticationManager.m */; };
 		C535BFE5154749C5006F9148 /* EventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C535BFDE154749C5006F9148 /* EventManager.m */; };
 		C535BFFA154749F3006F9148 /* ApplicationSettingsDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = C535BFE8154749F3006F9148 /* ApplicationSettingsDefaults.m */; };
-		C535BFFB154749F3006F9148 /* WebServiceParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = C535BFEB154749F3006F9148 /* WebServiceParameters.m */; };
-		C535BFFC154749F3006F9148 /* WebServiceVerbs.m in Sources */ = {isa = PBXBuildFile; fileRef = C535BFED154749F3006F9148 /* WebServiceVerbs.m */; };
 		C535BFFD154749F3006F9148 /* OpCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = C535BFEF154749F3006F9148 /* OpCodes.m */; };
 		C535BFFE154749F3006F9148 /* ErrorCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = C535BFF4154749F3006F9148 /* ErrorCodes.m */; };
 		C535BFFF154749F3006F9148 /* UserDefaultSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = C535BFF7154749F3006F9148 /* UserDefaultSettings.m */; };
@@ -123,7 +119,6 @@
 		C535C0FA15474CE5006F9148 /* Meditation.m in Sources */ = {isa = PBXBuildFile; fileRef = C535C0F015474CE5006F9148 /* Meditation.m */; };
 		C535C10415474D0C006F9148 /* Resource.m in Sources */ = {isa = PBXBuildFile; fileRef = C535C0FD15474D0C006F9148 /* Resource.m */; };
 		C535C10515474D0C006F9148 /* AttributeInstanceData.m in Sources */ = {isa = PBXBuildFile; fileRef = C535C0FF15474D0C006F9148 /* AttributeInstanceData.m */; };
-		C535C10615474D0C006F9148 /* ResourceContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C535C10115474D0C006F9148 /* ResourceContext.m */; };
 		C535C10715474D0C006F9148 /* TypeInstanceData.m in Sources */ = {isa = PBXBuildFile; fileRef = C535C10315474D0C006F9148 /* TypeInstanceData.m */; };
 		C535C10F15474D27006F9148 /* Callback.m in Sources */ = {isa = PBXBuildFile; fileRef = C535C10A15474D27006F9148 /* Callback.m */; };
 		C535C11015474D27006F9148 /* CallbackResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C535C10C15474D27006F9148 /* CallbackResult.m */; };
@@ -153,6 +148,24 @@
 		C535C15615474E2E006F9148 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C535C15215474E2E006F9148 /* SystemConfiguration.framework */; };
 		C535C15815474E9D006F9148 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C535C15715474E9D006F9148 /* libxml2.dylib */; };
 		C535C15A15474FC3006F9148 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C535C15915474FC3006F9148 /* Security.framework */; };
+		C5F0E3C41549C32800ACA71E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F0E3C21549C32800ACA71E /* LoginViewController.m */; };
+		C5F0E3C51549C32800ACA71E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5F0E3C31549C32800ACA71E /* LoginViewController.xib */; };
+		C5F0E3C91549C34400ACA71E /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F0E3C81549C34400ACA71E /* BaseViewController.m */; };
+		C5F0E3CD1549C35E00ACA71E /* UIProgressHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F0E3CB1549C35E00ACA71E /* UIProgressHUDView.m */; };
+		C5F0E3CE1549C35E00ACA71E /* UIProgressHUDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5F0E3CC1549C35E00ACA71E /* UIProgressHUDView.xib */; };
+		C5F0E3D21549C38200ACA71E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F0E3D11549C38200ACA71E /* MBProgressHUD.m */; };
+		C5F0E3D51549C3AE00ACA71E /* UILoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F0E3D41549C3AE00ACA71E /* UILoginView.m */; };
+		C5F0E3D81549C3BF00ACA71E /* UICustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F0E3D71549C3BF00ACA71E /* UICustomAlertView.m */; };
+		C5F0E3DC1549C3F100ACA71E /* UIRequestSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F0E3DA1549C3F100ACA71E /* UIRequestSummaryView.m */; };
+		C5F0E3DD1549C3F100ACA71E /* UIRequestSummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5F0E3DB1549C3F100ACA71E /* UIRequestSummaryView.xib */; };
+		C5F0E3E01549C44400ACA71E /* UICameraActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F0E3DF1549C44400ACA71E /* UICameraActionSheet.m */; };
+		C5F0E3E41549C49100ACA71E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F0E3E21549C49100ACA71E /* SignUpViewController.m */; };
+		C5F0E3E51549C49100ACA71E /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5F0E3E31549C49100ACA71E /* SignUpViewController.xib */; };
+		C5F0E3EC1549C6D400ACA71E /* AuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F0E3EB1549C6D400ACA71E /* AuthenticationManager.m */; };
+		C5F0E3EF1549C74E00ACA71E /* ResourceContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F0E3EE1549C74E00ACA71E /* ResourceContext.m */; };
+		C5F0E3F21549C79700ACA71E /* UrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F0E3F11549C79700ACA71E /* UrlManager.m */; };
+		C5F0E3F51549C7CA00ACA71E /* WebServiceVerbs.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F0E3F41549C7CA00ACA71E /* WebServiceVerbs.m */; };
+		C5F0E3F81549C87000ACA71E /* WebServiceParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F0E3F71549C87000ACA71E /* WebServiceParameters.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -201,23 +214,15 @@
 		C535BFD2154749C5006F9148 /* ImageDownloadProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloadProtocol.h; sourceTree = "<group>"; };
 		C535BFD3154749C5006F9148 /* ImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageManager.h; sourceTree = "<group>"; };
 		C535BFD4154749C5006F9148 /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
-		C535BFD5154749C5006F9148 /* UrlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlManager.h; sourceTree = "<group>"; };
-		C535BFD6154749C5006F9148 /* UrlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlManager.m; sourceTree = "<group>"; };
 		C535BFD7154749C5006F9148 /* ApplicationSettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationSettingsManager.h; sourceTree = "<group>"; };
 		C535BFD8154749C5006F9148 /* ApplicationSettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationSettingsManager.m; sourceTree = "<group>"; };
 		C535BFD9154749C5006F9148 /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestManager.h; sourceTree = "<group>"; };
 		C535BFDA154749C5006F9148 /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestManager.m; sourceTree = "<group>"; };
-		C535BFDB154749C5006F9148 /* AuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationManager.h; sourceTree = "<group>"; };
-		C535BFDC154749C5006F9148 /* AuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationManager.m; sourceTree = "<group>"; };
 		C535BFDD154749C5006F9148 /* EventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManager.h; sourceTree = "<group>"; };
 		C535BFDE154749C5006F9148 /* EventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventManager.m; sourceTree = "<group>"; };
 		C535BFE7154749F3006F9148 /* ApplicationSettingsDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationSettingsDefaults.h; sourceTree = "<group>"; };
 		C535BFE8154749F3006F9148 /* ApplicationSettingsDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationSettingsDefaults.m; sourceTree = "<group>"; };
 		C535BFE9154749F3006F9148 /* FeedTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTypes.h; sourceTree = "<group>"; };
-		C535BFEA154749F3006F9148 /* WebServiceParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceParameters.h; sourceTree = "<group>"; };
-		C535BFEB154749F3006F9148 /* WebServiceParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceParameters.m; sourceTree = "<group>"; };
-		C535BFEC154749F3006F9148 /* WebServiceVerbs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceVerbs.h; sourceTree = "<group>"; };
-		C535BFED154749F3006F9148 /* WebServiceVerbs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceVerbs.m; sourceTree = "<group>"; };
 		C535BFEE154749F3006F9148 /* OpCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpCodes.h; sourceTree = "<group>"; };
 		C535BFEF154749F3006F9148 /* OpCodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpCodes.m; sourceTree = "<group>"; };
 		C535BFF0154749F3006F9148 /* PageState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageState.h; sourceTree = "<group>"; };
@@ -397,8 +402,6 @@
 		C535C0FD15474D0C006F9148 /* Resource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resource.m; sourceTree = "<group>"; };
 		C535C0FE15474D0C006F9148 /* AttributeInstanceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeInstanceData.h; sourceTree = "<group>"; };
 		C535C0FF15474D0C006F9148 /* AttributeInstanceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttributeInstanceData.m; sourceTree = "<group>"; };
-		C535C10015474D0C006F9148 /* ResourceContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceContext.h; sourceTree = "<group>"; };
-		C535C10115474D0C006F9148 /* ResourceContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceContext.m; sourceTree = "<group>"; };
 		C535C10215474D0C006F9148 /* TypeInstanceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeInstanceData.h; sourceTree = "<group>"; };
 		C535C10315474D0C006F9148 /* TypeInstanceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeInstanceData.m; sourceTree = "<group>"; };
 		C535C10915474D27006F9148 /* Callback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Callback.h; sourceTree = "<group>"; };
@@ -453,6 +456,38 @@
 		C535C15215474E2E006F9148 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C535C15715474E9D006F9148 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		C535C15915474FC3006F9148 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C5F0E3C11549C32800ACA71E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		C5F0E3C21549C32800ACA71E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		C5F0E3C31549C32800ACA71E /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		C5F0E3C71549C34400ACA71E /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		C5F0E3C81549C34400ACA71E /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		C5F0E3CA1549C35E00ACA71E /* UIProgressHUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIProgressHUDView.h; sourceTree = "<group>"; };
+		C5F0E3CB1549C35E00ACA71E /* UIProgressHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIProgressHUDView.m; sourceTree = "<group>"; };
+		C5F0E3CC1549C35E00ACA71E /* UIProgressHUDView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIProgressHUDView.xib; sourceTree = "<group>"; };
+		C5F0E3D01549C38200ACA71E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		C5F0E3D11549C38200ACA71E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		C5F0E3D31549C3AE00ACA71E /* UILoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILoginView.h; sourceTree = "<group>"; };
+		C5F0E3D41549C3AE00ACA71E /* UILoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILoginView.m; sourceTree = "<group>"; };
+		C5F0E3D61549C3BF00ACA71E /* UICustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomAlertView.h; sourceTree = "<group>"; };
+		C5F0E3D71549C3BF00ACA71E /* UICustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomAlertView.m; sourceTree = "<group>"; };
+		C5F0E3D91549C3F100ACA71E /* UIRequestSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRequestSummaryView.h; sourceTree = "<group>"; };
+		C5F0E3DA1549C3F100ACA71E /* UIRequestSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRequestSummaryView.m; sourceTree = "<group>"; };
+		C5F0E3DB1549C3F100ACA71E /* UIRequestSummaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIRequestSummaryView.xib; sourceTree = "<group>"; };
+		C5F0E3DE1549C44400ACA71E /* UICameraActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICameraActionSheet.h; sourceTree = "<group>"; };
+		C5F0E3DF1549C44400ACA71E /* UICameraActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICameraActionSheet.m; sourceTree = "<group>"; };
+		C5F0E3E11549C49100ACA71E /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		C5F0E3E21549C49100ACA71E /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		C5F0E3E31549C49100ACA71E /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		C5F0E3EA1549C6D400ACA71E /* AuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationManager.h; sourceTree = "<group>"; };
+		C5F0E3EB1549C6D400ACA71E /* AuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationManager.m; sourceTree = "<group>"; };
+		C5F0E3ED1549C74E00ACA71E /* ResourceContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceContext.h; sourceTree = "<group>"; };
+		C5F0E3EE1549C74E00ACA71E /* ResourceContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceContext.m; sourceTree = "<group>"; };
+		C5F0E3F01549C79700ACA71E /* UrlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlManager.h; sourceTree = "<group>"; };
+		C5F0E3F11549C79700ACA71E /* UrlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlManager.m; sourceTree = "<group>"; };
+		C5F0E3F31549C7CA00ACA71E /* WebServiceVerbs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceVerbs.h; sourceTree = "<group>"; };
+		C5F0E3F41549C7CA00ACA71E /* WebServiceVerbs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceVerbs.m; sourceTree = "<group>"; };
+		C5F0E3F61549C87000ACA71E /* WebServiceParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceParameters.h; sourceTree = "<group>"; };
+		C5F0E3F71549C87000ACA71E /* WebServiceParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceParameters.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -569,6 +604,14 @@
 		5239EE4215472B4E004BABF7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C5F0E3E11549C49100ACA71E /* SignUpViewController.h */,
+				C5F0E3E21549C49100ACA71E /* SignUpViewController.m */,
+				C5F0E3E31549C49100ACA71E /* SignUpViewController.xib */,
+				C5F0E3C71549C34400ACA71E /* BaseViewController.h */,
+				C5F0E3C81549C34400ACA71E /* BaseViewController.m */,
+				C5F0E3C11549C32800ACA71E /* LoginViewController.h */,
+				C5F0E3C21549C32800ACA71E /* LoginViewController.m */,
+				C5F0E3C31549C32800ACA71E /* LoginViewController.xib */,
 				523862BE1545B9A500985797 /* shAntiViewController.h */,
 				523862BF1545B9A500985797 /* shAntiViewController.m */,
 				523862C11545B9A500985797 /* shAntiViewController.xib */,
@@ -582,6 +625,18 @@
 		5240ED1A1545C711003C0048 /* Generic Views */ = {
 			isa = PBXGroup;
 			children = (
+				C5F0E3DE1549C44400ACA71E /* UICameraActionSheet.h */,
+				C5F0E3DF1549C44400ACA71E /* UICameraActionSheet.m */,
+				C5F0E3D91549C3F100ACA71E /* UIRequestSummaryView.h */,
+				C5F0E3DA1549C3F100ACA71E /* UIRequestSummaryView.m */,
+				C5F0E3DB1549C3F100ACA71E /* UIRequestSummaryView.xib */,
+				C5F0E3D61549C3BF00ACA71E /* UICustomAlertView.h */,
+				C5F0E3D71549C3BF00ACA71E /* UICustomAlertView.m */,
+				C5F0E3D31549C3AE00ACA71E /* UILoginView.h */,
+				C5F0E3D41549C3AE00ACA71E /* UILoginView.m */,
+				C5F0E3CA1549C35E00ACA71E /* UIProgressHUDView.h */,
+				C5F0E3CB1549C35E00ACA71E /* UIProgressHUDView.m */,
+				C5F0E3CC1549C35E00ACA71E /* UIProgressHUDView.xib */,
 				5240ED161545C6F7003C0048 /* UIPagedScrollView.h */,
 				5240ED171545C6F7003C0048 /* UIPagedScrollView.m */,
 			);
@@ -628,19 +683,19 @@
 		C535BFCF1547499E006F9148 /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
+				C5F0E3F01549C79700ACA71E /* UrlManager.h */,
+				C5F0E3F11549C79700ACA71E /* UrlManager.m */,
+				C5F0E3EA1549C6D400ACA71E /* AuthenticationManager.h */,
+				C5F0E3EB1549C6D400ACA71E /* AuthenticationManager.m */,
 				C535BFD0154749C5006F9148 /* FeedManager.h */,
 				C535BFD1154749C5006F9148 /* FeedManager.m */,
 				C535BFD2154749C5006F9148 /* ImageDownloadProtocol.h */,
 				C535BFD3154749C5006F9148 /* ImageManager.h */,
 				C535BFD4154749C5006F9148 /* ImageManager.m */,
-				C535BFD5154749C5006F9148 /* UrlManager.h */,
-				C535BFD6154749C5006F9148 /* UrlManager.m */,
 				C535BFD7154749C5006F9148 /* ApplicationSettingsManager.h */,
 				C535BFD8154749C5006F9148 /* ApplicationSettingsManager.m */,
 				C535BFD9154749C5006F9148 /* RequestManager.h */,
 				C535BFDA154749C5006F9148 /* RequestManager.m */,
-				C535BFDB154749C5006F9148 /* AuthenticationManager.h */,
-				C535BFDC154749C5006F9148 /* AuthenticationManager.m */,
 				C535BFDD154749C5006F9148 /* EventManager.h */,
 				C535BFDE154749C5006F9148 /* EventManager.m */,
 			);
@@ -650,13 +705,13 @@
 		C535BFE6154749CC006F9148 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				C5F0E3F61549C87000ACA71E /* WebServiceParameters.h */,
+				C5F0E3F71549C87000ACA71E /* WebServiceParameters.m */,
+				C5F0E3F31549C7CA00ACA71E /* WebServiceVerbs.h */,
+				C5F0E3F41549C7CA00ACA71E /* WebServiceVerbs.m */,
 				C535BFE7154749F3006F9148 /* ApplicationSettingsDefaults.h */,
 				C535BFE8154749F3006F9148 /* ApplicationSettingsDefaults.m */,
 				C535BFE9154749F3006F9148 /* FeedTypes.h */,
-				C535BFEA154749F3006F9148 /* WebServiceParameters.h */,
-				C535BFEB154749F3006F9148 /* WebServiceParameters.m */,
-				C535BFEC154749F3006F9148 /* WebServiceVerbs.h */,
-				C535BFED154749F3006F9148 /* WebServiceVerbs.m */,
 				C535BFEE154749F3006F9148 /* OpCodes.h */,
 				C535BFEF154749F3006F9148 /* OpCodes.m */,
 				C535BFF0154749F3006F9148 /* PageState.h */,
@@ -713,6 +768,7 @@
 		C535C01C15474A58006F9148 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				C5F0E3CF1549C36E00ACA71E /* MBProgressHUD */,
 				C535C02315474AAE006F9148 /* JSONKit */,
 				C535C02215474AA2006F9148 /* ASIHttp */,
 				C535C02115474A99006F9148 /* Keychain */,
@@ -946,12 +1002,12 @@
 		C535C0FB15474CF2006F9148 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				C5F0E3ED1549C74E00ACA71E /* ResourceContext.h */,
+				C5F0E3EE1549C74E00ACA71E /* ResourceContext.m */,
 				C535C0FC15474D0C006F9148 /* Resource.h */,
 				C535C0FD15474D0C006F9148 /* Resource.m */,
 				C535C0FE15474D0C006F9148 /* AttributeInstanceData.h */,
 				C535C0FF15474D0C006F9148 /* AttributeInstanceData.m */,
-				C535C10015474D0C006F9148 /* ResourceContext.h */,
-				C535C10115474D0C006F9148 /* ResourceContext.m */,
 				C535C10215474D0C006F9148 /* TypeInstanceData.h */,
 				C535C10315474D0C006F9148 /* TypeInstanceData.m */,
 			);
@@ -1022,6 +1078,15 @@
 				C535C13F15474D61006F9148 /* SharingOptions.h */,
 			);
 			name = Transport;
+			sourceTree = "<group>";
+		};
+		C5F0E3CF1549C36E00ACA71E /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				C5F0E3D01549C38200ACA71E /* MBProgressHUD.h */,
+				C5F0E3D11549C38200ACA71E /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1134,14 +1199,10 @@
 				C535BFCD1547498D006F9148 /* IDGenerator.m in Sources */,
 				C535BFDF154749C5006F9148 /* FeedManager.m in Sources */,
 				C535BFE0154749C5006F9148 /* ImageManager.m in Sources */,
-				C535BFE1154749C5006F9148 /* UrlManager.m in Sources */,
 				C535BFE2154749C5006F9148 /* ApplicationSettingsManager.m in Sources */,
 				C535BFE3154749C5006F9148 /* RequestManager.m in Sources */,
-				C535BFE4154749C5006F9148 /* AuthenticationManager.m in Sources */,
 				C535BFE5154749C5006F9148 /* EventManager.m in Sources */,
 				C535BFFA154749F3006F9148 /* ApplicationSettingsDefaults.m in Sources */,
-				C535BFFB154749F3006F9148 /* WebServiceParameters.m in Sources */,
-				C535BFFC154749F3006F9148 /* WebServiceVerbs.m in Sources */,
 				C535BFFD154749F3006F9148 /* OpCodes.m in Sources */,
 				C535BFFE154749F3006F9148 /* ErrorCodes.m in Sources */,
 				C535BFFF154749F3006F9148 /* UserDefaultSettings.m in Sources */,
@@ -1210,7 +1271,6 @@
 				C535C0FA15474CE5006F9148 /* Meditation.m in Sources */,
 				C535C10415474D0C006F9148 /* Resource.m in Sources */,
 				C535C10515474D0C006F9148 /* AttributeInstanceData.m in Sources */,
-				C535C10615474D0C006F9148 /* ResourceContext.m in Sources */,
 				C535C10715474D0C006F9148 /* TypeInstanceData.m in Sources */,
 				C535C10F15474D27006F9148 /* Callback.m in Sources */,
 				C535C11015474D27006F9148 /* CallbackResult.m in Sources */,
@@ -1234,6 +1294,20 @@
 				C535C14B15474D61006F9148 /* PutAttributeOperation.m in Sources */,
 				C535C14C15474D61006F9148 /* DeleteResponse.m in Sources */,
 				C535C14D15474D61006F9148 /* AttributeChange.m in Sources */,
+				C5F0E3C41549C32800ACA71E /* LoginViewController.m in Sources */,
+				C5F0E3C91549C34400ACA71E /* BaseViewController.m in Sources */,
+				C5F0E3CD1549C35E00ACA71E /* UIProgressHUDView.m in Sources */,
+				C5F0E3D21549C38200ACA71E /* MBProgressHUD.m in Sources */,
+				C5F0E3D51549C3AE00ACA71E /* UILoginView.m in Sources */,
+				C5F0E3D81549C3BF00ACA71E /* UICustomAlertView.m in Sources */,
+				C5F0E3DC1549C3F100ACA71E /* UIRequestSummaryView.m in Sources */,
+				C5F0E3E01549C44400ACA71E /* UICameraActionSheet.m in Sources */,
+				C5F0E3E41549C49100ACA71E /* SignUpViewController.m in Sources */,
+				C5F0E3EC1549C6D400ACA71E /* AuthenticationManager.m in Sources */,
+				C5F0E3EF1549C74E00ACA71E /* ResourceContext.m in Sources */,
+				C5F0E3F21549C79700ACA71E /* UrlManager.m in Sources */,
+				C5F0E3F51549C7CA00ACA71E /* WebServiceVerbs.m in Sources */,
+				C5F0E3F81549C87000ACA71E /* WebServiceParameters.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1309,6 +1383,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "shAnti/shAnti-Prefix.pch";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = DEBUG;
 				INFOPLIST_FILE = "shAnti/shAnti-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (

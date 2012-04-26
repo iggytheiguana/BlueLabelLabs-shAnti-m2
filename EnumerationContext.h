@@ -34,7 +34,7 @@
 //+ (EnumerationContext*) contextForUser:         (NSNumber*)userid;
 //+ (EnumerationContext*) contextForDrafts;
 //+ (EnumerationContext*) contextForObjectIDs:(NSArray*)objectIDs withTypes:(NSArray*)objectTypes;
-//+ (EnumerationContext*) contextForApplicationSettings:(NSNumber*)userid;
++ (EnumerationContext*) contextForApplicationSettings:(NSNumber*)userid;
 //+ (EnumerationContext*) contextForFollowers:    (NSNumber*)userid;
 //+ (EnumerationContext*) contextForFollowing:    (NSNumber*)userid;
 - (id) init;

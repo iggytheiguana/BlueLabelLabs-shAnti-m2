@@ -11,5 +11,5 @@
 typedef enum {
     kSCHEDULED,
     kINPROGRESS,
-    kCOMPLETED
+    kMEDITATIONCOMPLETED
 } MeditationState;
