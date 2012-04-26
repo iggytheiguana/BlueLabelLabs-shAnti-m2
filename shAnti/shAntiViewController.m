@@ -33,7 +33,6 @@
         // Custom initialization
         
         [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundPattern.png"]]];
-        
     }
     return self;
 }
@@ -78,6 +77,7 @@
     self.sv_pageViewSlider.delaysContentTouches = NO;
     self.sv_pageViewSlider.showsHorizontalScrollIndicator = NO;
     self.sv_pageViewSlider.showsVerticalScrollIndicator = NO;
+    //[self.sv_pageViewSlider setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundPattern.png"]]];
     
     // Set up PageControl
     [self.pageControl setNumberOfPages:[self numberOfPagesInScrollView]];
@@ -182,6 +182,7 @@
     NSInteger numTimesStarted = [meditation.numtimesstarted intValue] + 1;
     meditation.numtimesstarted = [NSNumber numberWithInt:numTimesStarted];
     [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
+    
     // Store the new meditation instance locally
     self.meditationInstanceID = meditationInstance.objectid;
 }
@@ -204,22 +205,16 @@
         
         // Update properties of meditation instance
         meditationInstance.state = state;
-        //meditationInstance.percentcompleted = [NSNumber numberWithDouble:1.00];
         meditationInstance.datecompleted = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     }
     else {
         // Meditation was stopped before full specified duration met
         // Update properties of meditation instance
         meditationInstance.state = state;
-        
-        //NSTimeInterval timeLeft = self.duration - self.audioPlayerMusic.currentTime;
-        //double percentComplete = 1.00 - (timeLeft / self.duration);
-        //meditationInstance.percentcompleted = [NSNumber numberWithDouble:percentComplete];
-        
-        meditationInstance.datecompleted = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
+
     }
     
-    [resourceContext save:NO onFinishCallback:nil trackProgressWith:nil];
+    [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
 }
 
 #pragma mark - shAntiInfoViewController Delegate

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EventKitUI/EKEventEditViewController.h"
 
 @protocol shAntiInfoViewControllerDelegate <NSObject>
 
@@ -14,7 +15,7 @@
 
 @end
 
-@interface shAntiInfoViewController : UIViewController {
+@interface shAntiInfoViewController : UIViewController < EKEventEditViewDelegate > {
     id<shAntiInfoViewControllerDelegate> m_delegate;
     
     UILabel     *m_lbl_message;

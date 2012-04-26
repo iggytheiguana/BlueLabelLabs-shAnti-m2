@@ -8,6 +8,7 @@
 
 #import "shAntiInfoViewController.h"
 #import "shAntiViewController.h"
+#import "DateTimeHelper.h"
 
 @interface shAntiInfoViewController ()
 
@@ -80,7 +81,49 @@
 }
 
 -(IBAction) onScheduleButtonPressed:(id)sender {
+    // Create calendar event
+    EKEventStore *eventStore = [[[EKEventStore alloc] init] autorelease];
+    EKEvent *event = [EKEvent eventWithEventStore:eventStore];
+    event.title = @"shAnti Meditation Reminder";
+    event.location = @"shAnti for iPhone";
     
+    // Create the reminder date of the next meditation
+    NSDateComponents *time = [[NSCalendar currentCalendar]
+                              components:NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit
+                              fromDate:[NSDate date]];
+    
+    // Set the reminder start date to 24 hours from now
+    NSInteger day = [time day];
+    [time setDay:(day + 1)];
+    
+    NSDate *reminderDateStart = [[NSCalendar currentCalendar] dateFromComponents:time];
+    
+    // Set the reminder end date to the same day but 1 hour later
+    NSInteger hour = [time hour];
+    [time setHour:(hour + 1)];
+    
+    NSDate *reminderDateEnd = [[NSCalendar currentCalendar] dateFromComponents:time];
+    
+    event.startDate = reminderDateStart;
+    event.endDate = reminderDateEnd;
+    [event addAlarm:[EKAlarm alarmWithRelativeOffset:(-15 * 60)]];
+    [event setCalendar:[eventStore defaultCalendarForNewEvents]];
+    
+    // Launch Event View Controller for editing and saving event
+    EKEventEditViewController *eventViewController = [[EKEventEditViewController alloc] init];
+    eventViewController.eventStore = eventStore;
+    eventViewController.event = event;
+    eventViewController.editViewDelegate = self;
+    [self presentModalViewController:eventViewController animated:YES];
+    [eventViewController release];
+}
+
+#pragma mark - EventKitUI delegate
+- (void)eventEditViewController:(EKEventEditViewController *)controller didCompleteWithAction:(EKEventEditViewAction)action {
+    [self dismissModalViewControllerAnimated:YES];
+    
+    // Close the Meditation view
+    //[self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

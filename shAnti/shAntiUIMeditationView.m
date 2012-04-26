@@ -156,7 +156,7 @@
         [self meditationDidFinishWithState:[NSNumber numberWithInt:kINPROGRESS]];
     }
     else {
-        [self meditationDidFinishWithState:[NSNumber numberWithInt:kCOMPLETED]];
+        [self meditationDidFinishWithState:[NSNumber numberWithInt:kMEDITATIONCOMPLETED]];
     }
     
     // Get players ready for playing again
@@ -225,7 +225,7 @@
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
     if (flag == YES) {
-        [self meditationDidFinishWithState:[NSNumber numberWithInt:kCOMPLETED]];
+        [self meditationDidFinishWithState:[NSNumber numberWithInt:kMEDITATIONCOMPLETED]];
     }
     else {
         [self meditationDidFinishWithState:[NSNumber numberWithInt:kINPROGRESS]];
