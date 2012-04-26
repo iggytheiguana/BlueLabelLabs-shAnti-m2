@@ -36,6 +36,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -45,7 +46,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.navigationController setNavigationBarHidden:YES animated:NO]; 
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundPattern.png"]]];
 }
 
 - (void)viewDidUnload

@@ -12,6 +12,7 @@
 #import "MeditationInstance.h"
 #import "MeditationState.h"
 
+#define PADDING 20
 
 @interface shAntiViewController ()
 
@@ -31,8 +32,17 @@
     if (self) {
         // Custom initialization
         
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundPattern.png"]]];
+        
     }
     return self;
+}
+
+- (CGRect)frameForPagingScrollView {
+    CGRect frame = self.view.bounds;// [[UIScreen mainScreen] bounds];
+    frame.origin.x -= PADDING;
+    frame.size.width += (2 * PADDING);
+    return frame;
 }
 
 - (void)viewDidLoad
@@ -55,10 +65,14 @@
     //    [userDefaults synchronize];
     //}
     
-    // Set up Paged Scroll View
+    // Setup Paged Scroll View
+	self.sv_pageViewSlider.frame = [self frameForPagingScrollView];
     [self.sv_pageViewSlider loadView];
+    self.sv_pageViewSlider.padding = PADDING;
     self.sv_pageViewSlider.pagingEnabled = YES;
     self.sv_pageViewSlider.delaysContentTouches = NO;
+    self.sv_pageViewSlider.showsHorizontalScrollIndicator = NO;
+    self.sv_pageViewSlider.showsVerticalScrollIndicator = NO;
     
     // Set up PageControl
     [self.pageControl setNumberOfPages:[self numberOfPagesInScrollView]];
@@ -153,20 +167,40 @@
     self.meditationInstanceID = meditationInstance.objectid;
 }
 
--(void)meditationDidEnd:(BOOL)completed {
-    if (completed) {
-        // Get the Meditation object for the page
-        NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
-        Meditation *meditation = [self.meditations objectAtIndex:currentPage];
+- (void)meditationDidFinishWithState:(NSNumber *)state {
+    // Get the Meditation object for the page
+    NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
+    Meditation *meditation = [self.meditations objectAtIndex:currentPage];
+    
+    // Get the associated MeditationInstance
+    ResourceContext *resourceContext = [ResourceContext instance];
+    MeditationInstance *meditationInstance = (MeditationInstance *)[resourceContext resourceWithType:MEDITATIONINSTANCE withID:self.meditationInstanceID];
+    
+    if ([state intValue] == kCOMPLETED) {
+        // Meditation fisished its full specified duration
         
         // Increment the counter for the number of times this meditation has been completed
         NSInteger numTimesCompleted = [meditation.numtimescompleted intValue] + 1;
         meditation.numtimescompleted = [NSNumber numberWithInt:numTimesCompleted];
         
-        // Update percent complete to 100%
-        float percentComplete = 100.0;
-        
+        // Update properties of meditation instance
+        meditationInstance.state = state;
+        //meditationInstance.percentcompleted = [NSNumber numberWithDouble:1.00];
+        meditationInstance.datecompleted = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
     }
+    else {
+        // Meditation was stopped before full specified duration met
+        // Update properties of meditation instance
+        meditationInstance.state = state;
+        
+        //NSTimeInterval timeLeft = self.duration - self.audioPlayerMusic.currentTime;
+        //double percentComplete = 1.00 - (timeLeft / self.duration);
+        //meditationInstance.percentcompleted = [NSNumber numberWithDouble:percentComplete];
+        
+        meditationInstance.datecompleted = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
+    }
+    
+    [resourceContext save:NO onFinishCallback:nil trackProgressWith:nil];
 }
 
 #pragma mark - shAntiInfoViewController Delegate
