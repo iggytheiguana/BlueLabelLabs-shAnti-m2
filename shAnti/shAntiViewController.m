@@ -11,6 +11,7 @@
 #import "Meditation.h"
 #import "MeditationInstance.h"
 #import "MeditationState.h"
+#import "NSMutableArray+NSMutableArrayCategory.h"
 
 #define PADDING 20
 
@@ -49,7 +50,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    // TEMPORARY: Load default data on first run
+    // Load default data on first run
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if ([userDefaults objectForKey:setting_ISFIRSTRUN] == nil || [userDefaults boolForKey:setting_ISFIRSTRUN] == YES) {
         // This is the first run of the app, set up default meditation objects
@@ -67,6 +68,20 @@
         //we load them the meditations from the ResourceContext
         ResourceContext* resourceContext = [ResourceContext instance];
         self.meditations = [resourceContext resourcesWithType:MEDITATION];
+    }
+    
+    // Shuffle the meditations array if the user has already completed the sequence
+    if ([userDefaults objectForKey:setting_HASCOMPLETEDSEQUENCE] == nil) {
+        // Add the user defalt setting for meditation sequence completion, set to false
+        [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_HASCOMPLETEDSEQUENCE];
+        [userDefaults synchronize];
+    }
+    else if ([userDefaults boolForKey:setting_HASCOMPLETEDSEQUENCE] == YES) {
+        // Shuffle the meditations array
+        NSMutableArray *shuffledArray = [NSMutableArray arrayWithArray:self.meditations];
+        [shuffledArray shuffle];
+        
+        self.meditations = shuffledArray;
     }
     
     // Setup Paged Scroll View

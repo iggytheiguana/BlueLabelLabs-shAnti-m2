@@ -34,6 +34,7 @@
 		5239EE661549E7D4004BABF7 /* backgroundPattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE641549E7D4004BABF7 /* backgroundPattern@2x.png */; };
 		5239EE681549F4A4004BABF7 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5239EE671549F4A4004BABF7 /* EventKitUI.framework */; };
 		5239EE6A1549F5BE004BABF7 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5239EE691549F5BD004BABF7 /* EventKit.framework */; };
+		5239EE6F154A0575004BABF7 /* NSMutableArray+NSMutableArrayCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239EE6E154A0575004BABF7 /* NSMutableArray+NSMutableArrayCategory.m */; };
 		5240ED181545C6F7003C0048 /* UIPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5240ED171545C6F7003C0048 /* UIPagedScrollView.m */; };
 		526634CB1545FBF500ED70AF /* shAntiUIMeditationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 526634CA1545FBF500ED70AF /* shAntiUIMeditationView.m */; };
 		526634CD1545FC2900ED70AF /* shAntiUIMeditationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526634CC1545FC2900ED70AF /* shAntiUIMeditationView.xib */; };
@@ -204,6 +205,8 @@
 		5239EE641549E7D4004BABF7 /* backgroundPattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundPattern@2x.png"; sourceTree = "<group>"; };
 		5239EE671549F4A4004BABF7 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		5239EE691549F5BD004BABF7 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		5239EE6D154A0575004BABF7 /* NSMutableArray+NSMutableArrayCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+NSMutableArrayCategory.h"; sourceTree = "<group>"; };
+		5239EE6E154A0575004BABF7 /* NSMutableArray+NSMutableArrayCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+NSMutableArrayCategory.m"; sourceTree = "<group>"; };
 		5240ED161545C6F7003C0048 /* UIPagedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPagedScrollView.h; sourceTree = "<group>"; };
 		5240ED171545C6F7003C0048 /* UIPagedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPagedScrollView.m; sourceTree = "<group>"; };
 		526634C91545FBF500ED70AF /* shAntiUIMeditationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shAntiUIMeditationView.h; sourceTree = "<group>"; };
@@ -769,6 +772,8 @@
 				C535C01415474A52006F9148 /* UIImageView+UIImageViewCategory.m */,
 				C535C01515474A52006F9148 /* NSDictionary-MutableDeepCopy.h */,
 				C535C01615474A52006F9148 /* NSDictionary-MutableDeepCopy.m */,
+				5239EE6D154A0575004BABF7 /* NSMutableArray+NSMutableArrayCategory.h */,
+				5239EE6E154A0575004BABF7 /* NSMutableArray+NSMutableArrayCategory.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1320,6 +1325,7 @@
 				C5F0E3F21549C79700ACA71E /* UrlManager.m in Sources */,
 				C5F0E3F51549C7CA00ACA71E /* WebServiceVerbs.m in Sources */,
 				C5F0E3F81549C87000ACA71E /* WebServiceParameters.m in Sources */,
+				5239EE6F154A0575004BABF7 /* NSMutableArray+NSMutableArrayCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,3 +20,4 @@ extern NSString* const setting_HASVIEWEDEDITORIALVC;
 extern NSString* const setting_HASVIEWEDCONTRIBUTEVC;
 
 extern NSString* const setting_ISFIRSTRUN;
+extern NSString* const setting_HASCOMPLETEDSEQUENCE;
