@@ -89,6 +89,7 @@ shouldEnumerateSinglePage:(BOOL) shouldEnumerateSinglePage
 - (BOOL) doesExistInLocalStore:(NSNumber*)resourceID;
 
 //data access methods
+- (NSArray*) resourcesWithType:(NSString*)typeName; 
 - (Resource*) resourceWithType:(NSString*)typeName 
                         withID:(NSNumber*)resourceID;
 

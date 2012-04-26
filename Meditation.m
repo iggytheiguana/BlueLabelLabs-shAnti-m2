@@ -61,7 +61,8 @@
     
     for (int i = 0; i < 5; i++) {
         Meditation *meditation = [Meditation createMeditationWithTitle:[titlesArray objectAtIndex:i] withDescription:nil withPosition:[NSNumber numberWithInt:i] withAudioURL:audioURL withImageURL:imageURL];
-        
+        //we set the object id here
+        meditation.objectid = [NSNumber numberWithInt:((i+1)*1000)];
         [retVal addObject:meditation];
         [meditation release];
     }

@@ -794,52 +794,52 @@ static ResourceContext* sharedInstance;
 //that are partially created, or invalid and erase them
 - (void) clean 
 {
-    NSString* activityName = @"ResourceContext.clean:";
-    
-    //we need to find all the objects which may have been
-    //created locally but werent successfully uploaded due to crash
-    //we look for attributeinstancedata objects with objectid being dirty
-    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:ATTRIBUTEINSTANCEDATA inManagedObjectContext:self.managedObjectContext];
-    
-    
-    if (entityDescription) 
-    {
-        NSFetchRequest* request = [[NSFetchRequest alloc]init];
-        [request setEntity:entityDescription];
-        
-        NSPredicate* predicate = [NSPredicate predicateWithFormat:@"attributename=%@ AND isdirty=1",OBJECTID];
-        [request setPredicate:predicate];
-        
-        NSError* error = nil;
-        NSManagedObjectContext* context = self.managedObjectContext;
-        NSArray* results = [context executeFetchRequest:request error:&error];
-        
-        [request release];
-        
-        //now we have the queried objects
-        for (AttributeInstanceData* aid in results) 
-        {
-            Resource* resourceToDelete = [aid valueForKey:@"resource"];
-            LOG_RESOURCECONTEXT(0, @"%@Detected Resource with %@ and type %@ is a create stub and will be deleted",activityName,resourceToDelete.objectid,resourceToDelete.objecttype);
-            
-            [self delete:resourceToDelete.objectid withType:resourceToDelete.objecttype];
-        }
-        
-        //now we save
-        error = nil;
-        [self.managedObjectContext save:&error];
-        
-        if (error != nil) 
-        {
-            LOG_RESOURCECONTEXT(1, @"%@ could not clean object context due to %@",activityName,[error localizedDescription]);
-        
-        }
-        else
-        {
-            LOG_RESOURCECONTEXT(0, @"%@ Successfully cleaned local store of stub and corrupted objects",activityName);
-        }
-                                  
-    }
+//    NSString* activityName = @"ResourceContext.clean:";
+//    
+//    //we need to find all the objects which may have been
+//    //created locally but werent successfully uploaded due to crash
+//    //we look for attributeinstancedata objects with objectid being dirty
+//    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:ATTRIBUTEINSTANCEDATA inManagedObjectContext:self.managedObjectContext];
+//    
+//    
+//    if (entityDescription) 
+//    {
+//        NSFetchRequest* request = [[NSFetchRequest alloc]init];
+//        [request setEntity:entityDescription];
+//        
+//        NSPredicate* predicate = [NSPredicate predicateWithFormat:@"attributename=%@ AND isdirty=1",OBJECTID];
+//        [request setPredicate:predicate];
+//        
+//        NSError* error = nil;
+//        NSManagedObjectContext* context = self.managedObjectContext;
+//        NSArray* results = [context executeFetchRequest:request error:&error];
+//        
+//        [request release];
+//        
+//        //now we have the queried objects
+//        for (AttributeInstanceData* aid in results) 
+//        {
+//            Resource* resourceToDelete = [aid valueForKey:@"resource"];
+//            LOG_RESOURCECONTEXT(0, @"%@Detected Resource with %@ and type %@ is a create stub and will be deleted",activityName,resourceToDelete.objectid,resourceToDelete.objecttype);
+//            
+//            [self delete:resourceToDelete.objectid withType:resourceToDelete.objecttype];
+//        }
+//        
+//        //now we save
+//        error = nil;
+//        [self.managedObjectContext save:&error];
+//        
+//        if (error != nil) 
+//        {
+//            LOG_RESOURCECONTEXT(1, @"%@ could not clean object context due to %@",activityName,[error localizedDescription]);
+//        
+//        }
+//        else
+//        {
+//            LOG_RESOURCECONTEXT(0, @"%@ Successfully cleaned local store of stub and corrupted objects",activityName);
+//        }
+//                                  
+//    }
 }
 
 - (Resource*) resourceWithType:(NSString*)typeName 
@@ -871,7 +871,33 @@ static ResourceContext* sharedInstance;
     
 }
 
-
+- (NSArray*) resourcesWithType:(NSString*)typeName 
+{
+    NSArray* retVal = nil;
+    NSString* activityName = @"ResourceContext.resourcesWithType:";
+    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:typeName inManagedObjectContext:self.managedObjectContext];
+    if (entityDescription) {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entityDescription];
+        
+        NSPredicate* predicate = [NSPredicate predicateWithFormat:@"objecttype=%@",typeName];
+        
+        NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:OBJECTID ascending:YES];
+        [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+        [request setPredicate:predicate];
+        NSError* error = nil;
+        LOG_RESOURCECONTEXT(0, @"%@Executing fetch against managedObjectContext for resources with type:%@",activityName,typeName);
+        NSArray* results = [self.managedObjectContext executeFetchRequest:request error:&error];
+        
+        [request release];
+        
+        if (results != nil && [results count] > 0) {
+            retVal = results;
+        }
+        
+    }
+    return retVal;
+}
 
 - (Resource*) resourceWithType:(NSString*)typeName 
                 withValueEqual:(NSString*)value 
