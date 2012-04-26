@@ -17,11 +17,13 @@
     UIPageControl       *m_pageControl;
     
     NSArray             *m_meditations;
+    NSNumber            *m_meditationInstanceID;
 }
 
 @property (nonatomic, strong) IBOutlet UIPagedScrollView    *sv_pageViewSlider;
 @property (nonatomic, strong) IBOutlet UIPageControl        *pageControl;
 
 @property (nonatomic, strong) NSArray                       *meditations;
+@property (nonatomic, strong) NSNumber                      *meditationInstanceID;
 
 @end

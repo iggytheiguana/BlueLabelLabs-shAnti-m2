@@ -22,6 +22,7 @@
 @synthesize sv_pageViewSlider   = m_sv_pageViewSlider;
 @synthesize pageControl         = m_pageControl;
 @synthesize meditations         = m_meditations;
+@synthesize meditationInstanceID = m_meditationInstanceID;
 
 #pragma mark - Initialization
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -144,8 +145,12 @@
     ResourceContext* resourceContext = [ResourceContext instance];
     [resourceContext save:NO onFinishCallback:nil trackProgressWith:nil];
     
+    // Increment the counter for the number of times this meditation has been started
     NSInteger numTimesStarted = [meditation.numtimesstarted intValue] + 1;
     meditation.numtimesstarted = [NSNumber numberWithInt:numTimesStarted];
+    
+    // Store the new meditation instance locally
+    self.meditationInstanceID = meditationInstance.objectid;
 }
 
 -(void)meditationDidEnd:(BOOL)completed {
@@ -154,8 +159,13 @@
         NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
         Meditation *meditation = [self.meditations objectAtIndex:currentPage];
         
+        // Increment the counter for the number of times this meditation has been completed
         NSInteger numTimesCompleted = [meditation.numtimescompleted intValue] + 1;
         meditation.numtimescompleted = [NSNumber numberWithInt:numTimesCompleted];
+        
+        // Update percent complete to 100%
+        float percentComplete = 100.0;
+        
     }
 }
 
