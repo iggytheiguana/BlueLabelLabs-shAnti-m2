@@ -94,8 +94,7 @@ insertIntoResourceContext:(ResourceContext *)context
     //imageurl and thumbnail url attributes are attachments
     if ([lowerCaseName isEqualToString:IMAGEURL]        ||
         [lowerCaseName isEqualToString:THUMBNAILURL]    ||
-        [lowerCaseName isEqualToString:VOICEURL]        ||
-        [lowerCaseName isEqualToString:MUSICURL]) {
+        [lowerCaseName isEqualToString:AUDIOURL]) {
         retVal.isurlattachment = [NSNumber numberWithBool:YES];
     }
     
@@ -152,7 +151,9 @@ insertIntoResourceContext:(ResourceContext *)context
         [lowerCaseName isEqualToString:NUMBEROFFOLLOWERS] ||
         [lowerCaseName isEqualToString:NUMBERFOLLOWING] ||
         [lowerCaseName isEqualToString:NUMLIKES] ||
-        [lowerCaseName isEqualToString:NUMPEOPLE]) {
+        [lowerCaseName isEqualToString:NUMPEOPLE] ||
+        [lowerCaseName isEqualToString:NUMTIMESCOMPLETED] ||
+        [lowerCaseName isEqualToString:NUMTIMESSTARTED]) {
         //these are all counter variables
         retVal.iscounter = [NSNumber numberWithBool:YES];
     }

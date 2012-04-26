@@ -488,17 +488,17 @@ static NSLock* _lock; //lock used to synchronize the processing of enumeration r
 //    
 //    
 //}
-//+ (CloudEnumerator*) enumeratorForApplicationSettings:(NSNumber*)userid {
-//    ApplicationSettings* settings = [[ApplicationSettingsManager instance] settings];
-//    Query* query = [Query queryApplicationSettings:userid];
-//    QueryOptions* queryOptions = [QueryOptions queryForApplicationSettings:userid];
-//    EnumerationContext* enumerationContext = [EnumerationContext contextForApplicationSettings:userid];
-//    query.queryOptions = queryOptions;
-//
-//    CloudEnumerator* enumerator = [[[CloudEnumerator alloc]initWithEnumerationContext:enumerationContext withQuery:query withQueryOptions:queryOptions]autorelease];
-//    enumerator.secondsBetweenConsecutiveSearches = [settings.page_enumeration_timegap intValue];
-//    return enumerator;
-//}
++ (CloudEnumerator*) enumeratorForApplicationSettings:(NSNumber*)userid {
+    ApplicationSettings* settings = [[ApplicationSettingsManager instance] settings];
+    Query* query = [Query queryApplicationSettings:userid];
+    QueryOptions* queryOptions = [QueryOptions queryForApplicationSettings:userid];
+    EnumerationContext* enumerationContext = [EnumerationContext contextForApplicationSettings:userid];
+    query.queryOptions = queryOptions;
+
+    CloudEnumerator* enumerator = [[[CloudEnumerator alloc]initWithEnumerationContext:enumerationContext withQuery:query withQueryOptions:queryOptions]autorelease];
+    enumerator.secondsBetweenConsecutiveSearches = [settings.page_enumeration_timegap intValue];
+    return enumerator;
+}
 //
 //+ (CloudEnumerator*) enumeratorForFollowers:(NSNumber *)userid
 //{

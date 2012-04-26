@@ -65,7 +65,22 @@
     
     [self.sv_pageViewSlider loadVisiblePages];
 }
-
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (![self.authenticationManager isUserAuthenticated]) 
+    {
+        Callback* onSucccessCallback = [[Callback alloc]initWithTarget:self withSelector:@selector(onNotificationsButtonClicked:) withContext:nil];        
+        Callback* onFailCallback = [[Callback alloc]initWithTarget:self withSelector:@selector(onLoginFailed:)];
+        [self authenticateAndGetFacebook:NO getTwitter:NO onSuccessCallback:onSucccessCallback onFailureCallback:onFailCallback];
+        
+        
+        [onSucccessCallback release];
+        [onFailCallback release];
+    }
+    
+    
+}
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -143,7 +158,7 @@
     
     // Save new meditation instance
     ResourceContext* resourceContext = [ResourceContext instance];
-    [resourceContext save:NO onFinishCallback:nil trackProgressWith:nil];
+    [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
     
     // Increment the counter for the number of times this meditation has been started
     NSInteger numTimesStarted = [meditation.numtimesstarted intValue] + 1;

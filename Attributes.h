@@ -118,7 +118,7 @@ extern NSString* const DATESCHEDULED;
 extern NSString* const MEDITATIONTYPEID;
 extern NSString* const PERCENTCOMPLETED;
 extern NSString* const DURATION;
-extern NSString* const MUSICURL;
+extern NSString* const AUDIOURL;
 extern NSString* const VOICEURL;
 extern NSString* const NUMLIKES;
 extern NSString* const NUMPEOPLE;
@@ -127,4 +127,7 @@ extern NSString* const LASTNAME;
 extern NSString* const NUMGUIDEDCOMPLETED;
 extern NSString* const NUMMINDFULNESSCOMPLETED;
 extern NSString* const TYPE;
+
+extern NSString* const NUMTIMESCOMPLETED;
+extern NSString* const NUMTIMESSTARTED;
 

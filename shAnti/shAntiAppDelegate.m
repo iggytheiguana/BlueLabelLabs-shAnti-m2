@@ -9,7 +9,7 @@
 #import "shAntiAppDelegate.h"
 #import "ApplicationSettings.h"
 #import "shAntiViewController.h"
-
+#import "UIProgressHUDView.h"
 @implementation shAntiAppDelegate
 
 @synthesize window = _window;
@@ -21,8 +21,19 @@
 @synthesize authenticationManager = __authenticationManager;
 @synthesize facebook = __facebook;
 @synthesize deviceToken = m_deviceToken;
+@synthesize progressView = __progressView;
 
 #define     kFACEBOOKAPPID  @"271328586292350"
+- (UIProgressHUDView*)progressView {
+    if (__progressView != nil) {
+        return __progressView;
+    }
+    UIProgressHUDView* pv = [[UIProgressHUDView alloc]initWithWindow:self.window];
+    __progressView = pv;
+    
+    
+    return __progressView;
+}
 
 - (ApplicationSettingsManager*)applicationSettingsManager {
     if (__applicationSettingsManager != nil) {

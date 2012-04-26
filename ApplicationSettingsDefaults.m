@@ -10,7 +10,7 @@
 
 
 //this URL is to connect to BOBBY's development environment
-NSString* const default_BASEURL = @"http://108.6.2.14/shanti/rest";
+NSString* const default_BASEURL = @"http://108.6.2.14/shantim2/rest";
 
 
 
