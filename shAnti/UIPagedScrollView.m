@@ -12,6 +12,9 @@
 
 @synthesize pageViews   = m_pageViews;
 @synthesize pageCount   = m_pageCount;
+@synthesize padding     = m_padding;
+
+#define PADDING 0
 
 #pragma mark - Properties
 - (id)delegate {
@@ -79,6 +82,9 @@
 
 - (CGRect)frameForPageAtIndex:(NSUInteger)index {
     CGRect frame = self.frame;
+    //frame.size.width -= (2 * PADDING);
+    //frame.origin.x = (frame.size.width * index) + PADDING;
+    
     frame.origin.x = frame.size.width * index;
     frame.origin.y = 0;
     
@@ -112,7 +118,7 @@
     if ((NSNull*)pageView == [NSNull null]) {
         
         CGRect frame = self.bounds;
-        frame.origin.x = frame.size.width * page;
+        frame.origin.x = (frame.size.width * page) + self.padding;
         frame.origin.y = 0.0f;
         
         pageView = [self.delegate viewForPage:page];

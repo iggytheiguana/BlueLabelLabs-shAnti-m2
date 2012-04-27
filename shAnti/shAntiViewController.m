@@ -11,7 +11,9 @@
 #import "Meditation.h"
 #import "MeditationInstance.h"
 #import "MeditationState.h"
+#import "NSMutableArray+NSMutableArrayCategory.h"
 
+#define PADDING 20
 
 @interface shAntiViewController ()
 
@@ -31,8 +33,16 @@
     if (self) {
         // Custom initialization
         
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundPattern.png"]]];
     }
     return self;
+}
+
+- (CGRect)frameForPagingScrollView {
+    CGRect frame = self.view.bounds;// [[UIScreen mainScreen] bounds];
+    frame.origin.x -= PADDING;
+    frame.size.width += (2 * PADDING);
+    return frame;
 }
 
 - (void)viewDidLoad
@@ -40,7 +50,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    // TEMPORARY: Load default data on first run
+    // Load default data on first run
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if ([userDefaults objectForKey:setting_ISFIRSTRUN] == nil || [userDefaults boolForKey:setting_ISFIRSTRUN] == YES) {
         // This is the first run of the app, set up default meditation objects
@@ -60,10 +70,29 @@
         self.meditations = [resourceContext resourcesWithType:MEDITATION];
     }
     
-    // Set up Paged Scroll View
+    // Shuffle the meditations array if the user has already completed the sequence
+    if ([userDefaults objectForKey:setting_HASCOMPLETEDSEQUENCE] == nil) {
+        // Add the user defalt setting for meditation sequence completion, set to false
+        [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_HASCOMPLETEDSEQUENCE];
+        [userDefaults synchronize];
+    }
+    else if ([userDefaults boolForKey:setting_HASCOMPLETEDSEQUENCE] == YES) {
+        // Shuffle the meditations array
+        NSMutableArray *shuffledArray = [NSMutableArray arrayWithArray:self.meditations];
+        [shuffledArray shuffle];
+        
+        self.meditations = shuffledArray;
+    }
+    
+    // Setup Paged Scroll View
+	self.sv_pageViewSlider.frame = [self frameForPagingScrollView];
     [self.sv_pageViewSlider loadView];
+    self.sv_pageViewSlider.padding = PADDING;
     self.sv_pageViewSlider.pagingEnabled = YES;
     self.sv_pageViewSlider.delaysContentTouches = NO;
+    self.sv_pageViewSlider.showsHorizontalScrollIndicator = NO;
+    self.sv_pageViewSlider.showsVerticalScrollIndicator = NO;
+    //[self.sv_pageViewSlider setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundPattern.png"]]];
     
     // Set up PageControl
     [self.pageControl setNumberOfPages:[self numberOfPagesInScrollView]];
@@ -168,27 +197,39 @@
     NSInteger numTimesStarted = [meditation.numtimesstarted intValue] + 1;
     meditation.numtimesstarted = [NSNumber numberWithInt:numTimesStarted];
     [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
+    
     // Store the new meditation instance locally
     self.meditationInstanceID = meditationInstance.objectid;
 }
 
--(void)meditationDidEnd:(BOOL)completed {
-    if (completed) {
-        // Get the Meditation object for the page
-        NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
-        Meditation *meditation = [self.meditations objectAtIndex:currentPage];
+- (void)meditationDidFinishWithState:(NSNumber *)state {
+    // Get the Meditation object for the page
+    NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
+    Meditation *meditation = [self.meditations objectAtIndex:currentPage];
+    
+    // Get the associated MeditationInstance
+    ResourceContext *resourceContext = [ResourceContext instance];
+    MeditationInstance *meditationInstance = (MeditationInstance *)[resourceContext resourceWithType:MEDITATIONINSTANCE withID:self.meditationInstanceID];
+    
+    if ([state intValue] == kCOMPLETED) {
+        // Meditation fisished its full specified duration
         
         // Increment the counter for the number of times this meditation has been completed
         NSInteger numTimesCompleted = [meditation.numtimescompleted intValue] + 1;
         meditation.numtimescompleted = [NSNumber numberWithInt:numTimesCompleted];
         
-        // Update percent complete to 100%
-        float percentComplete = 100.0;
-        
-        ResourceContext* resourceContext = [ResourceContext instance];
-        [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
+        // Update properties of meditation instance
+        meditationInstance.state = state;
+        meditationInstance.datecompleted = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
+    }
+    else {
+        // Meditation was stopped before full specified duration met
+        // Update properties of meditation instance
+        meditationInstance.state = state;
 
     }
+    
+    [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
 }
 
 #pragma mark - shAntiInfoViewController Delegate

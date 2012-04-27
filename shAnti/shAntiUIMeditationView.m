@@ -7,6 +7,8 @@
 //
 
 #import "shAntiUIMeditationView.h"
+#import "MeditationState.h"
+#import "QuartzCore/CALayer.h"
 
 @implementation shAntiUIMeditationView
 
@@ -84,6 +86,17 @@
         }
         
         [self addSubview:self.view];
+        
+        // Add a boarder to the image view
+        //[self.iv_background.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+        //[self.iv_background.layer setBorderWidth: 2.0];
+        
+        // Add shadow to the image view
+        self.iv_background.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.iv_background.layer.shadowOffset = CGSizeMake(0, 0);
+        self.iv_background.layer.shadowOpacity = 0.75;
+        self.iv_background.layer.shadowRadius = 10.0;
+        self.iv_background.clipsToBounds = NO;
 
     }
     return self;
@@ -137,20 +150,20 @@
     // Reset Play button
     [self.btn_playPause setSelected:NO];
     
+    // Set the appropriate state for the meditation instance
+    //if ([self.audioPlayer currentTime] != [self.audioPlayer duration] && [self.audioPlayer currentTime] != 0.0f) {
+    if ([self.audioPlayer currentTime] != [self.audioPlayer duration]) {
+        [self meditationDidFinishWithState:[NSNumber numberWithInt:kINPROGRESS]];
+    }
+    else {
+        [self meditationDidFinishWithState:[NSNumber numberWithInt:kMEDITATIONCOMPLETED]];
+    }
+    
     // Get players ready for playing again
     [self.audioPlayer setCurrentTime:0.0];
     [self.audioPlayer prepareToPlay];
     self.audioPlayer.volume = 0.5;
     self.sld_volumeControl.value = 0.5;
-    
-    // Set the appropriate state for the meditation instance
-    //if ([self.audioPlayer currentTime] != [self.audioPlayer duration] && [self.audioPlayer currentTime] != 0.0f) {
-    if ([self.audioPlayer currentTime] != [self.audioPlayer duration]) {
-        [self meditationDidEnd:NO];
-    }
-    else {
-        [self meditationDidEnd:YES];
-    }
 }
 
 -(void)adjustVolume
@@ -167,8 +180,8 @@
     [self.delegate meditationDidStart];
 }
 
--(void)meditationDidEnd:(BOOL)completed {
-    [self.delegate meditationDidEnd:completed];
+- (void)meditationDidFinishWithState:(NSNumber *)state {
+    [self.delegate meditationDidFinishWithState:state];
 }
 
 #pragma mark - UI Event Handlers
@@ -212,10 +225,10 @@
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
     if (flag == YES) {
-        [self meditationDidEnd:YES];
+        [self meditationDidFinishWithState:[NSNumber numberWithInt:kMEDITATIONCOMPLETED]];
     }
     else {
-        [self meditationDidEnd:NO];
+        [self meditationDidFinishWithState:[NSNumber numberWithInt:kINPROGRESS]];
     }
 }
 

@@ -19,3 +19,4 @@ NSString* const setting_HASVIEWEDEDITORIALVC = @"hasViewedEditorialVC";
 NSString* const setting_HASVIEWEDCONTRIBUTEVC = @"hasViewedContributeVC";
 
 NSString* const setting_ISFIRSTRUN = @"isfirstrun";
+NSString* const setting_HASCOMPLETEDSEQUENCE = @"hascompletedsequence";

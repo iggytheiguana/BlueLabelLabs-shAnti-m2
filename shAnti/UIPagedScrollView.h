@@ -24,12 +24,15 @@
     NSMutableArray  *m_pageViews;
     
     NSInteger       m_pageCount;
+    
+    float           m_padding;
 }
 
 @property (nonatomic, assign)   id<UIPagedScrollViewDelegate> delegate;
 
 @property (nonatomic, strong)   NSMutableArray  *pageViews;
 @property                       NSInteger       pageCount;
+@property                       float           padding;
 
 
 - (UIView*)currentVisiblePageView;
