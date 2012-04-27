@@ -13,6 +13,7 @@
 
 - (NSInteger)numberOfPagesInScrollView;
 - (UIView*)viewForPage:(int)page;
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView;
 
 @end

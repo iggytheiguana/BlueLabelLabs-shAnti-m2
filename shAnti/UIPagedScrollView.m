@@ -169,6 +169,11 @@
 }
 
 #pragma mark - UIScrollView Delegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    // Tell the delegate that the scroll will begin dragging
+    [self.delegate scrollViewWillBeginDragging:scrollView];
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     // Load the pages that are now on screen
     [self loadVisiblePages];

@@ -152,14 +152,15 @@
     return meditationView;
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    // Stop audio
+    shAntiUIMeditationView *meditationView = (shAntiUIMeditationView *)[self.sv_pageViewSlider currentVisiblePageView];
+    [meditationView stopAudio];
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     // Update the page control
     self.pageControl.currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
-    
-    // Stop audio
-    shAntiUIMeditationView *medittionView = (shAntiUIMeditationView *)[self.sv_pageViewSlider currentVisiblePageView];
-    [medittionView stopAudio];
-    
 }
 
 #pragma mark - shAntiUIMeditationView Delegate
@@ -221,6 +222,8 @@
         // Update properties of meditation instance
         meditationInstance.state = state;
         meditationInstance.datecompleted = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
+        
+        //[resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
     }
     else {
         // Meditation was stopped before full specified duration met
