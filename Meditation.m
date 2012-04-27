@@ -52,12 +52,13 @@
     NSArray *titlesArray = [NSArray arrayWithObjects:@"Just breathe", @"Feel your body", @"A mindful walk", @"A mindful gaze", @"Mindful eating – just a few bites", nil];
     
     NSString *audioURL = [[NSURL fileURLWithPath:[[NSBundle mainBundle]
-                                                  pathForResource:@"med5"
+                                                  pathForResource:@"med5short"
                                                   ofType:@"mp3"]] absoluteString];
     
-    NSString *imageURL = [[NSURL fileURLWithPath:[[NSBundle mainBundle]
-                                                  pathForResource:@"stock-photo-2038361-moon-meditation"
-                                                  ofType:@"jpg"]] absoluteString];
+    //NSString *imageURL = [[NSURL fileURLWithPath:[[NSBundle mainBundle]
+    //                                              pathForResource:@"stock-photo-2038361-moon-meditation"
+    //                                              ofType:@"jpg"]] absoluteString];
+    NSString *imageURL = @"stock-photo-2038361-moon-meditation.jpg";
     
     for (int i = 0; i < 5; i++) {
         Meditation *meditation = [Meditation createMeditationWithTitle:[titlesArray objectAtIndex:i] withDescription:nil withPosition:[NSNumber numberWithInt:i] withAudioURL:audioURL withImageURL:imageURL];

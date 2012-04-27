@@ -36,3 +36,19 @@ NSString* const ui_LOGIN_TITLE                  = @"Join Bahndr";
 
 
 NSString* const ui_WELCOME_CONTRIBUTE           = @"Drafts have 3 parts: a hashtag, photo and caption.\n\nYou can start a Draft with just a hashtag title. Anyone can then add a photo or caption to the Draft before it expires.\n\nGo on, let that Great Dane named creativity off her chain and start writing this Draft..."; 
+
+
+
+
+// Strings for shAnti
+NSString* const ui_INFO_SCHEDULEREMINDER1           = @"Thanks for trying shAnti!\n\nYou’ve completed your first meditation. Most users find listening to 3 mini-meditations a day is most helpful in establishing a daily meditation practice, but you should do whatever feels right.\n\nWe do recommend you schedule a time to meditate tomorrow by pressing the button below to set a reminder. Returning to shanti to practice mindfulness for as little as 2 minutes every day will help you make meditating a habit.";
+
+NSString* const ui_INFO_SCHEDULEREMINDER2           = @"Nicely done!\n\nYou’ve completed your second meditation. Most users find listening to 3 mini-meditations a day is most helpful in establishing a daily meditation practice, but you should do whatever feels right.\n\nContinue to experience another shAnti meditation or schedule a time to meditate tomorrow by pressing the button below to set a reminder. Returning to shanti to practice mindfulness for as little as 2 minutes every day will help you make meditating a habit.";
+
+NSString* const ui_INFO_SCHEDULEREMINDER3           = @"Nicely done!\n\nYou’ve completed 3 meditations so far, which is a great start.\n\nReturning to shanti to practice mindfulness for as little as 2 minutes every day will help you make meditating a habit.\n\nSchedule a time to meditate tomorrow or continue to experience another shAnti meditation.";
+
+NSString* const ui_INFO_SCHEDULEREMINDER4           = @"Thanks for trying shanti.\n\nMost users find listening to 3 mini-meditations a day is most helpful in establishing a daily meditation practice.\n\nWe recommend you schedule a time to meditate tomorrow. Returning to shanti to practice mindfulness for as little as 2 minutes every day will help you make meditating a habit.\n\nWe are currently developing more mini-meditations for you to experience. Send us feedback with a meditation you would like to try or suggestions for us to help make shanti a better experience for you and all shanti users.";
+
+NSString* const ui_INFO_SCHEDULEREMINDER5           = @"Nicely done!\n\nYou’ve completed 3 meditations so far, which is a great start. Schedule a time to meditate tomorrow by pressing the button below to get a reminder. Returning to shanti to practice mindfulness for as little as 2 minutes every day will help you make meditating a habit.\n\nWe are currently developing more mini-meditations for you to experience. Let us know if there is a meditation you would like to try or leave any other suggestions for us to help make shanti a better experience for you and your friends.";
+
+NSString* const ui_INFO_SCHEDULEREMINDER6           = @"Way to go!\n\nYou are off to a fantastic start with your meditation program. If you haven’t already done so, remember to schedule a time to meditate tomorrow by pressing the button below.\n\nWe are currently developing more mini-meditations for you to experience. Let us know if there is a meditation you would like to try or leave any other suggestions for us to help make shanti a better experience for you and your friends.";

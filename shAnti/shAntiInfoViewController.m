@@ -9,6 +9,7 @@
 #import "shAntiInfoViewController.h"
 #import "shAntiViewController.h"
 #import "DateTimeHelper.h"
+#import <sys/utsname.h>
 
 @interface shAntiInfoViewController ()
 
@@ -16,9 +17,11 @@
 
 @implementation shAntiInfoViewController
 
-@synthesize btn_continue    = m_btn_continue;
-@synthesize btn_schedule    = m_btn_schedule;
+@synthesize message         = m_message;
 @synthesize lbl_message     = m_lbl_message;
+@synthesize showFeedbackButton = m_showFeedbackButton;
+@synthesize btn_feedback    = m_btn_feedback;
+@synthesize btn_schedule    = m_btn_schedule;
 
 
 #pragma mark - Properties
@@ -47,9 +50,40 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    //[self.navigationController setNavigationBarHidden:YES animated:NO];
     
+    // Navigation Bar properties
+    self.navigationItem.title = @"shAnti";
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+    
+    // Navigation Bar Buttons
+    UIBarButtonItem* rightButton = [[[UIBarButtonItem alloc]
+                                     initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                     target:self
+                                     action:@selector(onContinueButtonPressed:)] autorelease];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
+    // Set background pattern
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundPattern.png"]]];
+    
+    // Setup buttons
+    UIImage *feedbackButtonImageNormal = [UIImage imageNamed:@"button_roundrect_lightgrey.png"];
+    UIImage *stretchableFeedbackButtonImageNormal = [feedbackButtonImageNormal stretchableImageWithLeftCapWidth:44 topCapHeight:22];
+    [self.btn_feedback setBackgroundImage:stretchableFeedbackButtonImageNormal forState:UIControlStateNormal];
+    [self.btn_feedback.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
+    
+    /*UIImage *feedbackButtonImageSelected = [UIImage imageNamed:@"button_roundrect_lightgrey_selected.png"];
+    UIImage *stretchableFeedbackButtonImageSelected = [feedbackButtonImageSelected stretchableImageWithLeftCapWidth:44 topCapHeight:22];
+    [self.btn_feedback setBackgroundImage:stretchableFeedbackButtonImageSelected forState:UIControlStateSelected];*/
+    
+    UIImage *scheduleButtonImageNormal = [UIImage imageNamed:@"button_roundrect_blue.png"];
+    UIImage *stretchableScheduleButtonImageNormal = [scheduleButtonImageNormal stretchableImageWithLeftCapWidth:44 topCapHeight:22];
+    [self.btn_schedule setBackgroundImage:stretchableScheduleButtonImageNormal forState:UIControlStateNormal];
+    [self.btn_schedule.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
+    
+    /*UIImage *scheduleButtonImageSelected = [UIImage imageNamed:@"button_roundrect_lightgrey_selected.png"];
+    UIImage *stretchableScheduleButtonImageSelected = [scheduleButtonImageSelected stretchableImageWithLeftCapWidth:44 topCapHeight:22];
+    [self.btn_feedback setBackgroundImage:stretchableScheduleButtonImageSelected forState:UIControlStateSelected];*/
 }
 
 - (void)viewDidUnload
@@ -58,9 +92,16 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     
-    self.btn_continue = nil;
+    self.btn_feedback = nil;
     self.btn_schedule = nil;
     self.lbl_message = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.lbl_message.text = self.message;
+    [self.btn_feedback setHidden:!self.showFeedbackButton];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -118,12 +159,73 @@
     [eventViewController release];
 }
 
+-(IBAction)onFeedbackButtonPressed:(id)sender {
+    [self composeFeedbackMail];
+}
+
+#pragma mark - Feedback Mail Helper	
+NSString*	
+machineNameSettings()
+{
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    return [NSString stringWithCString:systemInfo.machine
+                              encoding:NSUTF8StringEncoding];
+}
+
+- (void)composeFeedbackMail {
+    // Get version information about the app and phone to prepopulate in the email
+    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString* appVersionNum = [infoDict objectForKey:@"CFBundleShortVersionString"];
+    NSString* appName = [infoDict objectForKey:@"CFBundleDisplayName"];
+    NSString* deviceType = machineNameSettings();
+    NSString* currSysVer = [[UIDevice currentDevice] systemVersion];
+    
+    AuthenticationManager* authenticationManager = [AuthenticationManager instance];
+    NSNumber* loggedInUserID = authenticationManager.m_LoggedInUserID;
+    
+    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+    picker.mailComposeDelegate = self;
+    
+    // Set the email subject
+    [picker setSubject:[NSString stringWithFormat:@"%@ Feedback!", appName]];
+    
+    NSArray *toRecipients = [NSArray arrayWithObjects:@"contact@bluelabellabs.com", nil];
+    [picker setToRecipients:toRecipients];
+    
+    NSString *messageHeader = [NSString stringWithFormat:@"I'm using %@ version %@ on my %@ running iOS %@, %@.<br><br>--- Please add your message below this line ---", appName, appVersionNum, deviceType, currSysVer, [loggedInUserID stringValue]];
+    [picker setMessageBody:messageHeader isHTML:YES];
+    
+    // Present the mail composition interface
+    [self presentModalViewController:picker animated:YES];
+    [picker release]; // Can safely release the controller now.
+}
+
+#pragma mark - MailComposeController Delegate
+// The mail compose view controller delegate method
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError *)error
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 #pragma mark - EventKitUI delegate
 - (void)eventEditViewController:(EKEventEditViewController *)controller didCompleteWithAction:(EKEventEditViewAction)action {
     [self dismissModalViewControllerAnimated:YES];
     
     // Close the Meditation view
     //[self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Static Initializers
++ (shAntiInfoViewController*)createInstanceWithMessage:(NSString *)message showFeedbackButton:(BOOL)feedback {
+    //returns an instance of the shAntiInfoViewController configured 
+    shAntiInfoViewController* instance = [[[shAntiInfoViewController alloc]initWithNibName:@"shAntiInfoViewController" bundle:nil]autorelease];
+
+    instance.message = message;
+    instance.showFeedbackButton = feedback;
+    return instance;
 }
 
 @end

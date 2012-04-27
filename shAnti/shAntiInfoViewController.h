@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EventKitUI/EKEventEditViewController.h"
+#import <MessageUI/MessageUI.h>
 
 @protocol shAntiInfoViewControllerDelegate <NSObject>
 
@@ -15,23 +16,28 @@
 
 @end
 
-@interface shAntiInfoViewController : UIViewController < EKEventEditViewDelegate > {
+@interface shAntiInfoViewController : UIViewController < EKEventEditViewDelegate, MFMailComposeViewControllerDelegate > {
     id<shAntiInfoViewControllerDelegate> m_delegate;
     
+    NSString    *m_message;
     UILabel     *m_lbl_message;
     
-    UIButton    *m_btn_continue;
+    BOOL        m_showFeedbackButton;
+    UIButton    *m_btn_feedback;
     UIButton    *m_btn_schedule;
 }
 
 @property (nonatomic, assign) id<shAntiInfoViewControllerDelegate> delegate;
 
+@property (nonatomic, retain) NSString              *message;
 @property (nonatomic, retain) IBOutlet UILabel      *lbl_message;
 
-@property (nonatomic, retain) IBOutlet UIButton     *btn_continue;
+@property                     BOOL                  showFeedbackButton;
+@property (nonatomic, retain) IBOutlet UIButton     *btn_feedback;
 @property (nonatomic, retain) IBOutlet UIButton     *btn_schedule;
 
-//-(IBAction) onContinueButtonPressed:(id)sender;
 -(IBAction) onScheduleButtonPressed:(id)sender;
+
++ (shAntiInfoViewController*)createInstanceWithMessage:(NSString *)message showFeedbackButton:(BOOL)feedback;
 
 @end

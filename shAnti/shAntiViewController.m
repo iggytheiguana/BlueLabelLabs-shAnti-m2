@@ -12,6 +12,7 @@
 #import "MeditationInstance.h"
 #import "MeditationState.h"
 #import "NSMutableArray+NSMutableArrayCategory.h"
+#import "UIStrings.h"
 
 #define PADDING 20
 
@@ -60,23 +61,43 @@
         ResourceContext* resourceContext = [ResourceContext instance];
         [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
         
-        // Mark the user defalt setting for first run to false
+        // Create user default settings for first run, sequence completion, and last position
         [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_ISFIRSTRUN];
+        [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_HASCOMPLETEDSEQUENCE];
+        [userDefaults setObject:[NSNumber numberWithInt:0] forKey:setting_LASTPOSITION];
         [userDefaults synchronize];
     }
     else {
         //we load them the meditations from the ResourceContext
         ResourceContext* resourceContext = [ResourceContext instance];
         self.meditations = [resourceContext resourcesWithType:MEDITATION];
+        
+        // Check to see if all meditation objects in the array have been completed at least once
+        Meditation *meditation = [Meditation alloc];
+        for (int i = 0; i < self.meditations.count; i++) {
+            meditation = [self.meditations objectAtIndex:i];
+            
+            if ([meditation.numtimescompleted intValue] == 0) {
+                // If just one of the meditations has not been completed yet,
+                // we reset hascompletedsequence to FALSE and
+                // set the last position to this incompleted meditation
+                [userDefaults setBool:NO forKey:setting_HASCOMPLETEDSEQUENCE];
+                [userDefaults setInteger:i forKey:setting_LASTPOSITION];
+                
+                if ([self.authenticationManager isUserAuthenticated]) {
+                    self.loggedInUser.lastposition = [NSNumber numberWithInt:i];
+                }
+                break;
+            }
+            else {
+                [userDefaults setBool:YES forKey:setting_HASCOMPLETEDSEQUENCE];
+            }
+        }
+        [userDefaults synchronize];
     }
     
     // Shuffle the meditations array if the user has already completed the sequence
-    if ([userDefaults objectForKey:setting_HASCOMPLETEDSEQUENCE] == nil) {
-        // Add the user defalt setting for meditation sequence completion, set to false
-        [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_HASCOMPLETEDSEQUENCE];
-        [userDefaults synchronize];
-    }
-    else if ([userDefaults boolForKey:setting_HASCOMPLETEDSEQUENCE] == YES) {
+    if ([userDefaults boolForKey:setting_HASCOMPLETEDSEQUENCE] == YES) {
         // Shuffle the meditations array
         NSMutableArray *shuffledArray = [NSMutableArray arrayWithArray:self.meditations];
         [shuffledArray shuffle];
@@ -97,8 +118,21 @@
     // Set up PageControl
     [self.pageControl setNumberOfPages:[self numberOfPagesInScrollView]];
     
-    [self.sv_pageViewSlider loadVisiblePages];
+    // Move Paged Scroll View to the appropriate page
+    if ([userDefaults objectForKey:setting_HASCOMPLETEDSEQUENCE] != nil && 
+        [userDefaults boolForKey:setting_HASCOMPLETEDSEQUENCE] == NO) {
+        
+        // User has not fully completed sequence yet, load first incomplete meditation in sequence
+        [self.sv_pageViewSlider loadVisiblePages];
+        [self.sv_pageViewSlider goToPageAtIndex:[userDefaults integerForKey:setting_LASTPOSITION] animated:NO];
+    }
+    else {
+        // User has fully completed sequence, load first page of shuffled meditations array
+        [self.sv_pageViewSlider loadVisiblePages];
+    }
+    
 }
+
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -143,10 +177,14 @@
     Meditation *meditation = [self.meditations objectAtIndex:page];
     
     meditationView.lbl_titleLabel.text = meditation.title;
-    meditationView.iv_background.image = [UIImage imageNamed:@"stock-photo-2038361-moon-meditation.jpg"];
-    NSURL *audioFileURL = [NSURL fileURLWithPath:[[NSBundle mainBundle]
-                                                          pathForResource:@"med5"
-                                                          ofType:@"mp3"]];
+    
+    meditationView.iv_background.image = [UIImage imageNamed:meditation.imageurl];
+    //meditationView.iv_background.image = [UIImage imageNamed:@"stock-photo-2038361-moon-meditation.jpg"];
+    
+    NSURL *audioFileURL = [NSURL URLWithString:meditation.audiourl];
+    //NSURL *audioFileURL = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+    //                                                      pathForResource:@"med5short"
+    //                                                      ofType:@"mp3"]];
     [meditationView loadAudioWithFile:audioFileURL];
     
     return meditationView;
@@ -165,7 +203,19 @@
 
 #pragma mark - shAntiUIMeditationView Delegate
 -(IBAction)onDoneButtonPressed:(id)sender {
-    shAntiInfoViewController *infoView = [[[shAntiInfoViewController alloc] initWithNibName:@"shAntiInfoViewController" bundle:nil] autorelease];
+    //shAntiInfoViewController *infoView = [[[shAntiInfoViewController alloc] initWithNibName:@"shAntiInfoViewController" bundle:nil] autorelease];
+    shAntiInfoViewController *infoView = [shAntiInfoViewController createInstanceWithMessage:ui_INFO_SCHEDULEREMINDER4 showFeedbackButton:NO];
+    infoView.delegate = self;
+    
+    UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:infoView];
+    navigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    
+    [self presentModalViewController:navigationController animated:YES];
+    [navigationController release];
+}
+
+-(IBAction)onInfoButtonPressed:(id)sender {
+    shAntiInfoViewController *infoView = [shAntiInfoViewController createInstanceWithMessage:ui_INFO_SCHEDULEREMINDER4 showFeedbackButton:YES];
     infoView.delegate = self;
     
     UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:infoView];
@@ -187,7 +237,15 @@
     // Get the Meditation object for the page
     NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
     Meditation *meditation = [self.meditations objectAtIndex:currentPage];
-    NSNumber* loggedInUserID = [[AuthenticationManager instance]m_LoggedInUserID];
+    
+    NSNumber* loggedInUserID;
+    if ([self.authenticationManager isUserAuthenticated]) {
+        loggedInUserID = [[AuthenticationManager instance]m_LoggedInUserID];
+    }
+    else {
+        loggedInUserID = nil;
+    }
+    
     // Create a new meditation instance
     MeditationInstance* meditationInstance = [MeditationInstance createInstanceOfMeditation:meditation.objectid forUserID:loggedInUserID withState:[NSNumber numberWithInt:kINPROGRESS] withScheduledDate:[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]]];
     
@@ -197,10 +255,19 @@
     // Increment the counter for the number of times this meditation has been started
     NSInteger numTimesStarted = [meditation.numtimesstarted intValue] + 1;
     meditation.numtimesstarted = [NSNumber numberWithInt:numTimesStarted];
-    [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
+    
+    // Mark the last position of the user to this meditation
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setInteger:[meditation.position intValue] forKey:setting_LASTPOSITION];
+    
+    if ([self.authenticationManager isUserAuthenticated]) {
+        self.loggedInUser.lastposition = meditation.position;
+    }
     
     // Store the new meditation instance locally
     self.meditationInstanceID = meditationInstance.objectid;
+    
+    [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
 }
 
 - (void)meditationDidFinishWithState:(NSNumber *)state {
@@ -212,8 +279,8 @@
     ResourceContext *resourceContext = [ResourceContext instance];
     MeditationInstance *meditationInstance = (MeditationInstance *)[resourceContext resourceWithType:MEDITATIONINSTANCE withID:self.meditationInstanceID];
     
-    if ([state intValue] == kCOMPLETED) {
-        // Meditation fisished its full specified duration
+    if ([state intValue] == kMEDITATIONCOMPLETED) {
+        // Meditation finsished its full specified duration
         
         // Increment the counter for the number of times this meditation has been completed
         NSInteger numTimesCompleted = [meditation.numtimescompleted intValue] + 1;
@@ -226,7 +293,7 @@
         //[resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
     }
     else {
-        // Meditation was stopped before full specified duration met
+        // Meditation was stopped before full duration was completed
         // Update properties of meditation instance
         meditationInstance.state = state;
 
@@ -243,14 +310,14 @@
     // Move scrollview to start from the next mediation
     NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
     
-    NSNumber *nextPage = [NSNumber numberWithInt:(currentPage+1)];
+    /*NSNumber *nextPage = [NSNumber numberWithInt:(currentPage+1)];
     NSNumber *animated = [NSNumber numberWithBool:YES];
     
     NSArray *selectorObjects = [NSArray arrayWithObjects: nextPage, animated, nil];
     
-    [self.sv_pageViewSlider performSelector:@selector(goToPageAtIndexWithObjects:) withObject:selectorObjects afterDelay:1.0];
+    [self.sv_pageViewSlider performSelector:@selector(goToPageAtIndexWithObjects:) withObject:selectorObjects afterDelay:1.5];*/
     
-    //[self.sv_pageViewSlider goToPageAtIndex:currentPage+1];
+    [self.sv_pageViewSlider goToPageAtIndex:currentPage+1 animated:NO];
 }
 
 

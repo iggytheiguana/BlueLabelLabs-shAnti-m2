@@ -22,6 +22,7 @@
 @synthesize lbl_swipeSkip       = m_lbl_swipeSkip;
 @synthesize audioPlayer         = m_audioPlayer;
 @synthesize btn_done            = m_btn_done;
+@synthesize btn_info            = m_btn_info;
 
 #pragma mark - Properties
 - (id)delegate {
@@ -97,6 +98,12 @@
         self.iv_background.layer.shadowOpacity = 0.75;
         self.iv_background.layer.shadowRadius = 10.0;
         self.iv_background.clipsToBounds = NO;
+        
+        // Setup buttons
+        UIImage *doneButtonImageNormal = [UIImage imageNamed:@"button_roundrect_lightgrey.png"];
+        UIImage *stretchableDoneButtonImageNormal = [doneButtonImageNormal stretchableImageWithLeftCapWidth:44 topCapHeight:22];
+        [self.btn_done setBackgroundImage:stretchableDoneButtonImageNormal forState:UIControlStateNormal];
+        [self.btn_done.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
 
     }
     return self;
@@ -181,6 +188,10 @@
 }
 
 - (void)meditationDidFinishWithState:(NSNumber *)state {
+    if ([state intValue] == kMEDITATIONCOMPLETED) {
+        [self.btn_done setHidden:NO];
+    }
+    
     [self.delegate meditationDidFinishWithState:state];
 }
 
@@ -188,6 +199,11 @@
 -(IBAction)onDoneButtonPressed:(id)sender {
     [self stopAudio];
     [self.delegate onDoneButtonPressed:sender];
+}
+
+-(IBAction)onInfoButtonPressed:(id)sender {
+    [self pauseAudio];
+    [self.delegate onInfoButtonPressed:sender];
 }
 
 -(IBAction)onPlayPauseButtonPressed:(id)sender {

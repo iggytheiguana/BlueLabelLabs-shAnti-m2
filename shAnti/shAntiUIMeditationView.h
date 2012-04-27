@@ -18,6 +18,7 @@
 -(IBAction)onPlayPauseButtonPressed:(id)sender;
 -(IBAction)onRestartButtonPressed:(id)sender;
 -(IBAction)onDoneButtonPressed:(id)sender;
+-(IBAction)onInfoButtonPressed:(id)sender;
 
 @end
 
@@ -37,6 +38,7 @@
     AVAudioPlayer   *m_audioPlayer;
     
     UIButton        *m_btn_done;
+    UIButton        *m_btn_info;
 }
 
 @property (nonatomic, assign) id<shAntiUIMeditationViewDelegate> delegate;
@@ -54,6 +56,7 @@
 @property (nonatomic, retain) AVAudioPlayer         *audioPlayer;
 
 @property (nonatomic, retain) IBOutlet UIButton     *btn_done;
+@property (nonatomic, retain) IBOutlet UIButton     *btn_info;
 
 
 -(void)loadAudioWithFile:(NSURL*)url;

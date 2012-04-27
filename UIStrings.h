@@ -28,3 +28,12 @@ extern NSString* const ui_LOGIN_TITLE;
 extern NSString* const ui_LOGIN_REQUIRED;
 
 extern NSString* const ui_WELCOME_CONTRIBUTE;
+
+
+// Strings for shAnti
+extern NSString* const ui_INFO_SCHEDULEREMINDER1;
+extern NSString* const ui_INFO_SCHEDULEREMINDER2;
+extern NSString* const ui_INFO_SCHEDULEREMINDER3;
+extern NSString* const ui_INFO_SCHEDULEREMINDER4;
+extern NSString* const ui_INFO_SCHEDULEREMINDER5;
+extern NSString* const ui_INFO_SCHEDULEREMINDER6;

@@ -35,6 +35,14 @@
 		5239EE6F154A0575004BABF7 /* NSMutableArray+NSMutableArrayCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239EE6E154A0575004BABF7 /* NSMutableArray+NSMutableArrayCategory.m */; };
 		5239EE7A154ADD34004BABF7 /* backgroundPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE78154ADD33004BABF7 /* backgroundPattern.png */; };
 		5239EE7B154ADD34004BABF7 /* backgroundPattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE79154ADD33004BABF7 /* backgroundPattern@2x.png */; };
+		5239EE86154B1B41004BABF7 /* button_roundrect_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE80154B1B41004BABF7 /* button_roundrect_blue.png */; };
+		5239EE87154B1B41004BABF7 /* button_roundrect_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE81154B1B41004BABF7 /* button_roundrect_blue@2x.png */; };
+		5239EE88154B1B41004BABF7 /* button_roundrect_lightgrey_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE82154B1B41004BABF7 /* button_roundrect_lightgrey_selected.png */; };
+		5239EE89154B1B41004BABF7 /* button_roundrect_lightgrey_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE83154B1B41004BABF7 /* button_roundrect_lightgrey_selected@2x.png */; };
+		5239EE8A154B1B41004BABF7 /* button_roundrect_lightgrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE84154B1B41004BABF7 /* button_roundrect_lightgrey.png */; };
+		5239EE8B154B1B41004BABF7 /* button_roundrect_lightgrey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE85154B1B41004BABF7 /* button_roundrect_lightgrey@2x.png */; };
+		5239EE8F154B337D004BABF7 /* med5short.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE8E154B337D004BABF7 /* med5short.mp3 */; };
+		5239EE91154B57FA004BABF7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5239EE90154B57F9004BABF7 /* MessageUI.framework */; };
 		5240ED181545C6F7003C0048 /* UIPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5240ED171545C6F7003C0048 /* UIPagedScrollView.m */; };
 		526634CB1545FBF500ED70AF /* shAntiUIMeditationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 526634CA1545FBF500ED70AF /* shAntiUIMeditationView.m */; };
 		526634CD1545FC2900ED70AF /* shAntiUIMeditationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526634CC1545FC2900ED70AF /* shAntiUIMeditationView.xib */; };
@@ -207,6 +215,14 @@
 		5239EE6E154A0575004BABF7 /* NSMutableArray+NSMutableArrayCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+NSMutableArrayCategory.m"; sourceTree = "<group>"; };
 		5239EE78154ADD33004BABF7 /* backgroundPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundPattern.png; sourceTree = "<group>"; };
 		5239EE79154ADD33004BABF7 /* backgroundPattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundPattern@2x.png"; sourceTree = "<group>"; };
+		5239EE80154B1B41004BABF7 /* button_roundrect_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_roundrect_blue.png; sourceTree = "<group>"; };
+		5239EE81154B1B41004BABF7 /* button_roundrect_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_roundrect_blue@2x.png"; sourceTree = "<group>"; };
+		5239EE82154B1B41004BABF7 /* button_roundrect_lightgrey_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_roundrect_lightgrey_selected.png; sourceTree = "<group>"; };
+		5239EE83154B1B41004BABF7 /* button_roundrect_lightgrey_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_roundrect_lightgrey_selected@2x.png"; sourceTree = "<group>"; };
+		5239EE84154B1B41004BABF7 /* button_roundrect_lightgrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_roundrect_lightgrey.png; sourceTree = "<group>"; };
+		5239EE85154B1B41004BABF7 /* button_roundrect_lightgrey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_roundrect_lightgrey@2x.png"; sourceTree = "<group>"; };
+		5239EE8E154B337D004BABF7 /* med5short.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = med5short.mp3; sourceTree = "<group>"; };
+		5239EE90154B57F9004BABF7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		5240ED161545C6F7003C0048 /* UIPagedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPagedScrollView.h; sourceTree = "<group>"; };
 		5240ED171545C6F7003C0048 /* UIPagedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPagedScrollView.m; sourceTree = "<group>"; };
 		526634C91545FBF500ED70AF /* shAntiUIMeditationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shAntiUIMeditationView.h; sourceTree = "<group>"; };
@@ -502,6 +518,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5239EE91154B57FA004BABF7 /* MessageUI.framework in Frameworks */,
 				5239EE6A1549F5BE004BABF7 /* EventKit.framework in Frameworks */,
 				5239EE681549F4A4004BABF7 /* EventKitUI.framework in Frameworks */,
 				C535C15A15474FC3006F9148 /* Security.framework in Frameworks */,
@@ -556,6 +573,7 @@
 		523862AB1545B9A400985797 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5239EE90154B57F9004BABF7 /* MessageUI.framework */,
 				5239EE691549F5BD004BABF7 /* EventKit.framework */,
 				5239EE671549F4A4004BABF7 /* EventKitUI.framework */,
 				C535C15915474FC3006F9148 /* Security.framework */,
@@ -598,10 +616,17 @@
 		523862CE1545BA5E00985797 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5239EE80154B1B41004BABF7 /* button_roundrect_blue.png */,
+				5239EE81154B1B41004BABF7 /* button_roundrect_blue@2x.png */,
+				5239EE82154B1B41004BABF7 /* button_roundrect_lightgrey_selected.png */,
+				5239EE83154B1B41004BABF7 /* button_roundrect_lightgrey_selected@2x.png */,
+				5239EE84154B1B41004BABF7 /* button_roundrect_lightgrey.png */,
+				5239EE85154B1B41004BABF7 /* button_roundrect_lightgrey@2x.png */,
 				5239EE78154ADD33004BABF7 /* backgroundPattern.png */,
 				5239EE79154ADD33004BABF7 /* backgroundPattern@2x.png */,
 				523862E51545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg */,
 				523862E31545BAD900985797 /* med5.mp3 */,
+				5239EE8E154B337D004BABF7 /* med5short.mp3 */,
 				523862D71545BABC00985797 /* icon-pause.png */,
 				523862D81545BABC00985797 /* icon-pause@2x.png */,
 				523862D91545BABC00985797 /* icon-play.png */,
@@ -1180,6 +1205,13 @@
 				C5F0E3E51549C49100ACA71E /* SignUpViewController.xib in Resources */,
 				5239EE7A154ADD34004BABF7 /* backgroundPattern.png in Resources */,
 				5239EE7B154ADD34004BABF7 /* backgroundPattern@2x.png in Resources */,
+				5239EE86154B1B41004BABF7 /* button_roundrect_blue.png in Resources */,
+				5239EE87154B1B41004BABF7 /* button_roundrect_blue@2x.png in Resources */,
+				5239EE88154B1B41004BABF7 /* button_roundrect_lightgrey_selected.png in Resources */,
+				5239EE89154B1B41004BABF7 /* button_roundrect_lightgrey_selected@2x.png in Resources */,
+				5239EE8A154B1B41004BABF7 /* button_roundrect_lightgrey.png in Resources */,
+				5239EE8B154B1B41004BABF7 /* button_roundrect_lightgrey@2x.png in Resources */,
+				5239EE8F154B337D004BABF7 /* med5short.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
