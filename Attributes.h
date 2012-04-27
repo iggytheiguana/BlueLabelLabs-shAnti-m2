@@ -130,4 +130,4 @@ extern NSString* const TYPE;
 
 extern NSString* const NUMTIMESCOMPLETED;
 extern NSString* const NUMTIMESSTARTED;
-
+extern NSString* const LASTPOSITION;
