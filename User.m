@@ -18,7 +18,7 @@
 @dynamic firstname;
 @dynamic lastname;
 @dynamic numcompleted;
-
+@dynamic lastposition;
 
 
 - (id) initFromJSONDictionary:(NSDictionary *)jsonDictionary {

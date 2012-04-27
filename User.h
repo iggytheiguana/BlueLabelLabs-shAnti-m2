@@ -16,6 +16,7 @@
 @property (nonatomic,retain) NSString* firstname;
 @property (nonatomic,retain) NSString* lastname;
 @property (nonatomic,retain) NSNumber* numcompleted;
+@property (nonatomic,retain) NSNumber* lastposition;
 
 
 
