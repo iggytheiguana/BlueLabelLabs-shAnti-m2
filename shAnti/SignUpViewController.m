@@ -46,6 +46,22 @@
         
         // Set text shadow of custom buttons
         [self.btn_join.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
+        
+        // Add mask on custom buttons
+        [self.btn_join.layer setMasksToBounds:YES];
+        
+        // Set highlight state background color of custom buttons
+        CGRect rect = CGRectMake(0, 0, 1, 1);
+        UIGraphicsBeginImageContext(rect.size);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSetFillColorWithColor(context, [[UIColor lightGrayColor] CGColor]);
+        CGContextFillRect(context, rect);
+        UIImage *lightGreyImg = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        [self.btn_join setBackgroundImage:lightGreyImg forState:UIControlStateHighlighted];
+        [self.btn_join setTitleShadowColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+        
     }
     return self;
 }
@@ -147,10 +163,11 @@
     // Your application might not need or want this behavior.
     CGRect aRect = self.view.frame;
     aRect.size.height -= kbSize.height;
-    if (!CGRectContainsPoint(aRect, self.tf_active.frame.origin)) {
-        CGPoint scrollPoint = CGPointMake(0.0, self.tf_active.frame.origin.y+(self.tf_active.frame.size.height*1.5)-kbSize.height);
+    //if (!CGRectContainsPoint(aRect, self.tf_active.frame.origin)) {
+        //CGPoint scrollPoint = CGPointMake(0.0, self.tf_active.frame.origin.y+(self.tf_active.frame.size.height*1.5)-kbSize.height);
+        CGPoint scrollPoint = CGPointMake(0.0, self.tf_active.frame.origin.y-(self.tf_active.frame.size.height*1.5));
         [self.sv_scrollView setContentOffset:scrollPoint animated:YES];
-    }
+    //}
 }
 
 // Called when the UIKeyboardWillHideNotification is sent
@@ -353,11 +370,10 @@
 }
 
 
-+ (SignUpViewController*)createInstance
-{
++ (SignUpViewController*)createInstance {
     SignUpViewController* vc = [[SignUpViewController alloc]initWithNibName:@"SignUpViewController" bundle:nil];
     [vc autorelease];
     return vc;
-    
 }
+
 @end

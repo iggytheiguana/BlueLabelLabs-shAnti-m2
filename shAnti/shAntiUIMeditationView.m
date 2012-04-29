@@ -9,13 +9,13 @@
 #import "shAntiUIMeditationView.h"
 #import "MeditationState.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UILabel+ScrollingHighlightAnimation.h"
 
 @implementation shAntiUIMeditationView
 
 @synthesize view                = m_view;
 @synthesize iv_background       = m_iv_background;
 @synthesize lbl_titleLabel      = m_lbl_titleLabel;
-@synthesize lbl_instructions    = m_lbl_instructions;
 @synthesize btn_playPause       = m_btn_playPause;
 @synthesize btn_restart         = m_btn_restart;
 @synthesize sld_volumeControl   = m_sld_volumeControl;
@@ -95,81 +95,100 @@
         /*// Add shadow to the background image view
         self.iv_background.layer.shadowColor = [UIColor blackColor].CGColor;
         self.iv_background.layer.shadowOffset = CGSizeMake(0, 0);
-        self.iv_background.layer.shadowOpacity = 0.75;
+        self.iv_background.layer.shadowOpacity = 1;
         self.iv_background.layer.shadowRadius = 10.0;
         self.iv_background.layer.shouldRasterize = YES;
         self.iv_background.layer.rasterizationScale = scale;
-        //self.iv_background.clipsToBounds = NO;*/
+        self.iv_background.clipsToBounds = NO;*/
         
         // Add shadow to title label
         self.lbl_titleLabel.layer.shadowColor = [UIColor blackColor].CGColor;
         self.lbl_titleLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-        self.lbl_titleLabel.layer.shadowOpacity = 0.75;   
-        self.lbl_titleLabel.layer.shadowRadius = 3.0;
+        self.lbl_titleLabel.layer.shadowOpacity = 1;   
+        self.lbl_titleLabel.layer.shadowRadius = 2.0;
         self.lbl_titleLabel.layer.shouldRasterize = YES;
         self.lbl_titleLabel.layer.rasterizationScale = scale;
-        //self.lbl_titleLabel.clipsToBounds = NO;
-        
-        /*// Add shadow to swipeToSkip label
-        self.lbl_swipeSkip.layer.shadowColor = [UIColor blackColor].CGColor;
-        self.lbl_swipeSkip.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-        self.lbl_swipeSkip.layer.shadowOpacity = 0.75;   
-        self.lbl_swipeSkip.layer.shadowRadius = 3.0;
-        self.lbl_swipeSkip.layer.shouldRasterize = YES;
-        self.lbl_swipeSkip.layer.rasterizationScale = scale;
-        //self.lbl_swipeSkip.clipsToBounds = NO;
-        
-        // Add shadow to play/pause button
-        self.btn_playPause.layer.shadowColor = [UIColor blackColor].CGColor;
-        self.btn_playPause.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-        self.btn_playPause.layer.shadowOpacity = 0.75;   
-        self.btn_playPause.layer.shadowRadius = 3.0;
-        self.lbl_titleLabel.layer.shouldRasterize = YES;
-        self.lbl_titleLabel.layer.rasterizationScale = scale;
-        //self.btn_playPause.clipsToBounds = NO;
-        
-        // Add shadow to the rewind button
-        self.btn_restart.layer.shadowColor = [UIColor blackColor].CGColor;
-        self.btn_restart.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-        self.btn_restart.layer.shadowOpacity = 0.75;   
-        self.btn_restart.layer.shadowRadius = 3.0;
-        self.btn_restart.layer.shouldRasterize = YES;
-        self.btn_restart.layer.rasterizationScale = scale;
-        //self.btn_restart.clipsToBounds = NO;
-        
-        // Add shadow to the volume slider
-        self.sld_volumeControl.layer.shadowColor = [UIColor blackColor].CGColor;
-        self.sld_volumeControl.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-        self.sld_volumeControl.layer.shadowOpacity = 0.75;   
-        self.sld_volumeControl.layer.shadowRadius = 3.0;
-        self.sld_volumeControl.layer.shouldRasterize = YES;
-        self.sld_volumeControl.layer.rasterizationScale = scale;
-        //self.sld_volumeControl.clipsToBounds = NO;
+        self.lbl_titleLabel.clipsToBounds = NO;
         
         // Add shadow to the done button
         self.btn_done.layer.shadowColor = [UIColor blackColor].CGColor;
         self.btn_done.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-        self.btn_done.layer.shadowOpacity = 0.75;   
+        self.btn_done.layer.shadowOpacity = 1;   
         self.btn_done.layer.shadowRadius = 3.0;
         self.btn_done.layer.shouldRasterize = YES;
         self.btn_done.layer.rasterizationScale = scale;
-        //self.btn_done.clipsToBounds = NO;
+        self.btn_done.clipsToBounds = NO;
+        
+        /*// Add shadow to swipeToSkip label
+        self.lbl_swipeSkip.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.lbl_swipeSkip.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+        self.lbl_swipeSkip.layer.shadowOpacity = 1;   
+        self.lbl_swipeSkip.layer.shadowRadius = 2.0;
+        self.lbl_swipeSkip.layer.shouldRasterize = YES;
+        self.lbl_swipeSkip.layer.rasterizationScale = scale;
+        self.lbl_swipeSkip.clipsToBounds = NO;
+        
+        // Add shadow to play/pause button
+        self.btn_playPause.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.btn_playPause.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+        self.btn_playPause.layer.shadowOpacity = 1;   
+        self.btn_playPause.layer.shadowRadius = 2.0;
+        self.lbl_titleLabel.layer.shouldRasterize = YES;
+        self.lbl_titleLabel.layer.rasterizationScale = scale;
+        self.btn_playPause.clipsToBounds = NO;
+        
+        // Add shadow to the rewind button
+        self.btn_restart.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.btn_restart.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+        self.btn_restart.layer.shadowOpacity = 1;   
+        self.btn_restart.layer.shadowRadius = 2.0;
+        self.btn_restart.layer.shouldRasterize = YES;
+        self.btn_restart.layer.rasterizationScale = scale;
+        self.btn_restart.clipsToBounds = NO;
+        
+        // Add shadow to the volume slider
+        self.sld_volumeControl.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.sld_volumeControl.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+        self.sld_volumeControl.layer.shadowOpacity = 1;   
+        self.sld_volumeControl.layer.shadowRadius = 2.0;
+        self.sld_volumeControl.layer.shouldRasterize = YES;
+        self.sld_volumeControl.layer.rasterizationScale = scale;
+        self.sld_volumeControl.clipsToBounds = NO;
         
         // Add shadow to the info button
         self.btn_info.layer.shadowColor = [UIColor blackColor].CGColor;
         self.btn_info.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-        self.btn_info.layer.shadowOpacity = 0.75;   
-        self.btn_info.layer.shadowRadius = 3.0;
+        self.btn_info.layer.shadowOpacity = 1;   
+        self.btn_info.layer.shadowRadius = 2.0;
         self.btn_info.layer.shouldRasterize = YES;
         self.btn_info.layer.rasterizationScale = scale;
-        //self.btn_info.clipsToBounds = NO;*/
+        self.btn_info.clipsToBounds = NO;*/
         
         // Setup buttons
-        UIImage *doneButtonImageNormal = [UIImage imageNamed:@"button_roundrect_lightgrey.png"];
+        /*UIImage *doneButtonImageNormal = [UIImage imageNamed:@"button_roundrect_lightgrey.png"];
         UIImage *stretchableDoneButtonImageNormal = [doneButtonImageNormal stretchableImageWithLeftCapWidth:44 topCapHeight:22];
         [self.btn_done setBackgroundImage:stretchableDoneButtonImageNormal forState:UIControlStateNormal];
-        [self.btn_done.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
+        [self.btn_done.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];*/
         
+        
+        // Add rounded corners to custom buttons
+        self.btn_done.layer.cornerRadius = 8;
+        
+        // Add border to custom buttons
+        [self.btn_done.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+        [self.btn_done.layer setBorderWidth: 1.0];
+        
+        // Set highlight state background color of custom buttons
+        CGRect rect = CGRectMake(0, 0, 1, 1);
+        UIGraphicsBeginImageContext(rect.size);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSetFillColorWithColor(context, [[UIColor lightGrayColor] CGColor]);
+        CGContextFillRect(context, rect);
+        UIImage *lightGreyImg = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        [self.btn_done setBackgroundImage:lightGreyImg forState:UIControlStateHighlighted];
+        [self.btn_done setTitleShadowColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
         
         [self addSubview:self.view];
     }
@@ -189,18 +208,18 @@
 {
     [self.iv_background dealloc];
     [self.lbl_titleLabel dealloc];
-    [self.lbl_instructions dealloc];
     [self.btn_playPause dealloc];
     [self.btn_restart dealloc];
     [self.sld_volumeControl dealloc];
     [self.lbl_swipeSkip dealloc];
     
     [self.btn_done dealloc];
+    [self.btn_info dealloc];
     
     [super dealloc];
 }
 
-#pragma mark - Swipe to continue animation
+/*#pragma mark - Swipe to continue animation
 - (void)textLabelAnimation {
     self.view.layer.backgroundColor = [[UIColor blackColor] CGColor];
     
@@ -245,6 +264,23 @@
     textLayer.shadowRadius = 3.0;
     
     [self.view.layer addSublayer:textLayer];
+}*/
+
+#pragma mark - Done button animation
+- (void)showDoneButton {
+    CGRect endRect = self.btn_done.frame;
+    CGRect startRect = endRect;
+    startRect.origin.y -= endRect.size.height;
+    
+    // Move button off the screen
+    self.btn_done.frame = startRect;
+    
+    // Make sure the button is visible
+    [self.btn_done setHidden:NO];
+    
+    [UIView animateWithDuration:2.0
+                     animations:^{self.btn_done.frame = endRect;}
+                     completion:^(BOOL finished){  }];
 }
 
 #pragma mark - Audio Action Methods
@@ -315,11 +351,15 @@
     [self.btn_playPause setSelected:NO];
     
     if ([state intValue] == kMEDITATIONCOMPLETED) {
-        [self textLabelAnimation];
+        //[self textLabelAnimation];
+        [self.lbl_swipeSkip setHidden:NO];
+        [self.lbl_swipeSkip setTextWithChangeAnimation:self.lbl_swipeSkip.text reverse:YES withTextShadow:YES];
+        
         [self.btn_playPause setImage:[UIImage imageNamed:@"Itunes-Button--Back-256.png"] forState:UIControlStateNormal];
         [self.btn_restart setHidden:YES];
         [self.sld_volumeControl setHidden:YES];
-        [self.btn_done setHidden:NO];
+        //[self.btn_done setHidden:NO];
+        [self showDoneButton];
     }
     
     [self.delegate meditationDidFinishWithState:state];

@@ -41,7 +41,9 @@ NSString* const ui_WELCOME_CONTRIBUTE           = @"Drafts have 3 parts: a hasht
 
 
 // Strings for shAnti
-NSString* const ui_INFO_SCHEDULEREMINDER1           = @"Thanks for trying shAnti!\n\nYou’ve completed your first meditation. Most users find listening to 3 mini-meditations a day is most helpful in establishing a daily meditation practice, but you should do whatever feels right.\n\nWe do recommend you schedule a time to meditate tomorrow by pressing the button below to set a reminder. Returning to shanti to practice mindfulness for as little as 2 minutes every day will help you make meditating a habit.";
+NSString* const ui_INFO_SCHEDULEREMINDER1           = @"Returning to shanti to practice mindfulness for as little as 2 minutes a day will help you make meditation a habit.\n\nMeditating regularly has been shown to help people accomplish everything from reducing stress and anxiety, to improving their memory, focus, and overall level of happiness.";
+
+NSString* const ui_INFO_FEEDBACK1                   = @"shanti is currently developing more meditations for you to experience.\n\nWe welcome any feedback to improve shanti for you and others who want to make meditation a habit.";
 
 NSString* const ui_INFO_SCHEDULEREMINDER2           = @"Nicely done!\n\nYou’ve completed your second meditation. Most users find listening to 3 mini-meditations a day is most helpful in establishing a daily meditation practice, but you should do whatever feels right.\n\nContinue to experience another shAnti meditation or schedule a time to meditate tomorrow by pressing the button below to set a reminder. Returning to shanti to practice mindfulness for as little as 2 minutes every day will help you make meditating a habit.";
 

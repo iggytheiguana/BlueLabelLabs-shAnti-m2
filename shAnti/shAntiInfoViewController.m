@@ -57,7 +57,7 @@
     //[self.navigationController setNavigationBarHidden:YES animated:NO];
     
     // Navigation Bar properties
-    self.navigationItem.title = @"shAnti";
+    self.navigationItem.title = @"Schedule";
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     
     // Navigation Bar Buttons

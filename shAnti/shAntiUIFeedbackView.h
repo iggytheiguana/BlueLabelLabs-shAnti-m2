@@ -20,12 +20,14 @@
     
     UIView  *m_view;
     
+    UILabel     *m_lbl_instructionLabel;
     UIButton    *m_btn_feedback;
 }
 
 @property (nonatomic, assign) id<shAntiUIFeedbackViewDelegate> delegate;
 
 @property (nonatomic, retain) IBOutlet UIView       *view;
+@property (nonatomic, retain) IBOutlet UILabel      *lbl_instructionLabel;
 @property (nonatomic, retain) IBOutlet UIButton     *btn_feedback;
 
 -(IBAction)onFeedbackButtonPressed:(id)sender;

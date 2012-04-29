@@ -89,11 +89,32 @@
         [self.btn_newUser.layer setBorderColor: [[UIColor lightGrayColor] CGColor]];
         [self.btn_newUser.layer setBorderWidth: 1.0];
         
+        // Add mask on custom buttons
+        [self.btn_loginFacebook.layer setMasksToBounds:YES];
+        [self.btn_loginTwitter.layer setMasksToBounds:YES];
+        [self.btn_login.layer setMasksToBounds:YES];
+        [self.btn_newUser.layer setMasksToBounds:YES];
+        
         // Set text shadow of custom buttons
         [self.btn_loginFacebook.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
         [self.btn_loginTwitter.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
         //[self.btn_login.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
         //[self.btn_newUser.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
+        
+        // Set highlight state background color of custom buttons
+        CGRect rect = CGRectMake(0, 0, 1, 1);
+        UIGraphicsBeginImageContext(rect.size);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSetFillColorWithColor(context, [[UIColor lightGrayColor] CGColor]);
+        CGContextFillRect(context, rect);
+        UIImage *lightGreyImg = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        [self.btn_login setBackgroundImage:lightGreyImg forState:UIControlStateHighlighted];
+        [self.btn_newUser setBackgroundImage:lightGreyImg forState:UIControlStateHighlighted];
+        [self.btn_login setTitleShadowColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+        [self.btn_newUser setTitleShadowColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+        
     }
     return self;
 }
@@ -184,7 +205,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     
     // Navigation Bar properties
-    self.navigationItem.title = @"shAnti";
+    self.navigationItem.title = @"Login";
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     
     // Navigation Bar Buttons
@@ -522,6 +543,7 @@
 - (void) textFieldDidBeginEditing:(UITextField *)textField
 {
     self.tf_active = textField;
+    self.lbl_error.hidden = YES;
 }
 
 #pragma mark - Keyboard Handlers
@@ -551,10 +573,12 @@
     // Your application might not need or want this behavior.
     CGRect aRect = self.view.frame;
     aRect.size.height -= kbSize.height;
-    if (!CGRectContainsPoint(aRect, self.tf_active.frame.origin)) {
-        CGPoint scrollPoint = CGPointMake(0.0, self.tf_active.frame.origin.y+(self.tf_active.frame.size.height*1.5)-kbSize.height);
+    //if (!CGRectContainsPoint(aRect, self.tf_active.frame.origin)) {
+        //CGPoint scrollPoint = CGPointMake(0.0, self.tf_active.frame.origin.y+(self.tf_active.frame.size.height*1.5)-kbSize.height);
+        
+        CGPoint scrollPoint = CGPointMake(0.0, self.tf_active.frame.origin.y-(self.tf_active.frame.size.height*1.5));
         [self.sv_scrollView setContentOffset:scrollPoint animated:YES];
-    }
+    //}
 }
 
 // Called when the UIKeyboardWillHideNotification is sent
@@ -611,7 +635,9 @@
     self.lbl_error.hidden = YES;
     
     if (email != nil &&
-        password != nil)
+        password != nil &&
+        ![email isEqualToString: @""] &&
+        ![password isEqualToString: @""])
     {
     
         shAntiAppDelegate* appDelegate = (shAntiAppDelegate*)[[UIApplication sharedApplication]delegate];
@@ -624,6 +650,9 @@
         [resourceContext getAuthenticatorTokenWithEmail:email withPassword:password withDeviceToken:deviceToken onFinishNotify:callback];
         
         [callback release];
+    }
+    else {
+        self.lbl_error.hidden = NO;
     }
     
 }

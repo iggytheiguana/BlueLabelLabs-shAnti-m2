@@ -17,8 +17,6 @@
 		523862C31545B9A500985797 /* shAntiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 523862C11545B9A500985797 /* shAntiViewController.xib */; };
 		523862D01545BA8100985797 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862CF1545BA8100985797 /* appIcon.png */; };
 		523862D21545BA8600985797 /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862D11545BA8600985797 /* appIcon@2x.png */; };
-		523862D41545BA9100985797 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862D31545BA9100985797 /* Default.png */; };
-		523862D61545BA9300985797 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862D51545BA9300985797 /* Default@2x.png */; };
 		523862DB1545BABC00985797 /* icon-pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862D71545BABC00985797 /* icon-pause.png */; };
 		523862DC1545BABC00985797 /* icon-pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862D81545BABC00985797 /* icon-pause@2x.png */; };
 		523862DD1545BABC00985797 /* icon-play.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862D91545BABC00985797 /* icon-play.png */; };
@@ -65,6 +63,16 @@
 		5239EEC4154CD761004BABF7 /* shAntiUIFeedbackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239EEC3154CD761004BABF7 /* shAntiUIFeedbackView.m */; };
 		5239EEC6154CD773004BABF7 /* shAntiUIFeedbackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEC5154CD773004BABF7 /* shAntiUIFeedbackView.xib */; };
 		5239EEC8154D2976004BABF7 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEC7154D2976004BABF7 /* bg.png */; };
+		5239EECA154DA4AA004BABF7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEC9154DA4A9004BABF7 /* Default.png */; };
+		5239EECC154DA4B0004BABF7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EECB154DA4AF004BABF7 /* Default@2x.png */; };
+		5239EED2154DB200004BABF7 /* UICustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239EED1154DB200004BABF7 /* UICustomButton.m */; };
+		5239EED8154DC5FC004BABF7 /* UILabel+ScrollingHighlightAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239EED7154DC5FC004BABF7 /* UILabel+ScrollingHighlightAnimation.m */; };
+		5239EEDC154DC9CD004BABF7 /* shAntiIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239EEDA154DC9CB004BABF7 /* shAntiIntroViewController.m */; };
+		5239EEDD154DC9CD004BABF7 /* shAntiIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEDB154DC9CC004BABF7 /* shAntiIntroViewController.xib */; };
+		5239EEE0154DD156004BABF7 /* flower_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEDE154DD156004BABF7 /* flower_background.png */; };
+		5239EEE1154DD156004BABF7 /* flower_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEDF154DD156004BABF7 /* flower_background@2x.png */; };
+		5239EEE4154DDFB7004BABF7 /* shanti_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEE2154DDFB6004BABF7 /* shanti_logo.png */; };
+		5239EEE5154DDFB7004BABF7 /* shanti_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEE3154DDFB6004BABF7 /* shanti_logo@2x.png */; };
 		5240ED181545C6F7003C0048 /* UIPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5240ED171545C6F7003C0048 /* UIPagedScrollView.m */; };
 		526634CB1545FBF500ED70AF /* shAntiUIMeditationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 526634CA1545FBF500ED70AF /* shAntiUIMeditationView.m */; };
 		526634CD1545FC2900ED70AF /* shAntiUIMeditationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526634CC1545FC2900ED70AF /* shAntiUIMeditationView.xib */; };
@@ -217,8 +225,6 @@
 		523862C21545B9A500985797 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/shAntiViewController.xib; sourceTree = "<group>"; };
 		523862CF1545BA8100985797 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		523862D11545BA8600985797 /* appIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@2x.png"; sourceTree = "<group>"; };
-		523862D31545BA9100985797 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		523862D51545BA9300985797 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		523862D71545BABC00985797 /* icon-pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-pause.png"; sourceTree = "<group>"; };
 		523862D81545BABC00985797 /* icon-pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-pause@2x.png"; sourceTree = "<group>"; };
 		523862D91545BABC00985797 /* icon-play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-play.png"; sourceTree = "<group>"; };
@@ -269,6 +275,19 @@
 		5239EEC3154CD761004BABF7 /* shAntiUIFeedbackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shAntiUIFeedbackView.m; sourceTree = "<group>"; };
 		5239EEC5154CD773004BABF7 /* shAntiUIFeedbackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shAntiUIFeedbackView.xib; sourceTree = "<group>"; };
 		5239EEC7154D2976004BABF7 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		5239EEC9154DA4A9004BABF7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5239EECB154DA4AF004BABF7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5239EED0154DB200004BABF7 /* UICustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomButton.h; sourceTree = "<group>"; };
+		5239EED1154DB200004BABF7 /* UICustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomButton.m; sourceTree = "<group>"; };
+		5239EED6154DC5FC004BABF7 /* UILabel+ScrollingHighlightAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+ScrollingHighlightAnimation.h"; sourceTree = "<group>"; };
+		5239EED7154DC5FC004BABF7 /* UILabel+ScrollingHighlightAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ScrollingHighlightAnimation.m"; sourceTree = "<group>"; };
+		5239EED9154DC9CA004BABF7 /* shAntiIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shAntiIntroViewController.h; sourceTree = "<group>"; };
+		5239EEDA154DC9CB004BABF7 /* shAntiIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shAntiIntroViewController.m; sourceTree = "<group>"; };
+		5239EEDB154DC9CC004BABF7 /* shAntiIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shAntiIntroViewController.xib; sourceTree = "<group>"; };
+		5239EEDE154DD156004BABF7 /* flower_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flower_background.png; sourceTree = "<group>"; };
+		5239EEDF154DD156004BABF7 /* flower_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flower_background@2x.png"; sourceTree = "<group>"; };
+		5239EEE2154DDFB6004BABF7 /* shanti_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shanti_logo.png; sourceTree = "<group>"; };
+		5239EEE3154DDFB6004BABF7 /* shanti_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shanti_logo@2x.png"; sourceTree = "<group>"; };
 		5240ED161545C6F7003C0048 /* UIPagedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPagedScrollView.h; sourceTree = "<group>"; };
 		5240ED171545C6F7003C0048 /* UIPagedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPagedScrollView.m; sourceTree = "<group>"; };
 		526634C91545FBF500ED70AF /* shAntiUIMeditationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shAntiUIMeditationView.h; sourceTree = "<group>"; };
@@ -592,14 +611,14 @@
 		5238629D1545B9A400985797 = {
 			isa = PBXGroup;
 			children = (
+				5239EECB154DA4AF004BABF7 /* Default@2x.png */,
+				5239EEC9154DA4A9004BABF7 /* Default.png */,
 				C535C15715474E9D006F9148 /* libxml2.dylib */,
 				C535C0D715474CA1006F9148 /* libxml2.2.dylib */,
 				C535C0D815474CA1006F9148 /* libz.1.1.3.dylib */,
 				C535C0D915474CA1006F9148 /* libz.1.2.5.dylib */,
 				C535C0DA15474CA1006F9148 /* libz.dylib */,
 				C535BFC615474979006F9148 /* Platform */,
-				523862D51545BA9300985797 /* Default@2x.png */,
-				523862D31545BA9100985797 /* Default.png */,
 				523862D11545BA8600985797 /* appIcon@2x.png */,
 				523862CF1545BA8100985797 /* appIcon.png */,
 				523862CE1545BA5E00985797 /* Resources */,
@@ -664,6 +683,8 @@
 		523862CE1545BA5E00985797 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5239EEE2154DDFB6004BABF7 /* shanti_logo.png */,
+				5239EEE3154DDFB6004BABF7 /* shanti_logo@2x.png */,
 				5239EEA0154C5E4A004BABF7 /* background-01.png */,
 				5239EEA1154C5E4A004BABF7 /* background-01@2x.png */,
 				5239EEA4154C641D004BABF7 /* background-02.png */,
@@ -672,6 +693,8 @@
 				5239EEA9154C6A27004BABF7 /* background-03@2x.png */,
 				5239EEAC154C726B004BABF7 /* background-04.png */,
 				5239EEAD154C726B004BABF7 /* background-04@2x.png */,
+				5239EEDE154DD156004BABF7 /* flower_background.png */,
+				5239EEDF154DD156004BABF7 /* flower_background@2x.png */,
 				5239EE92154B6B82004BABF7 /* Mask.png */,
 				5239EE80154B1B41004BABF7 /* button_roundrect_blue.png */,
 				5239EE81154B1B41004BABF7 /* button_roundrect_blue@2x.png */,
@@ -722,6 +745,9 @@
 				5239EEBD154CBF58004BABF7 /* shAntiAccountViewController.h */,
 				5239EEBE154CBF5A004BABF7 /* shAntiAccountViewController.m */,
 				5239EEBF154CBF63004BABF7 /* shAntiAccountViewController.xib */,
+				5239EED9154DC9CA004BABF7 /* shAntiIntroViewController.h */,
+				5239EEDA154DC9CB004BABF7 /* shAntiIntroViewController.m */,
+				5239EEDB154DC9CC004BABF7 /* shAntiIntroViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -743,6 +769,8 @@
 				C5F0E3CC1549C35E00ACA71E /* UIProgressHUDView.xib */,
 				5240ED161545C6F7003C0048 /* UIPagedScrollView.h */,
 				5240ED171545C6F7003C0048 /* UIPagedScrollView.m */,
+				5239EED0154DB200004BABF7 /* UICustomButton.h */,
+				5239EED1154DB200004BABF7 /* UICustomButton.m */,
 			);
 			name = "Generic Views";
 			sourceTree = "<group>";
@@ -870,6 +898,8 @@
 				C535C01615474A52006F9148 /* NSDictionary-MutableDeepCopy.m */,
 				5239EE6D154A0575004BABF7 /* NSMutableArray+NSMutableArrayCategory.h */,
 				5239EE6E154A0575004BABF7 /* NSMutableArray+NSMutableArrayCategory.m */,
+				5239EED6154DC5FC004BABF7 /* UILabel+ScrollingHighlightAnimation.h */,
+				5239EED7154DC5FC004BABF7 /* UILabel+ScrollingHighlightAnimation.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1255,8 +1285,6 @@
 				523862C31545B9A500985797 /* shAntiViewController.xib in Resources */,
 				523862D01545BA8100985797 /* appIcon.png in Resources */,
 				523862D21545BA8600985797 /* appIcon@2x.png in Resources */,
-				523862D41545BA9100985797 /* Default.png in Resources */,
-				523862D61545BA9300985797 /* Default@2x.png in Resources */,
 				523862DB1545BABC00985797 /* icon-pause.png in Resources */,
 				523862DC1545BABC00985797 /* icon-pause@2x.png in Resources */,
 				523862DD1545BABC00985797 /* icon-play.png in Resources */,
@@ -1302,6 +1330,13 @@
 				5239EEC1154CBF72004BABF7 /* shAntiAccountViewController.xib in Resources */,
 				5239EEC6154CD773004BABF7 /* shAntiUIFeedbackView.xib in Resources */,
 				5239EEC8154D2976004BABF7 /* bg.png in Resources */,
+				5239EECA154DA4AA004BABF7 /* Default.png in Resources */,
+				5239EECC154DA4B0004BABF7 /* Default@2x.png in Resources */,
+				5239EEDD154DC9CD004BABF7 /* shAntiIntroViewController.xib in Resources */,
+				5239EEE0154DD156004BABF7 /* flower_background.png in Resources */,
+				5239EEE1154DD156004BABF7 /* flower_background@2x.png in Resources */,
+				5239EEE4154DDFB7004BABF7 /* shanti_logo.png in Resources */,
+				5239EEE5154DDFB7004BABF7 /* shanti_logo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1450,6 +1485,9 @@
 				5239EE6F154A0575004BABF7 /* NSMutableArray+NSMutableArrayCategory.m in Sources */,
 				5239EEC0154CBF72004BABF7 /* shAntiAccountViewController.m in Sources */,
 				5239EEC4154CD761004BABF7 /* shAntiUIFeedbackView.m in Sources */,
+				5239EED2154DB200004BABF7 /* UICustomButton.m in Sources */,
+				5239EED8154DC5FC004BABF7 /* UILabel+ScrollingHighlightAnimation.m in Sources */,
+				5239EEDC154DC9CD004BABF7 /* shAntiIntroViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

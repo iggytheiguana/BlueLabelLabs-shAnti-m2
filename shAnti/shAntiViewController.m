@@ -16,6 +16,7 @@
 #import "shAntiAccountViewController.h"
 #import "shAntiUIFeedbackView.h"
 #import <sys/utsname.h>
+#import "shAntiIntroViewController.h"
 
 #define PADDING 20
 
@@ -73,8 +74,8 @@
         ResourceContext* resourceContext = [ResourceContext instance];
         [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
         
-        // Create user default settings for first run, sequence completion, last position, and logged in check
-        [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_ISFIRSTRUN];
+        // Create user default settings for sequence completion, last position, and logged in check
+        //[userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_ISFIRSTRUN];
         [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_HASCOMPLETEDSEQUENCE];
         [userDefaults setObject:[NSNumber numberWithInt:0] forKey:setting_LASTPOSITION];
         [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_DIDSKIPLOGIN];
@@ -163,6 +164,21 @@
         
         [onSucccessCallback release];
         [onFailCallback release];
+    }
+    else if ([userDefaults objectForKey:setting_ISFIRSTRUN] == nil || [userDefaults boolForKey:setting_ISFIRSTRUN] == YES) {
+        // Create user default settings for first run
+        [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_ISFIRSTRUN];
+        [userDefaults synchronize];
+        
+        // Launch introduction view controller
+        shAntiIntroViewController* introViewController = [shAntiIntroViewController createInstance];
+        
+        UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:introViewController];
+        navigationController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        [navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+        
+        [self presentModalViewController:navigationController animated:YES];
+        [navigationController release];
     }
     
 }
@@ -287,11 +303,12 @@ machineNameSettingsFeedback()
 #pragma mark - shAntiUIMeditationView Delegate
 -(IBAction)onDoneButtonPressed:(id)sender {
     //shAntiInfoViewController *infoView = [[[shAntiInfoViewController alloc] initWithNibName:@"shAntiInfoViewController" bundle:nil] autorelease];
-    shAntiInfoViewController *infoView = [shAntiInfoViewController createInstanceWithMessage:ui_INFO_SCHEDULEREMINDER4 showFeedbackButton:NO];
+    shAntiInfoViewController *infoView = [shAntiInfoViewController createInstanceWithMessage:ui_INFO_SCHEDULEREMINDER1 showFeedbackButton:NO];
     infoView.delegate = self;
     
     UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:infoView];
     navigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     
     [self presentModalViewController:navigationController animated:YES];
     [navigationController release];

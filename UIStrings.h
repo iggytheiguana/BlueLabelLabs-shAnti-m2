@@ -32,6 +32,7 @@ extern NSString* const ui_WELCOME_CONTRIBUTE;
 
 // Strings for shAnti
 extern NSString* const ui_INFO_SCHEDULEREMINDER1;
+extern NSString* const ui_INFO_FEEDBACK1;
 extern NSString* const ui_INFO_SCHEDULEREMINDER2;
 extern NSString* const ui_INFO_SCHEDULEREMINDER3;
 extern NSString* const ui_INFO_SCHEDULEREMINDER4;

@@ -9,6 +9,7 @@
 #import "shAntiAccountViewController.h"
 #import <sys/utsname.h>
 #import "LoginViewController.h"
+#import "shAntiIntroViewController.h"
 
 @interface shAntiAccountViewController ()
 
@@ -380,7 +381,15 @@ machineNameSettings()
         // Introduction replay section
         
         if (indexPath.row == 0) {
-            // TODO: push intro VC
+            shAntiIntroViewController* introViewController = [shAntiIntroViewController createInstance];
+            
+            UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:introViewController];
+            navigationController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+            [navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+            
+            [self presentModalViewController:navigationController animated:YES];
+            [navigationController release];
+
         }
     }
     else if (indexPath.section == 3) {

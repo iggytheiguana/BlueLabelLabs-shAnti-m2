@@ -29,7 +29,6 @@
     
     UIImageView     *m_iv_background;
     UILabel         *m_lbl_titleLabel;
-    UILabel         *m_lbl_instructions;
     UIButton        *m_btn_playPause;
     UIButton        *m_btn_restart;
     UISlider        *m_sld_volumeControl;
@@ -47,7 +46,6 @@
 
 @property (nonatomic, retain) IBOutlet UIImageView  *iv_background;
 @property (nonatomic, retain) IBOutlet UILabel      *lbl_titleLabel;
-@property (nonatomic, retain) IBOutlet UILabel      *lbl_instructions;
 @property (nonatomic, retain) IBOutlet UIButton     *btn_playPause;
 @property (nonatomic, retain) IBOutlet UIButton     *btn_restart;
 @property (nonatomic, retain) IBOutlet UISlider     *sld_volumeControl;
@@ -65,5 +63,7 @@
 -(void)restartAudio;
 -(void)stopAudio;
 -(void)adjustVolume;
+
+-(IBAction)onVolumeSliderChanged:(id)sender;
 
 @end

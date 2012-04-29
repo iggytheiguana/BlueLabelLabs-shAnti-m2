@@ -7,9 +7,11 @@
 //
 
 #import "shAntiUIFeedbackView.h"
+#import "UIStrings.h"
 
 @implementation shAntiUIFeedbackView
 
+@synthesize lbl_instructionLabel = m_lbl_instructionLabel;
 @synthesize btn_feedback    = m_btn_feedback;
 @synthesize view            = m_view;
 
@@ -47,9 +49,20 @@
         [self.btn_feedback setBackgroundImage:stretchableFeedbackButtonImageNormal forState:UIControlStateNormal];
         [self.btn_feedback.titleLabel setShadowOffset:CGSizeMake(0.0, 1.0)];
         
+        // Set text on instruction label
+        [self.lbl_instructionLabel setText:ui_INFO_FEEDBACK1];
+        
         [self addSubview:self.view];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [self.lbl_instructionLabel dealloc];
+    [self.btn_feedback dealloc];
+    
+    [super dealloc];
 }
 
 /*
