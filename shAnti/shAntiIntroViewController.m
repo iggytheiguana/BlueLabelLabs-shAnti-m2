@@ -72,15 +72,15 @@
         [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundPattern.png"]]];
         //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
         
-        CGFloat scale = [[UIScreen mainScreen] scale]; 
+        //CGFloat scale = [[UIScreen mainScreen] scale]; 
         
         // Add shadow to title label
         self.lbl_titleLabel.layer.shadowColor = [UIColor blackColor].CGColor;
         self.lbl_titleLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
         self.lbl_titleLabel.layer.shadowOpacity = 1;   
         self.lbl_titleLabel.layer.shadowRadius = 2.0;
-        self.lbl_titleLabel.layer.shouldRasterize = YES;
-        self.lbl_titleLabel.layer.rasterizationScale = scale;
+        //self.lbl_titleLabel.layer.shouldRasterize = YES;
+        //self.lbl_titleLabel.layer.rasterizationScale = scale;
         self.lbl_titleLabel.clipsToBounds = NO;
         
         // Add shadow to instruction label
@@ -88,8 +88,8 @@
         self.lbl_instructionLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
         self.lbl_instructionLabel.layer.shadowOpacity = 1;   
         self.lbl_instructionLabel.layer.shadowRadius = 2.0;
-        self.lbl_instructionLabel.layer.shouldRasterize = YES;
-        self.lbl_instructionLabel.layer.rasterizationScale = scale;
+        //self.lbl_instructionLabel.layer.shouldRasterize = YES;
+        //self.lbl_instructionLabel.layer.rasterizationScale = scale;
         self.lbl_instructionLabel.clipsToBounds = NO;
     }
     return self;

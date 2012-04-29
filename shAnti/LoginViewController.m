@@ -661,10 +661,12 @@
     //let us begin the facebook authentication process
     [self beginFacebookAuthentication];
 }
+
 - (IBAction) onTwitterButtonPressed:(id)sender
 {
     [self beginTwitterAuthentication];
 }
+
 - (IBAction) onNewUserButtonPressed:(id)sender
 {
     //lets load up the signup controller in modal view
@@ -683,7 +685,7 @@
 - (void) onAuthenticationFailed:(Callback*)callback
 {
 //   NSString* activityName = @"LoginViewController.onAuthenticationFailed:";
-//    self.lbl_error.hidden = NO; 
+    self.lbl_error.hidden = NO; 
 }
 
 - (void) onUserLoggedIn:(CallbackResult *)result
@@ -691,7 +693,7 @@
 //    NSString* activityName = @"LoginViewController.onUserLoggedIn:";
 //    
 //    
-//    [self dismissModalViewControllerAnimated:YES];
+    [self dismissModalViewControllerAnimated:YES];
     
 }
 

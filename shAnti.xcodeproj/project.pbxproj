@@ -210,7 +210,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		523862A81545B9A400985797 /* shAnti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shAnti.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		523862A81545B9A400985797 /* shanti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shanti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		523862AC1545B9A400985797 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		523862AE1545B9A500985797 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		523862B01545B9A500985797 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -288,6 +288,7 @@
 		5239EEDF154DD156004BABF7 /* flower_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flower_background@2x.png"; sourceTree = "<group>"; };
 		5239EEE2154DDFB6004BABF7 /* shanti_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shanti_logo.png; sourceTree = "<group>"; };
 		5239EEE3154DDFB6004BABF7 /* shanti_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shanti_logo@2x.png"; sourceTree = "<group>"; };
+		5239EEE6154DEB09004BABF7 /* shanti.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = shanti.entitlements; path = shanti/shanti.entitlements; sourceTree = "<group>"; };
 		5240ED161545C6F7003C0048 /* UIPagedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPagedScrollView.h; sourceTree = "<group>"; };
 		5240ED171545C6F7003C0048 /* UIPagedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPagedScrollView.m; sourceTree = "<group>"; };
 		526634C91545FBF500ED70AF /* shAntiUIMeditationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shAntiUIMeditationView.h; sourceTree = "<group>"; };
@@ -611,6 +612,7 @@
 		5238629D1545B9A400985797 = {
 			isa = PBXGroup;
 			children = (
+				5239EEE6154DEB09004BABF7 /* shanti.entitlements */,
 				5239EECB154DA4AF004BABF7 /* Default@2x.png */,
 				5239EEC9154DA4A9004BABF7 /* Default.png */,
 				C535C15715474E9D006F9148 /* libxml2.dylib */,
@@ -631,7 +633,7 @@
 		523862A91545B9A400985797 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				523862A81545B9A400985797 /* shAnti.app */,
+				523862A81545B9A400985797 /* shanti.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1246,7 +1248,7 @@
 			);
 			name = shanti;
 			productName = shAnti;
-			productReference = 523862A81545B9A400985797 /* shAnti.app */;
+			productReference = 523862A81545B9A400985797 /* shanti.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1561,6 +1563,7 @@
 		523862C71545B9A500985797 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = shanti/shanti.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "shAnti/shAnti-Prefix.pch";
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = DEBUG;
@@ -1578,6 +1581,7 @@
 		523862C81545B9A500985797 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = shanti/shanti.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "shAnti/shAnti-Prefix.pch";
 				INFOPLIST_FILE = "shAnti/shAnti-Info.plist";

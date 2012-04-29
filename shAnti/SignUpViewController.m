@@ -12,6 +12,7 @@
 #import "ApplicationSettingsManager.h"
 #import "GetAuthenticatorResponse.h"
 #import "ErrorCodes.h"
+#import "DateTimeHelper.h"
 
 @implementation SignUpViewController
 @synthesize sv_scrollView   = m_sv_scrollView;
@@ -244,8 +245,12 @@
     NSString* password2 = self.tf_password2.text;
     NSString* email = self.tf_email.text;
     NSString* displayName = self.tf_displayName.text;
+    
+    // Generate random username
+    NSDate* now = [NSDate date];
     //NSString* username = self.tf_username.text;
-    NSString* username = [self.tf_displayName.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString* usernameTEMP = [self.tf_displayName.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString* username = [NSString stringWithFormat:@"%@_%d", usernameTEMP, [DateTimeHelper convertDateToDouble:now]];
     
     if (![password isEqualToString:password2]) {
         // passwords do not match
@@ -311,7 +316,6 @@
     {
         [self dismissModalViewControllerAnimated:YES];
     }
-    
                             
 }
 

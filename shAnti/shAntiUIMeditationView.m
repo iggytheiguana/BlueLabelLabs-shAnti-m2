@@ -86,7 +86,7 @@
             NSLog(@"Error! Could not load shAntiUIMeditationView file.\n");
         }
         
-        CGFloat scale = [[UIScreen mainScreen] scale]; 
+        //CGFloat scale = [[UIScreen mainScreen] scale]; 
         
         // Add a boarder to the image view
         //[self.iv_background.layer setBorderColor: [[UIColor whiteColor] CGColor]];
@@ -101,23 +101,23 @@
         self.iv_background.layer.rasterizationScale = scale;
         self.iv_background.clipsToBounds = NO;*/
         
-        // Add shadow to title label
+        /*// Add shadow to title label
         self.lbl_titleLabel.layer.shadowColor = [UIColor blackColor].CGColor;
         self.lbl_titleLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
         self.lbl_titleLabel.layer.shadowOpacity = 1;   
         self.lbl_titleLabel.layer.shadowRadius = 2.0;
-        self.lbl_titleLabel.layer.shouldRasterize = YES;
-        self.lbl_titleLabel.layer.rasterizationScale = scale;
+        //self.lbl_titleLabel.layer.shouldRasterize = YES;
+        //self.lbl_titleLabel.layer.rasterizationScale = scale;
         self.lbl_titleLabel.clipsToBounds = NO;
         
         // Add shadow to the done button
         self.btn_done.layer.shadowColor = [UIColor blackColor].CGColor;
         self.btn_done.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-        self.btn_done.layer.shadowOpacity = 1;   
+        self.btn_done.layer.shadowOpacity = 0.75;   
         self.btn_done.layer.shadowRadius = 3.0;
-        self.btn_done.layer.shouldRasterize = YES;
-        self.btn_done.layer.rasterizationScale = scale;
-        self.btn_done.clipsToBounds = NO;
+        //self.btn_done.layer.shouldRasterize = YES;
+        //self.btn_done.layer.rasterizationScale = scale;
+        self.btn_done.clipsToBounds = NO;*/
         
         /*// Add shadow to swipeToSkip label
         self.lbl_swipeSkip.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -171,7 +171,7 @@
         [self.btn_done.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];*/
         
         
-        // Add rounded corners to custom buttons
+        /*// Add rounded corners to custom buttons
         self.btn_done.layer.cornerRadius = 8;
         
         // Add border to custom buttons
@@ -188,7 +188,7 @@
         UIGraphicsEndImageContext();
         
         [self.btn_done setBackgroundImage:lightGreyImg forState:UIControlStateHighlighted];
-        [self.btn_done setTitleShadowColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+        [self.btn_done setTitleShadowColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];*/
         
         [self addSubview:self.view];
     }
@@ -201,6 +201,7 @@
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
+    
 }
 */
 
