@@ -14,7 +14,7 @@
 @required
 
 -(void)meditationDidStart;
-- (void)meditationDidFinishWithState:(NSNumber *)state;
+-(void)meditationDidFinishWithState:(NSNumber *)state;
 -(IBAction)onPlayPauseButtonPressed:(id)sender;
 -(IBAction)onRestartButtonPressed:(id)sender;
 -(IBAction)onDoneButtonPressed:(id)sender;

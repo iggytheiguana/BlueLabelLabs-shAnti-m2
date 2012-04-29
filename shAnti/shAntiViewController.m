@@ -13,6 +13,9 @@
 #import "MeditationState.h"
 #import "NSMutableArray+NSMutableArrayCategory.h"
 #import "UIStrings.h"
+#import "shAntiAccountViewController.h"
+#import "shAntiUIFeedbackView.h"
+#import <sys/utsname.h>
 
 #define PADDING 20
 
@@ -34,7 +37,16 @@
     if (self) {
         // Custom initialization
         
-        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundPattern.png"]]];
+        // Set background pattern
+        //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundPattern.png"]]];
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
+        
+        // Add shadow to the page control indicator
+        self.pageControl.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.pageControl.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+        self.pageControl.layer.shadowOpacity = 1.0;   
+        self.pageControl.layer.shadowRadius = 5.0;
+        
     }
     return self;
 }
@@ -61,10 +73,11 @@
         ResourceContext* resourceContext = [ResourceContext instance];
         [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
         
-        // Create user default settings for first run, sequence completion, and last position
+        // Create user default settings for first run, sequence completion, last position, and logged in check
         [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_ISFIRSTRUN];
         [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_HASCOMPLETEDSEQUENCE];
         [userDefaults setObject:[NSNumber numberWithInt:0] forKey:setting_LASTPOSITION];
+        [userDefaults setObject:[NSNumber numberWithBool:NO] forKey:setting_DIDSKIPLOGIN];
         [userDefaults synchronize];
     }
     else {
@@ -93,6 +106,10 @@
                 [userDefaults setBool:YES forKey:setting_HASCOMPLETEDSEQUENCE];
             }
         }
+        
+        // Set login check back to default
+        [userDefaults setBool:NO forKey:setting_DIDSKIPLOGIN];
+        
         [userDefaults synchronize];
     }
     
@@ -136,17 +153,17 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if (![self.authenticationManager isUserAuthenticated]) 
-    {
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    if (![self.authenticationManager isUserAuthenticated] && [userDefaults boolForKey:setting_DIDSKIPLOGIN] == NO) {
         Callback* onSucccessCallback = [[Callback alloc]initWithTarget:self withSelector:@selector(onNotificationsButtonClicked:) withContext:nil];        
         Callback* onFailCallback = [[Callback alloc]initWithTarget:self withSelector:@selector(onLoginFailed:)];
         [self authenticateAndGetFacebook:NO getTwitter:NO onSuccessCallback:onSucccessCallback onFailureCallback:onFailCallback];
         
-        
         [onSucccessCallback release];
         [onFailCallback release];
     }
-    
     
 }
 - (void)viewDidUnload
@@ -163,37 +180,103 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - Feedback Mail Helper	
+NSString*	
+machineNameSettingsFeedback()
+{
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    return [NSString stringWithCString:systemInfo.machine
+                              encoding:NSUTF8StringEncoding];
+}
+
+- (void)composeFeedbackMail {
+    // Get version information about the app and phone to prepopulate in the email
+    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString* appVersionNum = [infoDict objectForKey:@"CFBundleShortVersionString"];
+    NSString* appName = [infoDict objectForKey:@"CFBundleDisplayName"];
+    NSString* deviceType = machineNameSettingsFeedback();
+    NSString* currSysVer = [[UIDevice currentDevice] systemVersion];
+    
+    AuthenticationManager* authenticationManager = [AuthenticationManager instance];
+    NSNumber* loggedInUserID = authenticationManager.m_LoggedInUserID;
+    
+    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+    picker.mailComposeDelegate = self;
+    
+    // Set the email subject
+    [picker setSubject:[NSString stringWithFormat:@"%@ Feedback!", appName]];
+    
+    NSArray *toRecipients = [NSArray arrayWithObjects:@"contact@bluelabellabs.com", nil];
+    [picker setToRecipients:toRecipients];
+    
+    NSString *messageHeader = [NSString stringWithFormat:@"I'm using %@ version %@ on my %@ running iOS %@, %@.<br><br>--- Please add your message below this line ---", appName, appVersionNum, deviceType, currSysVer, [loggedInUserID stringValue]];
+    [picker setMessageBody:messageHeader isHTML:YES];
+    
+    // Present the mail composition interface
+    [self presentModalViewController:picker animated:YES];
+    [picker release]; // Can safely release the controller now.
+}
+
+#pragma mark - MailComposeController Delegate
+// The mail compose view controller delegate method
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError *)error
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 #pragma mark - UIPagedScrollView Delegate
 - (NSInteger)numberOfPagesInScrollView {
     int count = [self.meditations count];
-    return count;
+    return count + 1;   // We add one to the count of meditation objects to account for the feedback page at the end
 }
 
 - (UIView*)viewForPage:(int)page {
-    shAntiUIMeditationView *meditationView = [[[shAntiUIMeditationView alloc] initWithFrame:self.sv_pageViewSlider.frame] autorelease];
-    meditationView.delegate = self;
+    UIView *pageView;
     
-    // Get the Meditation object for the page
-    Meditation *meditation = [self.meditations objectAtIndex:page];
+    int meditationsCount = [self.meditations count];
     
-    meditationView.lbl_titleLabel.text = meditation.title;
+    if (page == meditationsCount) {
+        // Return the feedback page
+        shAntiUIFeedbackView *feedbackView = [[[shAntiUIFeedbackView alloc] initWithFrame:self.sv_pageViewSlider.frame] autorelease];
+        feedbackView.delegate = self;
+        
+        pageView = (UIView *)feedbackView;
+    }
+    else {
+        shAntiUIMeditationView *meditationView = [[[shAntiUIMeditationView alloc] initWithFrame:self.sv_pageViewSlider.frame] autorelease];
+        meditationView.delegate = self;
+        
+        // Get the Meditation object for the page
+        Meditation *meditation = [self.meditations objectAtIndex:page];
+        
+        meditationView.lbl_titleLabel.text = meditation.title;
+        
+        meditationView.iv_background.image = [UIImage imageNamed:meditation.imageurl];
+        //meditationView.iv_background.image = [UIImage imageNamed:@"stock-photo-2038361-moon-meditation.jpg"];
+        
+        NSURL *audioFileURL = [NSURL URLWithString:meditation.audiourl];
+        //NSURL *audioFileURL = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+        //                                                      pathForResource:@"med5short"
+        //                                                      ofType:@"mp3"]];
+        [meditationView loadAudioWithFile:audioFileURL];
+        
+        pageView = (UIView *)meditationView;
+    }
     
-    meditationView.iv_background.image = [UIImage imageNamed:meditation.imageurl];
-    //meditationView.iv_background.image = [UIImage imageNamed:@"stock-photo-2038361-moon-meditation.jpg"];
-    
-    NSURL *audioFileURL = [NSURL URLWithString:meditation.audiourl];
-    //NSURL *audioFileURL = [NSURL fileURLWithPath:[[NSBundle mainBundle]
-    //                                                      pathForResource:@"med5short"
-    //                                                      ofType:@"mp3"]];
-    [meditationView loadAudioWithFile:audioFileURL];
-    
-    return meditationView;
+    return pageView;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     // Stop audio
-    shAntiUIMeditationView *meditationView = (shAntiUIMeditationView *)[self.sv_pageViewSlider currentVisiblePageView];
-    [meditationView stopAudio];
+    
+    if (self.sv_pageViewSlider.currentVisiblePageIndex != [self.meditations count]) {
+        // only process if we are not at the last page
+        shAntiUIMeditationView *meditationView = (shAntiUIMeditationView *)[self.sv_pageViewSlider currentVisiblePageView];
+        [meditationView stopAudio];
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -215,18 +298,29 @@
 }
 
 -(IBAction)onInfoButtonPressed:(id)sender {
-    shAntiInfoViewController *infoView = [shAntiInfoViewController createInstanceWithMessage:ui_INFO_SCHEDULEREMINDER4 showFeedbackButton:YES];
-    infoView.delegate = self;
+    shAntiAccountViewController *accountViewController = [shAntiAccountViewController createInstance];
     
-    UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:infoView];
+    UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:accountViewController];
     navigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     
     [self presentModalViewController:navigationController animated:YES];
     [navigationController release];
 }
 
 -(IBAction)onPlayPauseButtonPressed:(id)sender {
+    UIButton *playPauseButton = (UIButton *)sender;
     
+    if (playPauseButton.selected) {
+        // Playing
+        // Lock the slider
+        [self.sv_pageViewSlider setScrollEnabled:NO];
+    }
+    else {
+        // Paused
+        // Unlock the slider
+        [self.sv_pageViewSlider setScrollEnabled:YES];
+    }
 }
 
 -(IBAction)onRestartButtonPressed:(id)sender {
@@ -234,6 +328,9 @@
 }
 
 -(void)meditationDidStart {
+    // Lock the slider
+    [self.sv_pageViewSlider setScrollEnabled:NO];
+    
     // Get the Meditation object for the page
     NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
     Meditation *meditation = [self.meditations objectAtIndex:currentPage];
@@ -271,6 +368,9 @@
 }
 
 - (void)meditationDidFinishWithState:(NSNumber *)state {
+    // Unlock the slider
+    [self.sv_pageViewSlider setScrollEnabled:YES];
+    
     // Get the Meditation object for the page
     NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
     Meditation *meditation = [self.meditations objectAtIndex:currentPage];
@@ -300,6 +400,11 @@
     }
     
     [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
+}
+
+#pragma mark - shAntiUIFeedbackViewController Delegate
+-(IBAction)onFeedbackButtonPressed:(id)sender {
+    [self composeFeedbackMail];
 }
 
 #pragma mark - shAntiInfoViewController Delegate

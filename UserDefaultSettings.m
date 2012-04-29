@@ -21,3 +21,4 @@ NSString* const setting_HASVIEWEDCONTRIBUTEVC = @"hasViewedContributeVC";
 NSString* const setting_ISFIRSTRUN = @"isfirstrun";
 NSString* const setting_HASCOMPLETEDSEQUENCE = @"hascompletedsequence";
 NSString* const setting_LASTPOSITION = @"lastposition";
+NSString* const setting_DIDSKIPLOGIN = @"didskiplogin";

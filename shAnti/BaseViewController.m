@@ -355,11 +355,13 @@
                   onFailureCallback:(Callback*)failCallback 
 {
     LoginViewController* loginViewController = [LoginViewController createAuthenticationInstance:getFaceobook shouldGetTwitter:getTwitter onSuccessCallback:successCallback onFailureCallback:failCallback];
-   
-    [self  presentModalViewController:loginViewController animated:YES];
     
+    UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:loginViewController];
+    navigationController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     
-    
+    [self presentModalViewController:navigationController animated:YES];
+    [navigationController release];
     
 }
 - (void) authenticate:(BOOL)facebook 

@@ -41,6 +41,10 @@
     if (self) {
         // Custom initialization
         
+        // Set background pattern
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundPattern.png"]]];
+        //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
+        
     }
     return self;
 }
@@ -58,19 +62,17 @@
     
     // Navigation Bar Buttons
     UIBarButtonItem* rightButton = [[[UIBarButtonItem alloc]
-                                     initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                     initWithTitle:@"Continue" 
+                                     style:UIBarButtonItemStyleDone
                                      target:self
                                      action:@selector(onContinueButtonPressed:)] autorelease];
     self.navigationItem.rightBarButtonItem = rightButton;
-    
-    // Set background pattern
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundPattern.png"]]];
     
     // Setup buttons
     UIImage *feedbackButtonImageNormal = [UIImage imageNamed:@"button_roundrect_lightgrey.png"];
     UIImage *stretchableFeedbackButtonImageNormal = [feedbackButtonImageNormal stretchableImageWithLeftCapWidth:44 topCapHeight:22];
     [self.btn_feedback setBackgroundImage:stretchableFeedbackButtonImageNormal forState:UIControlStateNormal];
-    [self.btn_feedback.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
+    [self.btn_feedback.titleLabel setShadowOffset:CGSizeMake(0.0, 1.0)];
     
     /*UIImage *feedbackButtonImageSelected = [UIImage imageNamed:@"button_roundrect_lightgrey_selected.png"];
     UIImage *stretchableFeedbackButtonImageSelected = [feedbackButtonImageSelected stretchableImageWithLeftCapWidth:44 topCapHeight:22];
@@ -165,7 +167,7 @@
 
 #pragma mark - Feedback Mail Helper	
 NSString*	
-machineNameSettings()
+machineNameSettingsInfo()
 {
     struct utsname systemInfo;
     uname(&systemInfo);
@@ -178,7 +180,7 @@ machineNameSettings()
     NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString* appVersionNum = [infoDict objectForKey:@"CFBundleShortVersionString"];
     NSString* appName = [infoDict objectForKey:@"CFBundleDisplayName"];
-    NSString* deviceType = machineNameSettings();
+    NSString* deviceType = machineNameSettingsInfo();
     NSString* currSysVer = [[UIDevice currentDevice] systemVersion];
     
     AuthenticationManager* authenticationManager = [AuthenticationManager instance];

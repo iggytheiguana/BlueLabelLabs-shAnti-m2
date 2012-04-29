@@ -17,11 +17,14 @@
 #import "Response.h"
 #import "NSStringGUIDCategory.h"
 #import "SignUpViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import "UserDefaultSettings.h"
 
 #define kMaximumBusyWaitTimeFacebookLogin       30
 #define kMaximumBusyWaitTimePutAuthenticator    30
 
 @implementation LoginViewController
+@synthesize sv_scrollView       = m_sv_scrollView;
 @synthesize btn_login           = m_btn_login;
 @synthesize btn_newUser         = m_btn_newUser;
 @synthesize btn_loginTwitter    = m_btn_loginTwitter;
@@ -65,6 +68,32 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        // Set background pattern
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundPattern.png"]]];
+        //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
+        
+        // Add rounded corners to custom buttons
+        self.btn_loginFacebook.layer.cornerRadius = 8;
+        self.btn_loginTwitter.layer.cornerRadius = 8;
+        self.btn_login.layer.cornerRadius = 8;
+        self.btn_newUser.layer.cornerRadius = 8;
+        
+        // Add border to custom buttons
+        [self.btn_loginFacebook.layer setBorderColor: [[UIColor lightGrayColor] CGColor]];
+        [self.btn_loginFacebook.layer setBorderWidth: 1.0];
+        [self.btn_loginTwitter.layer setBorderColor: [[UIColor lightGrayColor] CGColor]];
+        [self.btn_loginTwitter.layer setBorderWidth: 1.0];
+        [self.btn_login.layer setBorderColor: [[UIColor lightGrayColor] CGColor]];
+        [self.btn_login.layer setBorderWidth: 1.0];
+        [self.btn_newUser.layer setBorderColor: [[UIColor lightGrayColor] CGColor]];
+        [self.btn_newUser.layer setBorderWidth: 1.0];
+        
+        // Set text shadow of custom buttons
+        [self.btn_loginFacebook.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
+        [self.btn_loginTwitter.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
+        //[self.btn_login.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
+        //[self.btn_newUser.titleLabel setShadowOffset:CGSizeMake(0.0, -1.0)];
     }
     return self;
 }
@@ -151,8 +180,34 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    // Make sure navigation bar is shown
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     
+    // Navigation Bar properties
+    self.navigationItem.title = @"shAnti";
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+    
+    // Navigation Bar Buttons
+    UIBarButtonItem* rightButton = [[[UIBarButtonItem alloc]
+                                     initWithTitle:@"Later" 
+                                     style:UIBarButtonItemStyleDone
+                                     target:self
+                                     action:@selector(onLaterButtonPressed:)] autorelease];
+    self.navigationItem.rightBarButtonItem = rightButton;
 
+    // Register for keyboard notifications to slide view up when typing
+    [self registerForKeyboardNotifications];
+    
+    // Enable the gesture recognizer on the view to handle a single tap to hide the keyboard
+    UITapGestureRecognizer *oneFingerTap = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundClick:)] autorelease];
+    // Set required taps and number of touches
+    [oneFingerTap setNumberOfTapsRequired:1];
+    [oneFingerTap setNumberOfTouchesRequired:1];
+    [oneFingerTap setCancelsTouchesInView:NO];
+    // Add the gesture to the view
+    [self.sv_scrollView addGestureRecognizer:oneFingerTap];
+    
+    // Hide Login Error label
     self.lbl_error.hidden = YES;
 }
 
@@ -161,6 +216,15 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    
+    self.btn_login = nil;
+    self.btn_loginFacebook = nil;
+    self.btn_loginTwitter = nil;
+    self.btn_newUser = nil;
+    self.tf_email = nil;
+    self.tf_password = nil;
+    self.lbl_error = nil;
+    self.tf_active = nil;
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -460,7 +524,83 @@
     self.tf_active = textField;
 }
 
+#pragma mark - Keyboard Handlers
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    self.sv_scrollView.contentInset = contentInsets;
+    self.sv_scrollView.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your application might not need or want this behavior.
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    if (!CGRectContainsPoint(aRect, self.tf_active.frame.origin)) {
+        CGPoint scrollPoint = CGPointMake(0.0, self.tf_active.frame.origin.y+(self.tf_active.frame.size.height*1.5)-kbSize.height);
+        [self.sv_scrollView setContentOffset:scrollPoint animated:YES];
+    }
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    
+    [UIView beginAnimations:@"keyboardWillBeHiddenAnimation" context:nil];
+    [UIView setAnimationDuration:0.35];
+    
+    self.sv_scrollView.contentInset = contentInsets;
+    self.sv_scrollView.scrollIndicatorInsets = contentInsets;
+    
+    [UIView commitAnimations];
+}
+
+// Handles keyboard Return button pressed while editing a textfield to dismiss the keyboard
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSInteger nextTag = textField.tag + 1;
+    // Try to find next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        // Found next responder, so set it.
+        [textField resignFirstResponder];
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Not found, so remove keyboard.
+        [textField resignFirstResponder];
+    }
+    return NO; // We do not want UITextField to insert line-breaks.
+}
+
+// Hides Keyboard when user touches screen outside of editable text view or field
+- (IBAction)backgroundClick:(id)sender
+{
+    [self.tf_active resignFirstResponder];
+}
+
 #pragma mark - IBAction handlers
+- (void)onLaterButtonPressed:(id)sender {
+    // User skipped login, don't show them login screen again this instance
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:YES forKey:setting_DIDSKIPLOGIN];
+    
+    [self.navigationController dismissModalViewControllerAnimated:YES];
+}
 
 - (IBAction) onLoginButtonPressed:(id)sender
 {
@@ -501,7 +641,12 @@
     //lets load up the signup controller in modal view
     SignUpViewController* signUpViewController = [SignUpViewController createInstance];
     
-    [self presentModalViewController:signUpViewController animated:YES];
+    UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:signUpViewController];
+    navigationController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+    
+    [self presentModalViewController:navigationController animated:YES];
+    [navigationController release];
 }
 
 

@@ -43,6 +43,28 @@
 		5239EE8B154B1B41004BABF7 /* button_roundrect_lightgrey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE85154B1B41004BABF7 /* button_roundrect_lightgrey@2x.png */; };
 		5239EE8F154B337D004BABF7 /* med5short.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE8E154B337D004BABF7 /* med5short.mp3 */; };
 		5239EE91154B57FA004BABF7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5239EE90154B57F9004BABF7 /* MessageUI.framework */; };
+		5239EE93154B6B82004BABF7 /* Mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE92154B6B82004BABF7 /* Mask.png */; };
+		5239EE99154B6E44004BABF7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5239EE98154B6E44004BABF7 /* QuartzCore.framework */; };
+		5239EE9C154C5139004BABF7 /* Itunes-Button--Back-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE9A154C5138004BABF7 /* Itunes-Button--Back-256.png */; };
+		5239EE9D154C5139004BABF7 /* Itunes-Button--Play-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE9B154C5138004BABF7 /* Itunes-Button--Play-256.png */; };
+		5239EE9F154C52AF004BABF7 /* Itunes-Button--Pause-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE9E154C52AF004BABF7 /* Itunes-Button--Pause-256.png */; };
+		5239EEA2154C5E4A004BABF7 /* background-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEA0154C5E4A004BABF7 /* background-01.png */; };
+		5239EEA3154C5E4A004BABF7 /* background-01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEA1154C5E4A004BABF7 /* background-01@2x.png */; };
+		5239EEA6154C641E004BABF7 /* background-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEA4154C641D004BABF7 /* background-02.png */; };
+		5239EEA7154C641E004BABF7 /* background-02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEA5154C641E004BABF7 /* background-02@2x.png */; };
+		5239EEAA154C6A27004BABF7 /* background-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEA8154C6A27004BABF7 /* background-03.png */; };
+		5239EEAB154C6A27004BABF7 /* background-03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEA9154C6A27004BABF7 /* background-03@2x.png */; };
+		5239EEAE154C726B004BABF7 /* background-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEAC154C726B004BABF7 /* background-04.png */; };
+		5239EEAF154C726B004BABF7 /* background-04@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEAD154C726B004BABF7 /* background-04@2x.png */; };
+		5239EEB2154C7897004BABF7 /* icon-facebook-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEB0154C7897004BABF7 /* icon-facebook-white.png */; };
+		5239EEB3154C7897004BABF7 /* icon-facebook-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEB1154C7897004BABF7 /* icon-facebook-white@2x.png */; };
+		5239EEB6154C78A0004BABF7 /* icon-twitter-t-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEB4154C78A0004BABF7 /* icon-twitter-t-white.png */; };
+		5239EEB7154C78A0004BABF7 /* icon-twitter-t-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEB5154C78A0004BABF7 /* icon-twitter-t-white@2x.png */; };
+		5239EEC0154CBF72004BABF7 /* shAntiAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239EEBE154CBF5A004BABF7 /* shAntiAccountViewController.m */; };
+		5239EEC1154CBF72004BABF7 /* shAntiAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEBF154CBF63004BABF7 /* shAntiAccountViewController.xib */; };
+		5239EEC4154CD761004BABF7 /* shAntiUIFeedbackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239EEC3154CD761004BABF7 /* shAntiUIFeedbackView.m */; };
+		5239EEC6154CD773004BABF7 /* shAntiUIFeedbackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEC5154CD773004BABF7 /* shAntiUIFeedbackView.xib */; };
+		5239EEC8154D2976004BABF7 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEC7154D2976004BABF7 /* bg.png */; };
 		5240ED181545C6F7003C0048 /* UIPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5240ED171545C6F7003C0048 /* UIPagedScrollView.m */; };
 		526634CB1545FBF500ED70AF /* shAntiUIMeditationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 526634CA1545FBF500ED70AF /* shAntiUIMeditationView.m */; };
 		526634CD1545FC2900ED70AF /* shAntiUIMeditationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526634CC1545FC2900ED70AF /* shAntiUIMeditationView.xib */; };
@@ -223,6 +245,30 @@
 		5239EE85154B1B41004BABF7 /* button_roundrect_lightgrey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_roundrect_lightgrey@2x.png"; sourceTree = "<group>"; };
 		5239EE8E154B337D004BABF7 /* med5short.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = med5short.mp3; sourceTree = "<group>"; };
 		5239EE90154B57F9004BABF7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		5239EE92154B6B82004BABF7 /* Mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mask.png; sourceTree = "<group>"; };
+		5239EE98154B6E44004BABF7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5239EE9A154C5138004BABF7 /* Itunes-Button--Back-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Itunes-Button--Back-256.png"; sourceTree = "<group>"; };
+		5239EE9B154C5138004BABF7 /* Itunes-Button--Play-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Itunes-Button--Play-256.png"; sourceTree = "<group>"; };
+		5239EE9E154C52AF004BABF7 /* Itunes-Button--Pause-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Itunes-Button--Pause-256.png"; sourceTree = "<group>"; };
+		5239EEA0154C5E4A004BABF7 /* background-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-01.png"; sourceTree = "<group>"; };
+		5239EEA1154C5E4A004BABF7 /* background-01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-01@2x.png"; sourceTree = "<group>"; };
+		5239EEA4154C641D004BABF7 /* background-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-02.png"; sourceTree = "<group>"; };
+		5239EEA5154C641E004BABF7 /* background-02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-02@2x.png"; sourceTree = "<group>"; };
+		5239EEA8154C6A27004BABF7 /* background-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-03.png"; sourceTree = "<group>"; };
+		5239EEA9154C6A27004BABF7 /* background-03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-03@2x.png"; sourceTree = "<group>"; };
+		5239EEAC154C726B004BABF7 /* background-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-04.png"; sourceTree = "<group>"; };
+		5239EEAD154C726B004BABF7 /* background-04@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-04@2x.png"; sourceTree = "<group>"; };
+		5239EEB0154C7897004BABF7 /* icon-facebook-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-facebook-white.png"; sourceTree = "<group>"; };
+		5239EEB1154C7897004BABF7 /* icon-facebook-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-facebook-white@2x.png"; sourceTree = "<group>"; };
+		5239EEB4154C78A0004BABF7 /* icon-twitter-t-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-twitter-t-white.png"; sourceTree = "<group>"; };
+		5239EEB5154C78A0004BABF7 /* icon-twitter-t-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-twitter-t-white@2x.png"; sourceTree = "<group>"; };
+		5239EEBD154CBF58004BABF7 /* shAntiAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shAntiAccountViewController.h; sourceTree = "<group>"; };
+		5239EEBE154CBF5A004BABF7 /* shAntiAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shAntiAccountViewController.m; sourceTree = "<group>"; };
+		5239EEBF154CBF63004BABF7 /* shAntiAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shAntiAccountViewController.xib; sourceTree = "<group>"; };
+		5239EEC2154CD760004BABF7 /* shAntiUIFeedbackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shAntiUIFeedbackView.h; sourceTree = "<group>"; };
+		5239EEC3154CD761004BABF7 /* shAntiUIFeedbackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shAntiUIFeedbackView.m; sourceTree = "<group>"; };
+		5239EEC5154CD773004BABF7 /* shAntiUIFeedbackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shAntiUIFeedbackView.xib; sourceTree = "<group>"; };
+		5239EEC7154D2976004BABF7 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		5240ED161545C6F7003C0048 /* UIPagedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPagedScrollView.h; sourceTree = "<group>"; };
 		5240ED171545C6F7003C0048 /* UIPagedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPagedScrollView.m; sourceTree = "<group>"; };
 		526634C91545FBF500ED70AF /* shAntiUIMeditationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shAntiUIMeditationView.h; sourceTree = "<group>"; };
@@ -518,6 +564,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5239EE99154B6E44004BABF7 /* QuartzCore.framework in Frameworks */,
 				5239EE91154B57FA004BABF7 /* MessageUI.framework in Frameworks */,
 				5239EE6A1549F5BE004BABF7 /* EventKit.framework in Frameworks */,
 				5239EE681549F4A4004BABF7 /* EventKitUI.framework in Frameworks */,
@@ -573,6 +620,7 @@
 		523862AB1545B9A400985797 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5239EE98154B6E44004BABF7 /* QuartzCore.framework */,
 				5239EE90154B57F9004BABF7 /* MessageUI.framework */,
 				5239EE691549F5BD004BABF7 /* EventKit.framework */,
 				5239EE671549F4A4004BABF7 /* EventKitUI.framework */,
@@ -616,12 +664,22 @@
 		523862CE1545BA5E00985797 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5239EEA0154C5E4A004BABF7 /* background-01.png */,
+				5239EEA1154C5E4A004BABF7 /* background-01@2x.png */,
+				5239EEA4154C641D004BABF7 /* background-02.png */,
+				5239EEA5154C641E004BABF7 /* background-02@2x.png */,
+				5239EEA8154C6A27004BABF7 /* background-03.png */,
+				5239EEA9154C6A27004BABF7 /* background-03@2x.png */,
+				5239EEAC154C726B004BABF7 /* background-04.png */,
+				5239EEAD154C726B004BABF7 /* background-04@2x.png */,
+				5239EE92154B6B82004BABF7 /* Mask.png */,
 				5239EE80154B1B41004BABF7 /* button_roundrect_blue.png */,
 				5239EE81154B1B41004BABF7 /* button_roundrect_blue@2x.png */,
 				5239EE82154B1B41004BABF7 /* button_roundrect_lightgrey_selected.png */,
 				5239EE83154B1B41004BABF7 /* button_roundrect_lightgrey_selected@2x.png */,
 				5239EE84154B1B41004BABF7 /* button_roundrect_lightgrey.png */,
 				5239EE85154B1B41004BABF7 /* button_roundrect_lightgrey@2x.png */,
+				5239EEC7154D2976004BABF7 /* bg.png */,
 				5239EE78154ADD33004BABF7 /* backgroundPattern.png */,
 				5239EE79154ADD33004BABF7 /* backgroundPattern@2x.png */,
 				523862E51545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg */,
@@ -633,6 +691,13 @@
 				523862DA1545BABC00985797 /* icon-play@2x.png */,
 				523862DF1545BACC00985797 /* icon-rewind.png */,
 				523862E01545BACC00985797 /* icon-rewind@2x.png */,
+				5239EEB0154C7897004BABF7 /* icon-facebook-white.png */,
+				5239EEB1154C7897004BABF7 /* icon-facebook-white@2x.png */,
+				5239EEB4154C78A0004BABF7 /* icon-twitter-t-white.png */,
+				5239EEB5154C78A0004BABF7 /* icon-twitter-t-white@2x.png */,
+				5239EE9A154C5138004BABF7 /* Itunes-Button--Back-256.png */,
+				5239EE9B154C5138004BABF7 /* Itunes-Button--Play-256.png */,
+				5239EE9E154C52AF004BABF7 /* Itunes-Button--Pause-256.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -640,11 +705,11 @@
 		5239EE4215472B4E004BABF7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C5F0E3C71549C34400ACA71E /* BaseViewController.h */,
+				C5F0E3C81549C34400ACA71E /* BaseViewController.m */,
 				C5F0E3E11549C49100ACA71E /* SignUpViewController.h */,
 				C5F0E3E21549C49100ACA71E /* SignUpViewController.m */,
 				C5F0E3E31549C49100ACA71E /* SignUpViewController.xib */,
-				C5F0E3C71549C34400ACA71E /* BaseViewController.h */,
-				C5F0E3C81549C34400ACA71E /* BaseViewController.m */,
 				C5F0E3C11549C32800ACA71E /* LoginViewController.h */,
 				C5F0E3C21549C32800ACA71E /* LoginViewController.m */,
 				C5F0E3C31549C32800ACA71E /* LoginViewController.xib */,
@@ -654,6 +719,9 @@
 				5239EE3D154726AE004BABF7 /* shAntiInfoViewController.h */,
 				5239EE3E154726AE004BABF7 /* shAntiInfoViewController.m */,
 				5239EE3F154726AE004BABF7 /* shAntiInfoViewController.xib */,
+				5239EEBD154CBF58004BABF7 /* shAntiAccountViewController.h */,
+				5239EEBE154CBF5A004BABF7 /* shAntiAccountViewController.m */,
+				5239EEBF154CBF63004BABF7 /* shAntiAccountViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -685,6 +753,9 @@
 				526634C91545FBF500ED70AF /* shAntiUIMeditationView.h */,
 				526634CA1545FBF500ED70AF /* shAntiUIMeditationView.m */,
 				526634CC1545FC2900ED70AF /* shAntiUIMeditationView.xib */,
+				5239EEC2154CD760004BABF7 /* shAntiUIFeedbackView.h */,
+				5239EEC3154CD761004BABF7 /* shAntiUIFeedbackView.m */,
+				5239EEC5154CD773004BABF7 /* shAntiUIFeedbackView.xib */,
 				5240ED1A1545C711003C0048 /* Generic Views */,
 			);
 			name = Views;
@@ -1130,9 +1201,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		523862A71545B9A400985797 /* shAnti */ = {
+		523862A71545B9A400985797 /* shanti */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 523862C61545B9A500985797 /* Build configuration list for PBXNativeTarget "shAnti" */;
+			buildConfigurationList = 523862C61545B9A500985797 /* Build configuration list for PBXNativeTarget "shanti" */;
 			buildPhases = (
 				523862A41545B9A400985797 /* Sources */,
 				523862A51545B9A400985797 /* Frameworks */,
@@ -1143,7 +1214,7 @@
 			);
 			dependencies = (
 			);
-			name = shAnti;
+			name = shanti;
 			productName = shAnti;
 			productReference = 523862A81545B9A400985797 /* shAnti.app */;
 			productType = "com.apple.product-type.application";
@@ -1170,7 +1241,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				523862A71545B9A400985797 /* shAnti */,
+				523862A71545B9A400985797 /* shanti */,
 			);
 		};
 /* End PBXProject section */
@@ -1212,6 +1283,25 @@
 				5239EE8A154B1B41004BABF7 /* button_roundrect_lightgrey.png in Resources */,
 				5239EE8B154B1B41004BABF7 /* button_roundrect_lightgrey@2x.png in Resources */,
 				5239EE8F154B337D004BABF7 /* med5short.mp3 in Resources */,
+				5239EE93154B6B82004BABF7 /* Mask.png in Resources */,
+				5239EE9C154C5139004BABF7 /* Itunes-Button--Back-256.png in Resources */,
+				5239EE9D154C5139004BABF7 /* Itunes-Button--Play-256.png in Resources */,
+				5239EE9F154C52AF004BABF7 /* Itunes-Button--Pause-256.png in Resources */,
+				5239EEA2154C5E4A004BABF7 /* background-01.png in Resources */,
+				5239EEA3154C5E4A004BABF7 /* background-01@2x.png in Resources */,
+				5239EEA6154C641E004BABF7 /* background-02.png in Resources */,
+				5239EEA7154C641E004BABF7 /* background-02@2x.png in Resources */,
+				5239EEAA154C6A27004BABF7 /* background-03.png in Resources */,
+				5239EEAB154C6A27004BABF7 /* background-03@2x.png in Resources */,
+				5239EEAE154C726B004BABF7 /* background-04.png in Resources */,
+				5239EEAF154C726B004BABF7 /* background-04@2x.png in Resources */,
+				5239EEB2154C7897004BABF7 /* icon-facebook-white.png in Resources */,
+				5239EEB3154C7897004BABF7 /* icon-facebook-white@2x.png in Resources */,
+				5239EEB6154C78A0004BABF7 /* icon-twitter-t-white.png in Resources */,
+				5239EEB7154C78A0004BABF7 /* icon-twitter-t-white@2x.png in Resources */,
+				5239EEC1154CBF72004BABF7 /* shAntiAccountViewController.xib in Resources */,
+				5239EEC6154CD773004BABF7 /* shAntiUIFeedbackView.xib in Resources */,
+				5239EEC8154D2976004BABF7 /* bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1358,6 +1448,8 @@
 				C5F0E3F51549C7CA00ACA71E /* WebServiceVerbs.m in Sources */,
 				C5F0E3F81549C87000ACA71E /* WebServiceParameters.m in Sources */,
 				5239EE6F154A0575004BABF7 /* NSMutableArray+NSMutableArrayCategory.m in Sources */,
+				5239EEC0154CBF72004BABF7 /* shAntiAccountViewController.m in Sources */,
+				5239EEC4154CD761004BABF7 /* shAntiUIFeedbackView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1473,7 +1565,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		523862C61545B9A500985797 /* Build configuration list for PBXNativeTarget "shAnti" */ = {
+		523862C61545B9A500985797 /* Build configuration list for PBXNativeTarget "shanti" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				523862C71545B9A500985797 /* Debug */,
