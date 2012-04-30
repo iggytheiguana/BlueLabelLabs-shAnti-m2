@@ -1624,7 +1624,7 @@
 		523862C81545B9A500985797 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Blue Label Solutions LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Amit Arora";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "shAnti/shAnti-Prefix.pch";
 				INFOPLIST_FILE = "shAnti/shAnti-Info.plist";
@@ -1634,7 +1634,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6E13052E-3A21-44CA-9DA8-E37C2059D421";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "85E8F8D1-0EF0-47EF-8114-5F30CD0960B6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
