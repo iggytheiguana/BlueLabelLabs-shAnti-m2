@@ -21,7 +21,6 @@
     UITextField* m_tf_active;
     
     UIButton* m_btn_join;
-    UIButton* m_btn_cancel;
     
     UILabel* m_lbl_error;
     UILabel *m_lbl_intro;
@@ -38,11 +37,10 @@
 @property (nonatomic,retain) IBOutlet UILabel*     lbl_error;
 @property (nonatomic,retain) IBOutlet UILabel*     lbl_intro;
 @property (nonatomic,retain) IBOutlet UITextField* tf_displayName;
-@property (nonatomic,retain) IBOutlet UIButton*    btn_cancel;
 @property (nonatomic,retain) UITextField*          tf_active;
 
 
 - (IBAction) onJoinPressed:(id)sender;
-- (IBAction)onCancelPressed:(id)sender;
+
 +(SignUpViewController*)createInstance;
     @end

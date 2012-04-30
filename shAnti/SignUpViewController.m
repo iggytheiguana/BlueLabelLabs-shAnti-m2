@@ -24,7 +24,6 @@
 @synthesize lbl_error       = m_lbl_error;
 @synthesize lbl_intro       = m_lbl_intro;
 @synthesize tf_displayName  = m_tf_displayName;
-@synthesize btn_cancel      = m_btn_cancel;
 @synthesize tf_active       = m_tf_active;
 
 
@@ -116,6 +115,17 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    
+    self.sv_scrollView = nil;
+    self.tf_email = nil;
+    self.tf_username = nil;
+    self.tf_password = nil;
+    self.tf_password2 = nil;
+    self.btn_join = nil;
+    self.lbl_error = nil;
+    self.lbl_intro = nil;
+    self.tf_displayName = nil;
+    
 }
 
 

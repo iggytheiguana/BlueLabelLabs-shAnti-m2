@@ -401,7 +401,7 @@ machineNameSettings()
                 [self dismissModalViewControllerAnimated:YES];
             }
             else {
-                LoginViewController* loginViewController = [LoginViewController createAuthenticationInstance:YES shouldGetTwitter:NO onSuccessCallback:nil onFailureCallback:nil];
+                LoginViewController* loginViewController = [LoginViewController createAuthenticationInstance:NO shouldGetTwitter:NO onSuccessCallback:nil onFailureCallback:nil];
                 
                 UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:loginViewController];
                 navigationController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
