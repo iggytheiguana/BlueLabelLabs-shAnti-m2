@@ -305,7 +305,7 @@
                                                       onFinishNotify:callback 
                                                    trackProgressWith:progressView];
         
-        [self showDeterminateProgressBarWithMaximumDisplayTime:settings.progress_maxsecondstodisplay onSuccessMessage:@"Welcome to shanti!" onFailureMessage:@"Error! Please try again."  inProgressMessages:[NSArray arrayWithObject:@"Creating account."]];
+        [self showDeterminateProgressBarWithMaximumDisplayTime:settings.progress_maxsecondstodisplay onSuccessMessage:@"Welcome to shanti!" onFailureMessage:@"Error! Please try again."  inProgressMessages:[NSArray arrayWithObject:@"Creating account..."]];
     }    
 }
 
