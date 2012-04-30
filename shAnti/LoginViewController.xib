@@ -413,7 +413,7 @@
 					<object class="IBUILabel" id="314717272">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">-2147483356</int>
-						<string key="NSFrame">{{110, 329}, {93, 21}}</string>
+						<string key="NSFrame">{{110, 329}, {93, 23}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="193238088"/>
@@ -432,15 +432,8 @@
 						<string key="IBUIShadowOffset">{0, 1}</string>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
-						<object class="IBUIFontDescription" key="IBUIFontDescription">
-							<int key="type">1</int>
-							<double key="pointSize">17</double>
-						</object>
-						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Helvetica</string>
-							<double key="NSSize">17</double>
-							<int key="NSfFlags">16</int>
-						</object>
+						<reference key="IBUIFontDescription" ref="731953336"/>
+						<reference key="IBUIFont" ref="404127934"/>
 					</object>
 				</array>
 				<string key="NSFrame">{{0, 64}, {320, 416}}</string>
@@ -617,9 +610,9 @@
 							<reference ref="314717272"/>
 							<reference ref="84443953"/>
 							<reference ref="255569409"/>
-							<reference ref="810179447"/>
 							<reference ref="123788946"/>
 							<reference ref="18433239"/>
+							<reference ref="810179447"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
