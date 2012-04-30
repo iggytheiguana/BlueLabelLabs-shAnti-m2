@@ -17,6 +17,10 @@
 		520AF598154EE6C800A82555 /* Itunes-Button--Back-256--shadowed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 520AF594154EE6C800A82555 /* Itunes-Button--Back-256--shadowed@2x.png */; };
 		520AF59B154EEC0800A82555 /* flower_background--shadowed.png in Resources */ = {isa = PBXBuildFile; fileRef = 520AF599154EEC0800A82555 /* flower_background--shadowed.png */; };
 		520AF59C154EEC0800A82555 /* flower_background--shadowed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 520AF59A154EEC0800A82555 /* flower_background--shadowed@2x.png */; };
+		520AF5B8154F3B1A00A82555 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEC9154DA4A9004BABF7 /* Default.png */; };
+		520AF5B9154F3B2900A82555 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EECB154DA4AF004BABF7 /* Default@2x.png */; };
+		520AF5BA154F3F8500A82555 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862CF1545BA8100985797 /* appIcon.png */; };
+		520AF5BB154F3F8900A82555 /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862D11545BA8600985797 /* appIcon@2x.png */; };
 		523862AD1545B9A500985797 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523862AC1545B9A400985797 /* UIKit.framework */; };
 		523862AF1545B9A500985797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523862AE1545B9A500985797 /* Foundation.framework */; };
 		523862B11545B9A500985797 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523862B01545B9A500985797 /* CoreGraphics.framework */; };
@@ -71,8 +75,6 @@
 		5239EEC4154CD761004BABF7 /* shAntiUIFeedbackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239EEC3154CD761004BABF7 /* shAntiUIFeedbackView.m */; };
 		5239EEC6154CD773004BABF7 /* shAntiUIFeedbackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEC5154CD773004BABF7 /* shAntiUIFeedbackView.xib */; };
 		5239EEC8154D2976004BABF7 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEC7154D2976004BABF7 /* bg.png */; };
-		5239EECA154DA4AA004BABF7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEC9154DA4A9004BABF7 /* Default.png */; };
-		5239EECC154DA4B0004BABF7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EECB154DA4AF004BABF7 /* Default@2x.png */; };
 		5239EED2154DB200004BABF7 /* UICustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239EED1154DB200004BABF7 /* UICustomButton.m */; };
 		5239EED8154DC5FC004BABF7 /* UILabel+ScrollingHighlightAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239EED7154DC5FC004BABF7 /* UILabel+ScrollingHighlightAnimation.m */; };
 		5239EEDC154DC9CD004BABF7 /* shAntiIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239EEDA154DC9CB004BABF7 /* shAntiIntroViewController.m */; };
@@ -81,8 +83,6 @@
 		5239EEE1154DD156004BABF7 /* flower_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEDF154DD156004BABF7 /* flower_background@2x.png */; };
 		5239EEE4154DDFB7004BABF7 /* shanti_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEE2154DDFB6004BABF7 /* shanti_logo.png */; };
 		5239EEE5154DDFB7004BABF7 /* shanti_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEE3154DDFB6004BABF7 /* shanti_logo@2x.png */; };
-		5239EEEB154E0232004BABF7 /* shanti_appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEE7154E012F004BABF7 /* shanti_appIcon.png */; };
-		5239EEEC154E0237004BABF7 /* shanti_appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEE9154E0135004BABF7 /* shanti_appIcon@2x.png */; };
 		5240ED181545C6F7003C0048 /* UIPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5240ED171545C6F7003C0048 /* UIPagedScrollView.m */; };
 		526634CB1545FBF500ED70AF /* shAntiUIMeditationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 526634CA1545FBF500ED70AF /* shAntiUIMeditationView.m */; };
 		526634CD1545FC2900ED70AF /* shAntiUIMeditationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526634CC1545FC2900ED70AF /* shAntiUIMeditationView.xib */; };
@@ -1364,15 +1364,11 @@
 				5239EEC1154CBF72004BABF7 /* shAntiAccountViewController.xib in Resources */,
 				5239EEC6154CD773004BABF7 /* shAntiUIFeedbackView.xib in Resources */,
 				5239EEC8154D2976004BABF7 /* bg.png in Resources */,
-				5239EECA154DA4AA004BABF7 /* Default.png in Resources */,
-				5239EECC154DA4B0004BABF7 /* Default@2x.png in Resources */,
 				5239EEDD154DC9CD004BABF7 /* shAntiIntroViewController.xib in Resources */,
 				5239EEE0154DD156004BABF7 /* flower_background.png in Resources */,
 				5239EEE1154DD156004BABF7 /* flower_background@2x.png in Resources */,
 				5239EEE4154DDFB7004BABF7 /* shanti_logo.png in Resources */,
 				5239EEE5154DDFB7004BABF7 /* shanti_logo@2x.png in Resources */,
-				5239EEEB154E0232004BABF7 /* shanti_appIcon.png in Resources */,
-				5239EEEC154E0237004BABF7 /* shanti_appIcon@2x.png in Resources */,
 				520AF58D154EE4A100A82555 /* Itunes-Button--Pause-256--shadowed.png in Resources */,
 				520AF58E154EE4A100A82555 /* Itunes-Button--Pause-256--shadowed@2x.png in Resources */,
 				520AF58F154EE4A100A82555 /* Itunes-Button--Play-256--shadowed.png in Resources */,
@@ -1383,6 +1379,10 @@
 				520AF598154EE6C800A82555 /* Itunes-Button--Back-256--shadowed@2x.png in Resources */,
 				520AF59B154EEC0800A82555 /* flower_background--shadowed.png in Resources */,
 				520AF59C154EEC0800A82555 /* flower_background--shadowed@2x.png in Resources */,
+				520AF5B8154F3B1A00A82555 /* Default.png in Resources */,
+				520AF5B9154F3B2900A82555 /* Default@2x.png in Resources */,
+				520AF5BA154F3F8500A82555 /* appIcon.png in Resources */,
+				520AF5BB154F3F8900A82555 /* appIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

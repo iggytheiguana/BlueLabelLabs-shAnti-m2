@@ -7,7 +7,6 @@
 //
 
 #import "BaseViewController.h"
-#import "UICustomButton.h"
 
 @interface LoginViewController : BaseViewController <SA_OAuthTwitterControllerDelegate, SA_OAuthTwitterEngineDelegate, FBSessionDelegate, FBRequestDelegate, UITextFieldDelegate>
 {

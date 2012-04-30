@@ -238,6 +238,7 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     
+    self.sv_scrollView = nil;
     self.btn_login = nil;
     self.btn_loginFacebook = nil;
     self.btn_loginTwitter = nil;
@@ -694,7 +695,6 @@
 //    
 //    
     [self dismissModalViewControllerAnimated:YES];
-    
 }
 
 - (void) onGetAuthenticationContextDownloaded:(CallbackResult*)result 
