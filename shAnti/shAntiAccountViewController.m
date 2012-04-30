@@ -88,8 +88,8 @@
     // Create calendar event
     EKEventStore *eventStore = [[[EKEventStore alloc] init] autorelease];
     EKEvent *event = [EKEvent eventWithEventStore:eventStore];
-    event.title = @"shAnti Meditation Reminder";
-    event.location = @"shAnti for iPhone";
+    event.title = @"shanti Meditation Reminder";
+    event.location = @"shanti for iPhone";
     
     // Create the reminder date of the next meditation
     NSDateComponents *time = [[NSCalendar currentCalendar]
@@ -102,9 +102,9 @@
     
     NSDate *reminderDateStart = [[NSCalendar currentCalendar] dateFromComponents:time];
     
-    // Set the reminder end date to the same day but 1 hour later
-    NSInteger hour = [time hour];
-    [time setHour:(hour + 1)];
+    // Set the reminder end date to the same hour but 15 minutes later
+    NSInteger minute = 15;
+    [time setMinute:minute];
     
     NSDate *reminderDateEnd = [[NSCalendar currentCalendar] dateFromComponents:time];
     
@@ -153,7 +153,7 @@ machineNameSettings()
     // Set the email subject
     [picker setSubject:[NSString stringWithFormat:@"%@ Feedback!", appName]];
     
-    NSArray *toRecipients = [NSArray arrayWithObjects:@"contact@bluelabellabs.com", nil];
+    NSArray *toRecipients = [NSArray arrayWithObjects:@"aarora1@stanford.edu", nil];
     [picker setToRecipients:toRecipients];
     
     NSString *messageHeader = [NSString stringWithFormat:@"I'm using %@ version %@ on my %@ running iOS %@, %@.<br><br>--- Please add your message below this line ---", appName, appVersionNum, deviceType, currSysVer, [loggedInUserID stringValue]];

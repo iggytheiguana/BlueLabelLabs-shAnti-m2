@@ -86,7 +86,7 @@
             NSLog(@"Error! Could not load shAntiUIMeditationView file.\n");
         }
         
-        //CGFloat scale = [[UIScreen mainScreen] scale]; 
+        CGFloat scale = [[UIScreen mainScreen] scale]; 
         
         // Add a boarder to the image view
         //[self.iv_background.layer setBorderColor: [[UIColor whiteColor] CGColor]];
@@ -105,21 +105,21 @@
         self.lbl_titleLabel.layer.shadowColor = [UIColor blackColor].CGColor;
         self.lbl_titleLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
         self.lbl_titleLabel.layer.shadowOpacity = 1;   
-        self.lbl_titleLabel.layer.shadowRadius = 2.0;
-        //self.lbl_titleLabel.layer.shouldRasterize = YES;
-        //self.lbl_titleLabel.layer.rasterizationScale = scale;
+        self.lbl_titleLabel.layer.shadowRadius = 3.0;
+        self.lbl_titleLabel.layer.shouldRasterize = YES;
+        self.lbl_titleLabel.layer.rasterizationScale = scale;
         self.lbl_titleLabel.clipsToBounds = NO;
         
         // Add shadow to the done button
         self.btn_done.layer.shadowColor = [UIColor blackColor].CGColor;
         self.btn_done.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-        self.btn_done.layer.shadowOpacity = 0.75;   
+        self.btn_done.layer.shadowOpacity = 1;   
         self.btn_done.layer.shadowRadius = 3.0;
-        //self.btn_done.layer.shouldRasterize = YES;
-        //self.btn_done.layer.rasterizationScale = scale;
+        self.btn_done.layer.shouldRasterize = YES;
+        self.btn_done.layer.rasterizationScale = scale;
         self.btn_done.clipsToBounds = NO;
         
-        /*// Add shadow to swipeToSkip label
+        // Add shadow to swipeToSkip label
         self.lbl_swipeSkip.layer.shadowColor = [UIColor blackColor].CGColor;
         self.lbl_swipeSkip.layer.shadowOffset = CGSizeMake(0.0, 0.0);
         self.lbl_swipeSkip.layer.shadowOpacity = 1;   
@@ -128,7 +128,7 @@
         self.lbl_swipeSkip.layer.rasterizationScale = scale;
         self.lbl_swipeSkip.clipsToBounds = NO;
         
-        // Add shadow to play/pause button
+        /*// Add shadow to play/pause button
         self.btn_playPause.layer.shadowColor = [UIColor blackColor].CGColor;
         self.btn_playPause.layer.shadowOffset = CGSizeMake(0.0, 0.0);
         self.btn_playPause.layer.shadowOpacity = 1;   
@@ -144,18 +144,18 @@
         self.btn_restart.layer.shadowRadius = 2.0;
         self.btn_restart.layer.shouldRasterize = YES;
         self.btn_restart.layer.rasterizationScale = scale;
-        self.btn_restart.clipsToBounds = NO;
+        self.btn_restart.clipsToBounds = NO;*/
         
-        // Add shadow to the volume slider
+        /*// Add shadow to the volume slider
         self.sld_volumeControl.layer.shadowColor = [UIColor blackColor].CGColor;
         self.sld_volumeControl.layer.shadowOffset = CGSizeMake(0.0, 0.0);
         self.sld_volumeControl.layer.shadowOpacity = 1;   
         self.sld_volumeControl.layer.shadowRadius = 2.0;
         self.sld_volumeControl.layer.shouldRasterize = YES;
         self.sld_volumeControl.layer.rasterizationScale = scale;
-        self.sld_volumeControl.clipsToBounds = NO;
+        self.sld_volumeControl.clipsToBounds = NO;*/
         
-        // Add shadow to the info button
+        /*// Add shadow to the info button
         self.btn_info.layer.shadowColor = [UIColor blackColor].CGColor;
         self.btn_info.layer.shadowOffset = CGSizeMake(0.0, 0.0);
         self.btn_info.layer.shadowOpacity = 1;   
@@ -176,7 +176,7 @@
         
         // Add border to custom buttons
         [self.btn_done.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-        [self.btn_done.layer setBorderWidth: 1.0];
+        [self.btn_done.layer setBorderWidth: 2.0];
         
         // Set highlight state background color of custom buttons
         CGRect rect = CGRectMake(0, 0, 1, 1);
@@ -207,7 +207,7 @@
 
 - (void)dealloc
 {
-    [self.iv_background dealloc];
+    //[self.iv_background dealloc];
     [self.lbl_titleLabel dealloc];
     [self.btn_playPause dealloc];
     [self.btn_restart dealloc];
@@ -315,12 +315,12 @@
     
     // Set the appropriate state for the meditation instance
     //if ([self.audioPlayer currentTime] != [self.audioPlayer duration] && [self.audioPlayer currentTime] != 0.0f) {
-    if ([self.audioPlayer currentTime] != [self.audioPlayer duration]) {
+    /*if ([self.audioPlayer currentTime] != [self.audioPlayer duration]) {
         [self meditationDidFinishWithState:[NSNumber numberWithInt:kINPROGRESS]];
     }
     else {
         [self meditationDidFinishWithState:[NSNumber numberWithInt:kMEDITATIONCOMPLETED]];
-    }
+    }*/
     
     // Get players ready for playing again
     [self.audioPlayer setCurrentTime:0.0];
@@ -356,10 +356,9 @@
         [self.lbl_swipeSkip setHidden:NO];
         [self.lbl_swipeSkip setTextWithChangeAnimation:self.lbl_swipeSkip.text reverse:YES withTextShadow:YES];
         
-        [self.btn_playPause setImage:[UIImage imageNamed:@"Itunes-Button--Back-256.png"] forState:UIControlStateNormal];
+        [self.btn_playPause setImage:[UIImage imageNamed:@"Itunes-Button--Back-256--shadowed.png"] forState:UIControlStateNormal];
         [self.btn_restart setHidden:YES];
         [self.sld_volumeControl setHidden:YES];
-        //[self.btn_done setHidden:NO];
         [self showDoneButton];
     }
     
@@ -369,11 +368,13 @@
 #pragma mark - UI Event Handlers
 -(IBAction)onDoneButtonPressed:(id)sender {
     [self stopAudio];
+    [self.lbl_swipeSkip setHidden:YES];
     [self.delegate onDoneButtonPressed:sender];
 }
 
 -(IBAction)onInfoButtonPressed:(id)sender {
     [self pauseAudio];
+    [self.lbl_swipeSkip setHidden:YES];
     [self.delegate onInfoButtonPressed:sender];
 }
 
@@ -389,7 +390,7 @@
     }
     else {
         // Pause
-        [self.btn_playPause setImage:[UIImage imageNamed:@"Itunes-Button--Play-256.png"] forState:UIControlStateNormal];
+        [self.btn_playPause setImage:[UIImage imageNamed:@"Itunes-Button--Play-256--shadowed.png"] forState:UIControlStateNormal];
         [self pauseAudio];
     }
     

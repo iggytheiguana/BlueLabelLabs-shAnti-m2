@@ -11,9 +11,10 @@
 #import "UIPagedScrollView.h"
 #import "shAntiUIMeditationView.h"
 #import "shAntiInfoViewController.h"
+#import "shAntiUIFeedbackView.h"
 #import "BaseViewController.h"
 
-@interface shAntiViewController : BaseViewController < UIScrollViewDelegate, UIPagedScrollViewDelegate, shAntiUIMeditationViewDelegate, shAntiInfoViewControllerDelegate, MFMailComposeViewControllerDelegate > {
+@interface shAntiViewController : BaseViewController < UIScrollViewDelegate, UIPagedScrollViewDelegate, shAntiUIMeditationViewDelegate, shAntiInfoViewControllerDelegate, MFMailComposeViewControllerDelegate, shAntiUIFeedbackViewDelegate > {
     
     UIPagedScrollView   *m_sv_pageViewSlider;
     UIPageControl       *m_pageControl;

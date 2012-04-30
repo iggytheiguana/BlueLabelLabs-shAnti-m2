@@ -223,7 +223,7 @@ machineNameSettingsFeedback()
     // Set the email subject
     [picker setSubject:[NSString stringWithFormat:@"%@ Feedback!", appName]];
     
-    NSArray *toRecipients = [NSArray arrayWithObjects:@"contact@bluelabellabs.com", nil];
+    NSArray *toRecipients = [NSArray arrayWithObjects:@"aarora1@stanford.edu", nil];
     [picker setToRecipients:toRecipients];
     
     NSString *messageHeader = [NSString stringWithFormat:@"I'm using %@ version %@ on my %@ running iOS %@, %@.<br><br>--- Please add your message below this line ---", appName, appVersionNum, deviceType, currSysVer, [loggedInUserID stringValue]];
@@ -302,7 +302,6 @@ machineNameSettingsFeedback()
 
 #pragma mark - shAntiUIMeditationView Delegate
 -(IBAction)onDoneButtonPressed:(id)sender {
-    //shAntiInfoViewController *infoView = [[[shAntiInfoViewController alloc] initWithNibName:@"shAntiInfoViewController" bundle:nil] autorelease];
     shAntiInfoViewController *infoView = [shAntiInfoViewController createInstanceWithMessage:ui_INFO_SCHEDULEREMINDER1 showFeedbackButton:NO];
     infoView.delegate = self;
     
@@ -332,11 +331,17 @@ machineNameSettingsFeedback()
         // Playing
         // Lock the slider
         [self.sv_pageViewSlider setScrollEnabled:NO];
+        
+        // Hide the page indicator
+        [self.pageControl setHidden:YES];
     }
     else {
         // Paused
         // Unlock the slider
         [self.sv_pageViewSlider setScrollEnabled:YES];
+        
+        // Show the page indicator
+        [self.pageControl setHidden:NO];
     }
 }
 
@@ -347,6 +352,9 @@ machineNameSettingsFeedback()
 -(void)meditationDidStart {
     // Lock the slider
     [self.sv_pageViewSlider setScrollEnabled:NO];
+    
+    // Hide the page indicator
+    [self.pageControl setHidden:YES];
     
     // Get the Meditation object for the page
     NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
@@ -388,6 +396,9 @@ machineNameSettingsFeedback()
     // Unlock the slider
     [self.sv_pageViewSlider setScrollEnabled:YES];
     
+    // Show the page indicator
+    [self.pageControl setHidden:NO];
+    
     // Get the Meditation object for the page
     NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
     Meditation *meditation = [self.meditations objectAtIndex:currentPage];
@@ -407,16 +418,16 @@ machineNameSettingsFeedback()
         meditationInstance.state = state;
         meditationInstance.datecompleted = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
         
-        //[resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
+        [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
     }
     else {
         // Meditation was stopped before full duration was completed
         // Update properties of meditation instance
         meditationInstance.state = state;
-
+        
+        [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
     }
     
-    [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
 }
 
 #pragma mark - shAntiUIFeedbackViewController Delegate

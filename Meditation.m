@@ -58,7 +58,8 @@
     //NSString *imageURL = [[NSURL fileURLWithPath:[[NSBundle mainBundle]
     //                                              pathForResource:@"stock-photo-2038361-moon-meditation"
     //                                              ofType:@"jpg"]] absoluteString];
-    NSString *imageURL = @"background-04.png";
+    //NSString *imageURL = @"background-04.png";
+    NSString *imageURL = @"flower_background--shadowed.png";
     
     for (int i = 0; i < 5; i++) {
         Meditation *meditation = [Meditation createMeditationWithTitle:[titlesArray objectAtIndex:i] withDescription:nil withPosition:[NSNumber numberWithInt:i] withAudioURL:audioURL withImageURL:imageURL];

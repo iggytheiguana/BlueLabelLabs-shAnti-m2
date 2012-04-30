@@ -60,7 +60,7 @@
 -(void)loadAudioWithFile:(NSURL*)url;
 -(void)playAudio;
 -(void)pauseAudio;
--(void)restartAudio;
+-(void)rewindAudio;
 -(void)stopAudio;
 -(void)adjustVolume;
 

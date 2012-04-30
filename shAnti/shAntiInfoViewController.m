@@ -115,20 +115,14 @@
 -(IBAction) onContinueButtonPressed:(id)sender {
     [self.delegate onContinueButtonPressed:(id)sender];
     
-    /*// Prepare meditation scrollview to start from the next mediation
-    shAntiViewController *scrollViewController = (shAntiViewController *)self.delegate;
-    NSInteger currentPage = [scrollViewController.sv_pageViewSlider currentVisiblePageIndex];
-    [scrollViewController.sv_pageViewSlider gotToPageAtIndex:currentPage+1];
-    
-    [self dismissModalViewControllerAnimated:YES];*/
 }
 
 -(IBAction) onScheduleButtonPressed:(id)sender {
     // Create calendar event
     EKEventStore *eventStore = [[[EKEventStore alloc] init] autorelease];
     EKEvent *event = [EKEvent eventWithEventStore:eventStore];
-    event.title = @"shAnti Meditation Reminder";
-    event.location = @"shAnti for iPhone";
+    event.title = @"shanti Meditation Reminder";
+    event.location = @"shanti for iPhone";
     
     // Create the reminder date of the next meditation
     NSDateComponents *time = [[NSCalendar currentCalendar]
@@ -141,9 +135,9 @@
     
     NSDate *reminderDateStart = [[NSCalendar currentCalendar] dateFromComponents:time];
     
-    // Set the reminder end date to the same day but 1 hour later
-    NSInteger hour = [time hour];
-    [time setHour:(hour + 1)];
+    // Set the reminder end date to the same hour but 15 minutes later
+    NSInteger minute = 15;
+    [time setMinute:minute];
     
     NSDate *reminderDateEnd = [[NSCalendar currentCalendar] dateFromComponents:time];
     

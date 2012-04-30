@@ -128,13 +128,14 @@
 					<object class="IBUIButton" id="671533897">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{124, 177}, {72, 72}}</string>
+						<string key="NSFrame">{{120, 173}, {80, 80}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="500239102"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<float key="IBUIAlpha">0.69999998807907104</float>
+						<int key="IBUIContentMode">4</int>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -148,17 +149,13 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
-						<object class="NSCustomResource" key="IBUIDisabledImage" id="1072295577">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">Itunes-Button--Back-256.png</string>
-						</object>
 						<object class="NSCustomResource" key="IBUISelectedImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">Itunes-Button--Pause-256.png</string>
+							<string key="NSResourceName">Itunes-Button--Pause-256--shadowed.png</string>
 						</object>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">Itunes-Button--Play-256.png</string>
+							<string key="NSResourceName">Itunes-Button--Play-256--shadowed.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="129457437">
 							<int key="type">2</int>
@@ -173,7 +170,7 @@
 					<object class="IBUIButton" id="500239102">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">-2147483356</int>
-						<string key="NSFrame">{{142, 257}, {36, 36}}</string>
+						<string key="NSFrame">{{140, 261}, {41, 41}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="569898434"/>
@@ -189,7 +186,10 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="301728424"/>
-						<reference key="IBUINormalImage" ref="1072295577"/>
+						<object class="NSCustomResource" key="IBUINormalImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">Itunes-Button--Back-256--shadowed-41px.png</string>
+						</object>
 						<reference key="IBUIFontDescription" ref="129457437"/>
 						<reference key="IBUIFont" ref="559460065"/>
 					</object>
@@ -199,6 +199,7 @@
 						<string key="NSFrame">{{18, 368}, {284, 23}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -318,10 +319,10 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="124288356"/>
 							<reference ref="671533897"/>
-							<reference ref="500239102"/>
 							<reference ref="569898434"/>
 							<reference ref="838675967"/>
 							<reference ref="111804615"/>
+							<reference ref="500239102"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -379,7 +380,7 @@
 				<string key="17.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="3" key="5.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="2" key="5.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -459,9 +460,9 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="Itunes-Button--Back-256.png">{256, 256}</string>
-			<string key="Itunes-Button--Pause-256.png">{256, 256}</string>
-			<string key="Itunes-Button--Play-256.png">{256, 256}</string>
+			<string key="Itunes-Button--Back-256--shadowed-41px.png">{41, 41}</string>
+			<string key="Itunes-Button--Pause-256--shadowed.png">{80, 80}</string>
+			<string key="Itunes-Button--Play-256--shadowed.png">{80, 80}</string>
 			<string key="flower_background.png">{320, 480}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
