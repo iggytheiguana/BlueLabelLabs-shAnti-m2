@@ -149,6 +149,13 @@
         [self.sv_pageViewSlider loadVisiblePages];
     }
     
+    // Load the bell sound used at the end of mediations
+    CFURLRef bellURL = (CFURLRef)[NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                                      pathForResource:@"LittleBell"
+                                                      ofType:@"mp3"]];
+    
+    AudioServicesCreateSystemSoundID(bellURL, &bellSound);
+    
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -191,9 +198,19 @@
     self.pageControl = nil;
 }
 
+- (void) dealloc {
+    AudioServicesDisposeSystemSoundID(bellSound);
+    [super dealloc];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - Bell Sound Player
+- (void) playBell {
+    AudioServicesPlaySystemSound(bellSound);
 }
 
 #pragma mark - Feedback Mail Helper	
@@ -419,6 +436,9 @@ machineNameSettingsFeedback()
         meditationInstance.datecompleted = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
         
         [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
+        
+        // Play bell sound
+        [self playBell];
     }
     else {
         // Meditation was stopped before full duration was completed

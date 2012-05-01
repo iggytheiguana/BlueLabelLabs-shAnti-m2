@@ -51,9 +51,27 @@
     
     NSArray *titlesArray = [NSArray arrayWithObjects:@"Just breathe", @"Feel your body", @"A mindful walk", @"A mindful gaze", @"Mindful eating – just a few bites", nil];
     
-    NSString *audioURL = [[NSURL fileURLWithPath:[[NSBundle mainBundle]
-                                                  pathForResource:@"med5short"
+    NSString *audioURL1 = [[NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                                  pathForResource:@"MindfulBreathing"
                                                   ofType:@"mp3"]] absoluteString];
+    
+    NSString *audioURL2 = [[NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                                   pathForResource:@"BodyScan"
+                                                   ofType:@"mp3"]] absoluteString];
+    
+    NSString *audioURL3 = [[NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                                   pathForResource:@"MindfulWalking"
+                                                   ofType:@"mp3"]] absoluteString];
+    
+    NSString *audioURL4 = [[NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                                   pathForResource:@"MindfulSeeing"
+                                                   ofType:@"mp3"]] absoluteString];
+    
+    NSString *audioURL5 = [[NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                                   pathForResource:@"MindfulEating"
+                                                   ofType:@"mp3"]] absoluteString];
+    
+    NSArray *audioArray = [NSArray arrayWithObjects:audioURL1, audioURL2, audioURL3, audioURL4, audioURL5, nil];
     
     //NSString *imageURL = [[NSURL fileURLWithPath:[[NSBundle mainBundle]
     //                                              pathForResource:@"stock-photo-2038361-moon-meditation"
@@ -62,7 +80,7 @@
     NSString *imageURL = @"flower_background--shadowed.png";
     
     for (int i = 0; i < 5; i++) {
-        Meditation *meditation = [Meditation createMeditationWithTitle:[titlesArray objectAtIndex:i] withDescription:nil withPosition:[NSNumber numberWithInt:i] withAudioURL:audioURL withImageURL:imageURL];
+        Meditation *meditation = [Meditation createMeditationWithTitle:[titlesArray objectAtIndex:i] withDescription:nil withPosition:[NSNumber numberWithInt:i] withAudioURL:[audioArray objectAtIndex:i] withImageURL:imageURL];
         //we set the object id here
         meditation.objectid = [NSNumber numberWithInt:((i+1)*1000)];
         [retVal addObject:meditation];

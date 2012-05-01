@@ -13,6 +13,7 @@
 #import "shAntiInfoViewController.h"
 #import "shAntiUIFeedbackView.h"
 #import "BaseViewController.h"
+#include <AudioToolbox/AudioToolbox.h>
 
 @interface shAntiViewController : BaseViewController < UIScrollViewDelegate, UIPagedScrollViewDelegate, shAntiUIMeditationViewDelegate, shAntiInfoViewControllerDelegate, MFMailComposeViewControllerDelegate, shAntiUIFeedbackViewDelegate > {
     
@@ -21,6 +22,8 @@
     
     NSArray             *m_meditations;
     NSNumber            *m_meditationInstanceID;
+    
+    SystemSoundID       bellSound;
 }
 
 @property (nonatomic, strong) IBOutlet UIPagedScrollView    *sv_pageViewSlider;

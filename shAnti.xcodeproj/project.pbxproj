@@ -21,6 +21,14 @@
 		520AF5B9154F3B2900A82555 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EECB154DA4AF004BABF7 /* Default@2x.png */; };
 		520AF5BA154F3F8500A82555 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862CF1545BA8100985797 /* appIcon.png */; };
 		520AF5BB154F3F8900A82555 /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862D11545BA8600985797 /* appIcon@2x.png */; };
+		520AF5CB15500F4500A82555 /* BodyScan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5C415500F4500A82555 /* BodyScan.mp3 */; };
+		520AF5CC15500F4500A82555 /* LittleBell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5C515500F4500A82555 /* LittleBell.mp3 */; };
+		520AF5CD15500F4500A82555 /* MindfulBreathing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5C615500F4500A82555 /* MindfulBreathing.mp3 */; };
+		520AF5CE15500F4500A82555 /* MindfulEating.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5C715500F4500A82555 /* MindfulEating.mp3 */; };
+		520AF5CF15500F4500A82555 /* MindfulnessIntro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5C815500F4500A82555 /* MindfulnessIntro.mp3 */; };
+		520AF5D015500F4500A82555 /* MindfulSeeing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5C915500F4500A82555 /* MindfulSeeing.mp3 */; };
+		520AF5D115500F4500A82555 /* MindfulWalking.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5CA15500F4500A82555 /* MindfulWalking.mp3 */; };
+		520AF5D41550163400A82555 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 520AF5D31550163400A82555 /* AudioToolbox.framework */; };
 		523862AD1545B9A500985797 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523862AC1545B9A400985797 /* UIKit.framework */; };
 		523862AF1545B9A500985797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523862AE1545B9A500985797 /* Foundation.framework */; };
 		523862B11545B9A500985797 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523862B01545B9A500985797 /* CoreGraphics.framework */; };
@@ -230,6 +238,14 @@
 		520AF594154EE6C800A82555 /* Itunes-Button--Back-256--shadowed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Itunes-Button--Back-256--shadowed@2x.png"; sourceTree = "<group>"; };
 		520AF599154EEC0800A82555 /* flower_background--shadowed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flower_background--shadowed.png"; sourceTree = "<group>"; };
 		520AF59A154EEC0800A82555 /* flower_background--shadowed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flower_background--shadowed@2x.png"; sourceTree = "<group>"; };
+		520AF5C415500F4500A82555 /* BodyScan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BodyScan.mp3; sourceTree = "<group>"; };
+		520AF5C515500F4500A82555 /* LittleBell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LittleBell.mp3; sourceTree = "<group>"; };
+		520AF5C615500F4500A82555 /* MindfulBreathing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MindfulBreathing.mp3; sourceTree = "<group>"; };
+		520AF5C715500F4500A82555 /* MindfulEating.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MindfulEating.mp3; sourceTree = "<group>"; };
+		520AF5C815500F4500A82555 /* MindfulnessIntro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MindfulnessIntro.mp3; sourceTree = "<group>"; };
+		520AF5C915500F4500A82555 /* MindfulSeeing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MindfulSeeing.mp3; sourceTree = "<group>"; };
+		520AF5CA15500F4500A82555 /* MindfulWalking.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MindfulWalking.mp3; sourceTree = "<group>"; };
+		520AF5D31550163400A82555 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		523862A81545B9A400985797 /* shanti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shanti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		523862AC1545B9A400985797 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		523862AE1545B9A500985797 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -606,6 +622,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				520AF5D41550163400A82555 /* AudioToolbox.framework in Frameworks */,
 				5239EE99154B6E44004BABF7 /* QuartzCore.framework in Frameworks */,
 				5239EE91154B57FA004BABF7 /* MessageUI.framework in Frameworks */,
 				5239EE6A1549F5BE004BABF7 /* EventKit.framework in Frameworks */,
@@ -665,6 +682,7 @@
 		523862AB1545B9A400985797 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				520AF5D31550163400A82555 /* AudioToolbox.framework */,
 				5239EE98154B6E44004BABF7 /* QuartzCore.framework */,
 				5239EE90154B57F9004BABF7 /* MessageUI.framework */,
 				5239EE691549F5BD004BABF7 /* EventKit.framework */,
@@ -709,6 +727,13 @@
 		523862CE1545BA5E00985797 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				520AF5C415500F4500A82555 /* BodyScan.mp3 */,
+				520AF5C515500F4500A82555 /* LittleBell.mp3 */,
+				520AF5C615500F4500A82555 /* MindfulBreathing.mp3 */,
+				520AF5C715500F4500A82555 /* MindfulEating.mp3 */,
+				520AF5C815500F4500A82555 /* MindfulnessIntro.mp3 */,
+				520AF5C915500F4500A82555 /* MindfulSeeing.mp3 */,
+				520AF5CA15500F4500A82555 /* MindfulWalking.mp3 */,
 				5239EEE2154DDFB6004BABF7 /* shanti_logo.png */,
 				5239EEE3154DDFB6004BABF7 /* shanti_logo@2x.png */,
 				5239EEA0154C5E4A004BABF7 /* background-01.png */,
@@ -1383,6 +1408,13 @@
 				520AF5B9154F3B2900A82555 /* Default@2x.png in Resources */,
 				520AF5BA154F3F8500A82555 /* appIcon.png in Resources */,
 				520AF5BB154F3F8900A82555 /* appIcon@2x.png in Resources */,
+				520AF5CB15500F4500A82555 /* BodyScan.mp3 in Resources */,
+				520AF5CC15500F4500A82555 /* LittleBell.mp3 in Resources */,
+				520AF5CD15500F4500A82555 /* MindfulBreathing.mp3 in Resources */,
+				520AF5CE15500F4500A82555 /* MindfulEating.mp3 in Resources */,
+				520AF5CF15500F4500A82555 /* MindfulnessIntro.mp3 in Resources */,
+				520AF5D015500F4500A82555 /* MindfulSeeing.mp3 in Resources */,
+				520AF5D115500F4500A82555 /* MindfulWalking.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

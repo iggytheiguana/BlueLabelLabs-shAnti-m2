@@ -112,7 +112,7 @@
     self.navigationItem.rightBarButtonItem = rightButton;
     
     NSString *audioURL = [[NSURL fileURLWithPath:[[NSBundle mainBundle]
-                                                  pathForResource:@"med5short"
+                                                  pathForResource:@"MindfulnessIntro"
                                                   ofType:@"mp3"]] absoluteString];
     NSURL *audioFileURL = [NSURL URLWithString:audioURL];
     [self loadAudioWithFile:audioFileURL];
