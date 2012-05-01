@@ -29,6 +29,7 @@
 		520AF5D015500F4500A82555 /* MindfulSeeing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5C915500F4500A82555 /* MindfulSeeing.mp3 */; };
 		520AF5D115500F4500A82555 /* MindfulWalking.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5CA15500F4500A82555 /* MindfulWalking.mp3 */; };
 		520AF5D41550163400A82555 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 520AF5D31550163400A82555 /* AudioToolbox.framework */; };
+		520AF5D615501A7700A82555 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5D515501A7700A82555 /* bg@2x.png */; };
 		523862AD1545B9A500985797 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523862AC1545B9A400985797 /* UIKit.framework */; };
 		523862AF1545B9A500985797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523862AE1545B9A500985797 /* Foundation.framework */; };
 		523862B11545B9A500985797 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523862B01545B9A500985797 /* CoreGraphics.framework */; };
@@ -43,8 +44,6 @@
 		523862DE1545BABC00985797 /* icon-play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862DA1545BABC00985797 /* icon-play@2x.png */; };
 		523862E11545BACC00985797 /* icon-rewind.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862DF1545BACC00985797 /* icon-rewind.png */; };
 		523862E21545BACC00985797 /* icon-rewind@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862E01545BACC00985797 /* icon-rewind@2x.png */; };
-		523862E41545BAD900985797 /* med5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 523862E31545BAD900985797 /* med5.mp3 */; };
-		523862E61545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 523862E51545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg */; };
 		5239EE3B15470BA7004BABF7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5239EE3A15470BA7004BABF7 /* AVFoundation.framework */; };
 		5239EE40154726AE004BABF7 /* shAntiInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239EE3E154726AE004BABF7 /* shAntiInfoViewController.m */; };
 		5239EE41154726AE004BABF7 /* shAntiInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE3F154726AE004BABF7 /* shAntiInfoViewController.xib */; };
@@ -59,21 +58,12 @@
 		5239EE89154B1B41004BABF7 /* button_roundrect_lightgrey_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE83154B1B41004BABF7 /* button_roundrect_lightgrey_selected@2x.png */; };
 		5239EE8A154B1B41004BABF7 /* button_roundrect_lightgrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE84154B1B41004BABF7 /* button_roundrect_lightgrey.png */; };
 		5239EE8B154B1B41004BABF7 /* button_roundrect_lightgrey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE85154B1B41004BABF7 /* button_roundrect_lightgrey@2x.png */; };
-		5239EE8F154B337D004BABF7 /* med5short.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE8E154B337D004BABF7 /* med5short.mp3 */; };
 		5239EE91154B57FA004BABF7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5239EE90154B57F9004BABF7 /* MessageUI.framework */; };
 		5239EE93154B6B82004BABF7 /* Mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE92154B6B82004BABF7 /* Mask.png */; };
 		5239EE99154B6E44004BABF7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5239EE98154B6E44004BABF7 /* QuartzCore.framework */; };
 		5239EE9C154C5139004BABF7 /* Itunes-Button--Back-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE9A154C5138004BABF7 /* Itunes-Button--Back-256.png */; };
 		5239EE9D154C5139004BABF7 /* Itunes-Button--Play-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE9B154C5138004BABF7 /* Itunes-Button--Play-256.png */; };
 		5239EE9F154C52AF004BABF7 /* Itunes-Button--Pause-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EE9E154C52AF004BABF7 /* Itunes-Button--Pause-256.png */; };
-		5239EEA2154C5E4A004BABF7 /* background-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEA0154C5E4A004BABF7 /* background-01.png */; };
-		5239EEA3154C5E4A004BABF7 /* background-01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEA1154C5E4A004BABF7 /* background-01@2x.png */; };
-		5239EEA6154C641E004BABF7 /* background-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEA4154C641D004BABF7 /* background-02.png */; };
-		5239EEA7154C641E004BABF7 /* background-02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEA5154C641E004BABF7 /* background-02@2x.png */; };
-		5239EEAA154C6A27004BABF7 /* background-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEA8154C6A27004BABF7 /* background-03.png */; };
-		5239EEAB154C6A27004BABF7 /* background-03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEA9154C6A27004BABF7 /* background-03@2x.png */; };
-		5239EEAE154C726B004BABF7 /* background-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEAC154C726B004BABF7 /* background-04.png */; };
-		5239EEAF154C726B004BABF7 /* background-04@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEAD154C726B004BABF7 /* background-04@2x.png */; };
 		5239EEB2154C7897004BABF7 /* icon-facebook-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEB0154C7897004BABF7 /* icon-facebook-white.png */; };
 		5239EEB3154C7897004BABF7 /* icon-facebook-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEB1154C7897004BABF7 /* icon-facebook-white@2x.png */; };
 		5239EEB6154C78A0004BABF7 /* icon-twitter-t-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEB4154C78A0004BABF7 /* icon-twitter-t-white.png */; };
@@ -246,6 +236,7 @@
 		520AF5C915500F4500A82555 /* MindfulSeeing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MindfulSeeing.mp3; sourceTree = "<group>"; };
 		520AF5CA15500F4500A82555 /* MindfulWalking.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MindfulWalking.mp3; sourceTree = "<group>"; };
 		520AF5D31550163400A82555 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		520AF5D515501A7700A82555 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
 		523862A81545B9A400985797 /* shanti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shanti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		523862AC1545B9A400985797 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		523862AE1545B9A500985797 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -267,8 +258,6 @@
 		523862DA1545BABC00985797 /* icon-play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-play@2x.png"; sourceTree = "<group>"; };
 		523862DF1545BACC00985797 /* icon-rewind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-rewind.png"; sourceTree = "<group>"; };
 		523862E01545BACC00985797 /* icon-rewind@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-rewind@2x.png"; sourceTree = "<group>"; };
-		523862E31545BAD900985797 /* med5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = med5.mp3; sourceTree = "<group>"; };
-		523862E51545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "stock-photo-2038361-moon-meditation.jpg"; sourceTree = "<group>"; };
 		5239EE3A15470BA7004BABF7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5239EE3D154726AE004BABF7 /* shAntiInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shAntiInfoViewController.h; sourceTree = "<group>"; };
 		5239EE3E154726AE004BABF7 /* shAntiInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shAntiInfoViewController.m; sourceTree = "<group>"; };
@@ -285,21 +274,12 @@
 		5239EE83154B1B41004BABF7 /* button_roundrect_lightgrey_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_roundrect_lightgrey_selected@2x.png"; sourceTree = "<group>"; };
 		5239EE84154B1B41004BABF7 /* button_roundrect_lightgrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_roundrect_lightgrey.png; sourceTree = "<group>"; };
 		5239EE85154B1B41004BABF7 /* button_roundrect_lightgrey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_roundrect_lightgrey@2x.png"; sourceTree = "<group>"; };
-		5239EE8E154B337D004BABF7 /* med5short.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = med5short.mp3; sourceTree = "<group>"; };
 		5239EE90154B57F9004BABF7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		5239EE92154B6B82004BABF7 /* Mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mask.png; sourceTree = "<group>"; };
 		5239EE98154B6E44004BABF7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5239EE9A154C5138004BABF7 /* Itunes-Button--Back-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Itunes-Button--Back-256.png"; sourceTree = "<group>"; };
 		5239EE9B154C5138004BABF7 /* Itunes-Button--Play-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Itunes-Button--Play-256.png"; sourceTree = "<group>"; };
 		5239EE9E154C52AF004BABF7 /* Itunes-Button--Pause-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Itunes-Button--Pause-256.png"; sourceTree = "<group>"; };
-		5239EEA0154C5E4A004BABF7 /* background-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-01.png"; sourceTree = "<group>"; };
-		5239EEA1154C5E4A004BABF7 /* background-01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-01@2x.png"; sourceTree = "<group>"; };
-		5239EEA4154C641D004BABF7 /* background-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-02.png"; sourceTree = "<group>"; };
-		5239EEA5154C641E004BABF7 /* background-02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-02@2x.png"; sourceTree = "<group>"; };
-		5239EEA8154C6A27004BABF7 /* background-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-03.png"; sourceTree = "<group>"; };
-		5239EEA9154C6A27004BABF7 /* background-03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-03@2x.png"; sourceTree = "<group>"; };
-		5239EEAC154C726B004BABF7 /* background-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-04.png"; sourceTree = "<group>"; };
-		5239EEAD154C726B004BABF7 /* background-04@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-04@2x.png"; sourceTree = "<group>"; };
 		5239EEB0154C7897004BABF7 /* icon-facebook-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-facebook-white.png"; sourceTree = "<group>"; };
 		5239EEB1154C7897004BABF7 /* icon-facebook-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-facebook-white@2x.png"; sourceTree = "<group>"; };
 		5239EEB4154C78A0004BABF7 /* icon-twitter-t-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-twitter-t-white.png"; sourceTree = "<group>"; };
@@ -736,14 +716,6 @@
 				520AF5CA15500F4500A82555 /* MindfulWalking.mp3 */,
 				5239EEE2154DDFB6004BABF7 /* shanti_logo.png */,
 				5239EEE3154DDFB6004BABF7 /* shanti_logo@2x.png */,
-				5239EEA0154C5E4A004BABF7 /* background-01.png */,
-				5239EEA1154C5E4A004BABF7 /* background-01@2x.png */,
-				5239EEA4154C641D004BABF7 /* background-02.png */,
-				5239EEA5154C641E004BABF7 /* background-02@2x.png */,
-				5239EEA8154C6A27004BABF7 /* background-03.png */,
-				5239EEA9154C6A27004BABF7 /* background-03@2x.png */,
-				5239EEAC154C726B004BABF7 /* background-04.png */,
-				5239EEAD154C726B004BABF7 /* background-04@2x.png */,
 				5239EEDE154DD156004BABF7 /* flower_background.png */,
 				5239EEDF154DD156004BABF7 /* flower_background@2x.png */,
 				520AF599154EEC0800A82555 /* flower_background--shadowed.png */,
@@ -756,11 +728,9 @@
 				5239EE84154B1B41004BABF7 /* button_roundrect_lightgrey.png */,
 				5239EE85154B1B41004BABF7 /* button_roundrect_lightgrey@2x.png */,
 				5239EEC7154D2976004BABF7 /* bg.png */,
+				520AF5D515501A7700A82555 /* bg@2x.png */,
 				5239EE78154ADD33004BABF7 /* backgroundPattern.png */,
 				5239EE79154ADD33004BABF7 /* backgroundPattern@2x.png */,
-				523862E51545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg */,
-				523862E31545BAD900985797 /* med5.mp3 */,
-				5239EE8E154B337D004BABF7 /* med5short.mp3 */,
 				523862D71545BABC00985797 /* icon-pause.png */,
 				523862D81545BABC00985797 /* icon-pause@2x.png */,
 				523862D91545BABC00985797 /* icon-play.png */,
@@ -1350,8 +1320,6 @@
 				523862DE1545BABC00985797 /* icon-play@2x.png in Resources */,
 				523862E11545BACC00985797 /* icon-rewind.png in Resources */,
 				523862E21545BACC00985797 /* icon-rewind@2x.png in Resources */,
-				523862E41545BAD900985797 /* med5.mp3 in Resources */,
-				523862E61545BAEE00985797 /* stock-photo-2038361-moon-meditation.jpg in Resources */,
 				526634CD1545FC2900ED70AF /* shAntiUIMeditationView.xib in Resources */,
 				5239EE41154726AE004BABF7 /* shAntiInfoViewController.xib in Resources */,
 				C535C03C15474B4A006F9148 /* twitter_load.png in Resources */,
@@ -1369,19 +1337,10 @@
 				5239EE89154B1B41004BABF7 /* button_roundrect_lightgrey_selected@2x.png in Resources */,
 				5239EE8A154B1B41004BABF7 /* button_roundrect_lightgrey.png in Resources */,
 				5239EE8B154B1B41004BABF7 /* button_roundrect_lightgrey@2x.png in Resources */,
-				5239EE8F154B337D004BABF7 /* med5short.mp3 in Resources */,
 				5239EE93154B6B82004BABF7 /* Mask.png in Resources */,
 				5239EE9C154C5139004BABF7 /* Itunes-Button--Back-256.png in Resources */,
 				5239EE9D154C5139004BABF7 /* Itunes-Button--Play-256.png in Resources */,
 				5239EE9F154C52AF004BABF7 /* Itunes-Button--Pause-256.png in Resources */,
-				5239EEA2154C5E4A004BABF7 /* background-01.png in Resources */,
-				5239EEA3154C5E4A004BABF7 /* background-01@2x.png in Resources */,
-				5239EEA6154C641E004BABF7 /* background-02.png in Resources */,
-				5239EEA7154C641E004BABF7 /* background-02@2x.png in Resources */,
-				5239EEAA154C6A27004BABF7 /* background-03.png in Resources */,
-				5239EEAB154C6A27004BABF7 /* background-03@2x.png in Resources */,
-				5239EEAE154C726B004BABF7 /* background-04.png in Resources */,
-				5239EEAF154C726B004BABF7 /* background-04@2x.png in Resources */,
 				5239EEB2154C7897004BABF7 /* icon-facebook-white.png in Resources */,
 				5239EEB3154C7897004BABF7 /* icon-facebook-white@2x.png in Resources */,
 				5239EEB6154C78A0004BABF7 /* icon-twitter-t-white.png in Resources */,
@@ -1415,6 +1374,7 @@
 				520AF5CF15500F4500A82555 /* MindfulnessIntro.mp3 in Resources */,
 				520AF5D015500F4500A82555 /* MindfulSeeing.mp3 in Resources */,
 				520AF5D115500F4500A82555 /* MindfulWalking.mp3 in Resources */,
+				520AF5D615501A7700A82555 /* bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

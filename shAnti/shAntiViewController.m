@@ -288,12 +288,9 @@ machineNameSettingsFeedback()
         meditationView.lbl_titleLabel.text = meditation.title;
         
         meditationView.iv_background.image = [UIImage imageNamed:meditation.imageurl];
-        //meditationView.iv_background.image = [UIImage imageNamed:@"stock-photo-2038361-moon-meditation.jpg"];
         
         NSURL *audioFileURL = [NSURL URLWithString:meditation.audiourl];
-        //NSURL *audioFileURL = [NSURL fileURLWithPath:[[NSBundle mainBundle]
-        //                                                      pathForResource:@"med5short"
-        //                                                      ofType:@"mp3"]];
+        
         [meditationView loadAudioWithFile:audioFileURL];
         
         pageView = (UIView *)meditationView;
