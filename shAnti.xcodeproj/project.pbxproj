@@ -15,8 +15,6 @@
 		520AF596154EE6C800A82555 /* Itunes-Button--Back-256--shadowed-41px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 520AF592154EE6C800A82555 /* Itunes-Button--Back-256--shadowed-41px@2x.png */; };
 		520AF597154EE6C800A82555 /* Itunes-Button--Back-256--shadowed.png in Resources */ = {isa = PBXBuildFile; fileRef = 520AF593154EE6C800A82555 /* Itunes-Button--Back-256--shadowed.png */; };
 		520AF598154EE6C800A82555 /* Itunes-Button--Back-256--shadowed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 520AF594154EE6C800A82555 /* Itunes-Button--Back-256--shadowed@2x.png */; };
-		520AF59B154EEC0800A82555 /* flower_background--shadowed.png in Resources */ = {isa = PBXBuildFile; fileRef = 520AF599154EEC0800A82555 /* flower_background--shadowed.png */; };
-		520AF59C154EEC0800A82555 /* flower_background--shadowed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 520AF59A154EEC0800A82555 /* flower_background--shadowed@2x.png */; };
 		520AF5B8154F3B1A00A82555 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEC9154DA4A9004BABF7 /* Default.png */; };
 		520AF5B9154F3B2900A82555 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EECB154DA4AF004BABF7 /* Default@2x.png */; };
 		520AF5BA154F3F8500A82555 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862CF1545BA8100985797 /* appIcon.png */; };
@@ -82,6 +80,12 @@
 		5239EEE4154DDFB7004BABF7 /* shanti_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEE2154DDFB6004BABF7 /* shanti_logo.png */; };
 		5239EEE5154DDFB7004BABF7 /* shanti_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEE3154DDFB6004BABF7 /* shanti_logo@2x.png */; };
 		5240ED181545C6F7003C0048 /* UIPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5240ED171545C6F7003C0048 /* UIPagedScrollView.m */; };
+		525115B3155B45DD00A12C6E /* flower_background--shadowed.png in Resources */ = {isa = PBXBuildFile; fileRef = 525115B1155B45DD00A12C6E /* flower_background--shadowed.png */; };
+		525115B4155B45DD00A12C6E /* flower_background--shadowed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 525115B2155B45DD00A12C6E /* flower_background--shadowed@2x.png */; };
+		525115BD155B4D4700A12C6E /* chevron-left--shadowed.png in Resources */ = {isa = PBXBuildFile; fileRef = 525115B9155B4D4700A12C6E /* chevron-left--shadowed.png */; };
+		525115BE155B4D4700A12C6E /* chevron-left--shadowed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 525115BA155B4D4700A12C6E /* chevron-left--shadowed@2x.png */; };
+		525115BF155B4D4700A12C6E /* chevron-right--shadowed.png in Resources */ = {isa = PBXBuildFile; fileRef = 525115BB155B4D4700A12C6E /* chevron-right--shadowed.png */; };
+		525115C0155B4D4700A12C6E /* chevron-right--shadowed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 525115BC155B4D4700A12C6E /* chevron-right--shadowed@2x.png */; };
 		526634CB1545FBF500ED70AF /* shAntiUIMeditationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 526634CA1545FBF500ED70AF /* shAntiUIMeditationView.m */; };
 		526634CD1545FC2900ED70AF /* shAntiUIMeditationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526634CC1545FC2900ED70AF /* shAntiUIMeditationView.xib */; };
 		C535BFCC1547498D006F9148 /* DateTimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C535BFC91547498D006F9148 /* DateTimeHelper.m */; };
@@ -226,8 +230,6 @@
 		520AF592154EE6C800A82555 /* Itunes-Button--Back-256--shadowed-41px@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Itunes-Button--Back-256--shadowed-41px@2x.png"; sourceTree = "<group>"; };
 		520AF593154EE6C800A82555 /* Itunes-Button--Back-256--shadowed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Itunes-Button--Back-256--shadowed.png"; sourceTree = "<group>"; };
 		520AF594154EE6C800A82555 /* Itunes-Button--Back-256--shadowed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Itunes-Button--Back-256--shadowed@2x.png"; sourceTree = "<group>"; };
-		520AF599154EEC0800A82555 /* flower_background--shadowed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flower_background--shadowed.png"; sourceTree = "<group>"; };
-		520AF59A154EEC0800A82555 /* flower_background--shadowed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flower_background--shadowed@2x.png"; sourceTree = "<group>"; };
 		520AF5C415500F4500A82555 /* BodyScan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BodyScan.mp3; sourceTree = "<group>"; };
 		520AF5C515500F4500A82555 /* LittleBell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LittleBell.mp3; sourceTree = "<group>"; };
 		520AF5C615500F4500A82555 /* MindfulBreathing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MindfulBreathing.mp3; sourceTree = "<group>"; };
@@ -309,6 +311,12 @@
 		5239EEE9154E0135004BABF7 /* shanti_appIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shanti_appIcon@2x.png"; sourceTree = "<group>"; };
 		5240ED161545C6F7003C0048 /* UIPagedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPagedScrollView.h; sourceTree = "<group>"; };
 		5240ED171545C6F7003C0048 /* UIPagedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPagedScrollView.m; sourceTree = "<group>"; };
+		525115B1155B45DD00A12C6E /* flower_background--shadowed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flower_background--shadowed.png"; sourceTree = "<group>"; };
+		525115B2155B45DD00A12C6E /* flower_background--shadowed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flower_background--shadowed@2x.png"; sourceTree = "<group>"; };
+		525115B9155B4D4700A12C6E /* chevron-left--shadowed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron-left--shadowed.png"; sourceTree = "<group>"; };
+		525115BA155B4D4700A12C6E /* chevron-left--shadowed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron-left--shadowed@2x.png"; sourceTree = "<group>"; };
+		525115BB155B4D4700A12C6E /* chevron-right--shadowed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron-right--shadowed.png"; sourceTree = "<group>"; };
+		525115BC155B4D4700A12C6E /* chevron-right--shadowed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron-right--shadowed@2x.png"; sourceTree = "<group>"; };
 		526634C91545FBF500ED70AF /* shAntiUIMeditationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shAntiUIMeditationView.h; sourceTree = "<group>"; };
 		526634CA1545FBF500ED70AF /* shAntiUIMeditationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shAntiUIMeditationView.m; sourceTree = "<group>"; };
 		526634CC1545FC2900ED70AF /* shAntiUIMeditationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shAntiUIMeditationView.xib; sourceTree = "<group>"; };
@@ -718,8 +726,8 @@
 				5239EEE3154DDFB6004BABF7 /* shanti_logo@2x.png */,
 				5239EEDE154DD156004BABF7 /* flower_background.png */,
 				5239EEDF154DD156004BABF7 /* flower_background@2x.png */,
-				520AF599154EEC0800A82555 /* flower_background--shadowed.png */,
-				520AF59A154EEC0800A82555 /* flower_background--shadowed@2x.png */,
+				525115B1155B45DD00A12C6E /* flower_background--shadowed.png */,
+				525115B2155B45DD00A12C6E /* flower_background--shadowed@2x.png */,
 				5239EE92154B6B82004BABF7 /* Mask.png */,
 				5239EE80154B1B41004BABF7 /* button_roundrect_blue.png */,
 				5239EE81154B1B41004BABF7 /* button_roundrect_blue@2x.png */,
@@ -752,6 +760,10 @@
 				520AF592154EE6C800A82555 /* Itunes-Button--Back-256--shadowed-41px@2x.png */,
 				520AF593154EE6C800A82555 /* Itunes-Button--Back-256--shadowed.png */,
 				520AF594154EE6C800A82555 /* Itunes-Button--Back-256--shadowed@2x.png */,
+				525115B9155B4D4700A12C6E /* chevron-left--shadowed.png */,
+				525115BA155B4D4700A12C6E /* chevron-left--shadowed@2x.png */,
+				525115BB155B4D4700A12C6E /* chevron-right--shadowed.png */,
+				525115BC155B4D4700A12C6E /* chevron-right--shadowed@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1361,8 +1373,6 @@
 				520AF596154EE6C800A82555 /* Itunes-Button--Back-256--shadowed-41px@2x.png in Resources */,
 				520AF597154EE6C800A82555 /* Itunes-Button--Back-256--shadowed.png in Resources */,
 				520AF598154EE6C800A82555 /* Itunes-Button--Back-256--shadowed@2x.png in Resources */,
-				520AF59B154EEC0800A82555 /* flower_background--shadowed.png in Resources */,
-				520AF59C154EEC0800A82555 /* flower_background--shadowed@2x.png in Resources */,
 				520AF5B8154F3B1A00A82555 /* Default.png in Resources */,
 				520AF5B9154F3B2900A82555 /* Default@2x.png in Resources */,
 				520AF5BA154F3F8500A82555 /* appIcon.png in Resources */,
@@ -1375,6 +1385,12 @@
 				520AF5D015500F4500A82555 /* MindfulSeeing.mp3 in Resources */,
 				520AF5D115500F4500A82555 /* MindfulWalking.mp3 in Resources */,
 				520AF5D615501A7700A82555 /* bg@2x.png in Resources */,
+				525115B3155B45DD00A12C6E /* flower_background--shadowed.png in Resources */,
+				525115B4155B45DD00A12C6E /* flower_background--shadowed@2x.png in Resources */,
+				525115BD155B4D4700A12C6E /* chevron-left--shadowed.png in Resources */,
+				525115BE155B4D4700A12C6E /* chevron-left--shadowed@2x.png in Resources */,
+				525115BF155B4D4700A12C6E /* chevron-right--shadowed.png in Resources */,
+				525115C0155B4D4700A12C6E /* chevron-right--shadowed@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

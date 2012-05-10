@@ -28,6 +28,8 @@
 
 @synthesize sv_pageViewSlider   = m_sv_pageViewSlider;
 @synthesize pageControl         = m_pageControl;
+@synthesize btn_pageLeft        = m_btn_pageLeft;
+@synthesize btn_pageRight       = m_btn_pageRight;
 @synthesize meditations         = m_meditations;
 @synthesize meditationInstanceID = m_meditationInstanceID;
 
@@ -189,6 +191,27 @@
     }
     
 }
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // Check to see if we are on the last page or first page to hide unneeded chevrons
+    NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
+    NSInteger numPages = [self numberOfPagesInScrollView];
+    
+    if (currentPage == 0) {
+        [self.btn_pageLeft setHidden:YES];
+    }
+    else if (currentPage == (numPages-1)) {
+        [self.btn_pageRight setHidden:YES];
+    }
+    else {
+        [self.btn_pageLeft setHidden:NO];
+        [self.btn_pageRight setHidden:NO];
+    }
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -196,6 +219,8 @@
     
     self.sv_pageViewSlider = nil;
     self.pageControl = nil;
+    self.btn_pageLeft = nil;
+    self.btn_pageRight = nil;
 }
 
 - (void) dealloc {
@@ -206,6 +231,26 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - UI Button Handlers
+-(IBAction)onPageLeftButtonPressed:(id)sender {
+    // Move scrollview to the previous page
+    NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
+    
+    if (currentPage > 0) {
+        [self.sv_pageViewSlider goToPageAtIndex:currentPage-1 animated:YES];
+    }
+}
+
+-(IBAction)onPageRightButtonPressed:(id)sender {
+    // Move scrollview to the next page
+    NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
+    NSInteger numPages = [self numberOfPagesInScrollView];
+    
+    if (currentPage < numPages) {
+        [self.sv_pageViewSlider goToPageAtIndex:currentPage+1 animated:YES];
+    }
 }
 
 #pragma mark - Bell Sound Player
@@ -312,6 +357,21 @@ machineNameSettingsFeedback()
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     // Update the page control
     self.pageControl.currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
+    
+    // Check to see if we are on the last page or first page to hide unneeded chevrons
+    NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
+    NSInteger numPages = [self numberOfPagesInScrollView];
+    
+    if (currentPage == 0) {
+        [self.btn_pageLeft setHidden:YES];
+    }
+    else if (currentPage == (numPages-1)) {
+        [self.btn_pageRight setHidden:YES];
+    }
+    else {
+        [self.btn_pageLeft setHidden:NO];
+        [self.btn_pageRight setHidden:NO];
+    }
 }
 
 #pragma mark - shAntiUIMeditationView Delegate

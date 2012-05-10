@@ -354,13 +354,17 @@
     if ([state intValue] == kMEDITATIONCOMPLETED) {
         //[self textLabelAnimation];
         [self.lbl_swipeSkip setHidden:NO];
-        [self.lbl_swipeSkip setTextWithChangeAnimation:self.lbl_swipeSkip.text reverse:YES withTextShadow:YES];
+        [self.lbl_swipeSkip setTextWithChangeAnimation:@"slide to continue" reverse:YES withTextShadow:YES];
         
         [self.btn_playPause setImage:[UIImage imageNamed:@"Itunes-Button--Back-256--shadowed.png"] forState:UIControlStateNormal];
         [self.btn_restart setHidden:YES];
         [self.sld_volumeControl setHidden:YES];
         [self showDoneButton];
     }
+    /*else {
+        [self.lbl_swipeSkip setHidden:NO];
+        [self.lbl_swipeSkip setTextWithChangeAnimation:self.lbl_swipeSkip.text reverse:YES withTextShadow:YES];
+    }*/
     
     [self.delegate meditationDidFinishWithState:state];
 }

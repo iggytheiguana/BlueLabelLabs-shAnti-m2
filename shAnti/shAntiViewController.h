@@ -19,6 +19,8 @@
     
     UIPagedScrollView   *m_sv_pageViewSlider;
     UIPageControl       *m_pageControl;
+    UIButton            *m_btn_pageLeft;
+    UIButton            *m_btn_pageRight;
     
     NSArray             *m_meditations;
     NSNumber            *m_meditationInstanceID;
@@ -28,8 +30,13 @@
 
 @property (nonatomic, strong) IBOutlet UIPagedScrollView    *sv_pageViewSlider;
 @property (nonatomic, strong) IBOutlet UIPageControl        *pageControl;
+@property (nonatomic, strong) IBOutlet UIButton             *btn_pageLeft;
+@property (nonatomic, strong) IBOutlet UIButton             *btn_pageRight;
 
 @property (nonatomic, strong) NSArray                       *meditations;
 @property (nonatomic, strong) NSNumber                      *meditationInstanceID;
+
+-(IBAction)onPageLeftButtonPressed:(id)sender;
+-(IBAction)onPageRightButtonPressed:(id)sender;
 
 @end
