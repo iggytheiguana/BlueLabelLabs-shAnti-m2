@@ -1626,7 +1626,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "85E8F8D1-0EF0-47EF-8114-5F30CD0960B6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "77B313B3-4518-42CA-8AEB-7B8BBD0D2021";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
