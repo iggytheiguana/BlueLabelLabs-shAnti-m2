@@ -157,7 +157,7 @@ machineNameSettings()
     NSArray *toRecipients = [NSArray arrayWithObjects:@"aarora1@stanford.edu", nil];
     [picker setToRecipients:toRecipients];
     
-    NSString *messageHeader = [NSString stringWithFormat:@"I'm using %@ version %@ (%@), on my %@ running iOS %@, %@.<br><br>--- Please add your message below this line ---", appName, appVersionNum, appBundleVersionNum, deviceType, currSysVer, [loggedInUserID stringValue]];
+    NSString *messageHeader = [NSString stringWithFormat:@"I'm using %@ version %@ (%@) on my %@ running iOS %@, %@.<br><br>--- Please add your message below this line ---", appName, appVersionNum, appBundleVersionNum, deviceType, currSysVer, [loggedInUserID stringValue]];
     [picker setMessageBody:messageHeader isHTML:YES];
     
     // Present the mail composition interface
