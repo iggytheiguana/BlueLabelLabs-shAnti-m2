@@ -22,3 +22,4 @@ NSString* const setting_ISFIRSTRUN = @"isfirstrun";
 NSString* const setting_HASCOMPLETEDSEQUENCE = @"hascompletedsequence";
 NSString* const setting_LASTPOSITION = @"lastposition";
 NSString* const setting_DIDSKIPLOGIN = @"didskiplogin";
+NSString* const setting_APPVERSION = @"appversion";

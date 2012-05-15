@@ -15,8 +15,6 @@
 		520AF596154EE6C800A82555 /* Itunes-Button--Back-256--shadowed-41px@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 520AF592154EE6C800A82555 /* Itunes-Button--Back-256--shadowed-41px@2x.png */; };
 		520AF597154EE6C800A82555 /* Itunes-Button--Back-256--shadowed.png in Resources */ = {isa = PBXBuildFile; fileRef = 520AF593154EE6C800A82555 /* Itunes-Button--Back-256--shadowed.png */; };
 		520AF598154EE6C800A82555 /* Itunes-Button--Back-256--shadowed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 520AF594154EE6C800A82555 /* Itunes-Button--Back-256--shadowed@2x.png */; };
-		520AF5B8154F3B1A00A82555 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EEC9154DA4A9004BABF7 /* Default.png */; };
-		520AF5B9154F3B2900A82555 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239EECB154DA4AF004BABF7 /* Default@2x.png */; };
 		520AF5BA154F3F8500A82555 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862CF1545BA8100985797 /* appIcon.png */; };
 		520AF5BB154F3F8900A82555 /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 523862D11545BA8600985797 /* appIcon@2x.png */; };
 		520AF5CB15500F4500A82555 /* BodyScan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5C415500F4500A82555 /* BodyScan.mp3 */; };
@@ -28,6 +26,8 @@
 		520AF5D115500F4500A82555 /* MindfulWalking.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5CA15500F4500A82555 /* MindfulWalking.mp3 */; };
 		520AF5D41550163400A82555 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 520AF5D31550163400A82555 /* AudioToolbox.framework */; };
 		520AF5D615501A7700A82555 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5D515501A7700A82555 /* bg@2x.png */; };
+		5210DB451561871500A740D7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5210DB441561871500A740D7 /* Default.png */; };
+		5210DB471561871800A740D7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5210DB461561871800A740D7 /* Default@2x.png */; };
 		523862AD1545B9A500985797 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523862AC1545B9A400985797 /* UIKit.framework */; };
 		523862AF1545B9A500985797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523862AE1545B9A500985797 /* Foundation.framework */; };
 		523862B11545B9A500985797 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523862B01545B9A500985797 /* CoreGraphics.framework */; };
@@ -239,6 +239,8 @@
 		520AF5CA15500F4500A82555 /* MindfulWalking.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MindfulWalking.mp3; sourceTree = "<group>"; };
 		520AF5D31550163400A82555 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		520AF5D515501A7700A82555 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		5210DB441561871500A740D7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5210DB461561871800A740D7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		523862A81545B9A400985797 /* shanti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shanti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		523862AC1545B9A400985797 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		523862AE1545B9A500985797 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -293,8 +295,6 @@
 		5239EEC3154CD761004BABF7 /* shAntiUIFeedbackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shAntiUIFeedbackView.m; sourceTree = "<group>"; };
 		5239EEC5154CD773004BABF7 /* shAntiUIFeedbackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shAntiUIFeedbackView.xib; sourceTree = "<group>"; };
 		5239EEC7154D2976004BABF7 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
-		5239EEC9154DA4A9004BABF7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		5239EECB154DA4AF004BABF7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5239EED0154DB200004BABF7 /* UICustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomButton.h; sourceTree = "<group>"; };
 		5239EED1154DB200004BABF7 /* UICustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICustomButton.m; sourceTree = "<group>"; };
 		5239EED6154DC5FC004BABF7 /* UILabel+ScrollingHighlightAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+ScrollingHighlightAnimation.h"; sourceTree = "<group>"; };
@@ -307,8 +307,6 @@
 		5239EEE2154DDFB6004BABF7 /* shanti_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shanti_logo.png; sourceTree = "<group>"; };
 		5239EEE3154DDFB6004BABF7 /* shanti_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shanti_logo@2x.png"; sourceTree = "<group>"; };
 		5239EEE6154DEB09004BABF7 /* shanti.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = shanti.entitlements; path = shanti/shanti.entitlements; sourceTree = "<group>"; };
-		5239EEE7154E012F004BABF7 /* shanti_appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shanti_appIcon.png; sourceTree = "<group>"; };
-		5239EEE9154E0135004BABF7 /* shanti_appIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shanti_appIcon@2x.png"; sourceTree = "<group>"; };
 		5240ED161545C6F7003C0048 /* UIPagedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPagedScrollView.h; sourceTree = "<group>"; };
 		5240ED171545C6F7003C0048 /* UIPagedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPagedScrollView.m; sourceTree = "<group>"; };
 		525115B1155B45DD00A12C6E /* flower_background--shadowed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flower_background--shadowed.png"; sourceTree = "<group>"; };
@@ -639,11 +637,9 @@
 		5238629D1545B9A400985797 = {
 			isa = PBXGroup;
 			children = (
-				5239EEE9154E0135004BABF7 /* shanti_appIcon@2x.png */,
-				5239EEE7154E012F004BABF7 /* shanti_appIcon.png */,
+				5210DB461561871800A740D7 /* Default@2x.png */,
+				5210DB441561871500A740D7 /* Default.png */,
 				5239EEE6154DEB09004BABF7 /* shanti.entitlements */,
-				5239EECB154DA4AF004BABF7 /* Default@2x.png */,
-				5239EEC9154DA4A9004BABF7 /* Default.png */,
 				C535C15715474E9D006F9148 /* libxml2.dylib */,
 				C535C0D715474CA1006F9148 /* libxml2.2.dylib */,
 				C535C0D815474CA1006F9148 /* libz.1.1.3.dylib */,
@@ -1373,8 +1369,6 @@
 				520AF596154EE6C800A82555 /* Itunes-Button--Back-256--shadowed-41px@2x.png in Resources */,
 				520AF597154EE6C800A82555 /* Itunes-Button--Back-256--shadowed.png in Resources */,
 				520AF598154EE6C800A82555 /* Itunes-Button--Back-256--shadowed@2x.png in Resources */,
-				520AF5B8154F3B1A00A82555 /* Default.png in Resources */,
-				520AF5B9154F3B2900A82555 /* Default@2x.png in Resources */,
 				520AF5BA154F3F8500A82555 /* appIcon.png in Resources */,
 				520AF5BB154F3F8900A82555 /* appIcon@2x.png in Resources */,
 				520AF5CB15500F4500A82555 /* BodyScan.mp3 in Resources */,
@@ -1391,6 +1385,8 @@
 				525115BE155B4D4700A12C6E /* chevron-left--shadowed@2x.png in Resources */,
 				525115BF155B4D4700A12C6E /* chevron-right--shadowed.png in Resources */,
 				525115C0155B4D4700A12C6E /* chevron-right--shadowed@2x.png in Resources */,
+				5210DB451561871500A740D7 /* Default.png in Resources */,
+				5210DB471561871800A740D7 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1642,7 +1638,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "77B313B3-4518-42CA-8AEB-7B8BBD0D2021";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CD0BE125-3AE7-435A-9444-6430BC04DF6A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

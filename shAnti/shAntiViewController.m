@@ -66,14 +66,61 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    ResourceContext *resourceContext = [ResourceContext instance];
+    
     // Load default data on first run
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    // Create user default settings for holding the app version
+    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString* appVersionCurrent = [infoDict objectForKey:@"CFBundleVersion"];
+    //NSString* appVersionCurrent = [infoDict objectForKey:@"CFBundleShortVersionString"];
+    
+    if ([userDefaults objectForKey:setting_APPVERSION] == nil) {
+        // This is the first run of the app, save the current app version
+        [userDefaults setObject:appVersionCurrent forKey:setting_APPVERSION];
+        
+        // Make user defaults as first run
+        [userDefaults setObject:[NSNumber numberWithBool:YES] forKey:setting_ISFIRSTRUN];
+        
+        // Delete all the previous meditation objects
+        NSArray *meditations = [resourceContext resourcesWithType:MEDITATION];
+        Meditation *meditation = [Meditation alloc];
+        
+        for (int i = 0; i < meditations.count; i++) {
+            meditation = [meditations objectAtIndex:i];
+            
+            [resourceContext delete:meditation.objectid withType:MEDITATION];
+        }
+    }
+    else {
+        NSString* appVersionUser = [userDefaults objectForKey:setting_APPVERSION];
+        //NSString* appVersionUser = [userDefaults objectForKey:setting_APPVERSION];
+        
+        if (![appVersionCurrent isEqualToString:appVersionUser]) {
+            // Users local data is from a different app version we need to reset to furst run experience
+            [userDefaults setObject:[NSNumber numberWithBool:YES] forKey:setting_ISFIRSTRUN];
+            
+            // Delete all the previous meditation objects
+            NSArray *meditations = [resourceContext resourcesWithType:MEDITATION];
+            Meditation *meditation = [Meditation alloc];
+            
+            for (int i = 0; i < meditations.count; i++) {
+                meditation = [meditations objectAtIndex:i];
+                
+                [resourceContext delete:meditation.objectid withType:MEDITATION];
+            }
+        }
+    }
+    [userDefaults synchronize];
+    
+    
+    // Check if first run
     if ([userDefaults objectForKey:setting_ISFIRSTRUN] == nil || [userDefaults boolForKey:setting_ISFIRSTRUN] == YES) {
         // This is the first run of the app, set up default meditation objects
         self.meditations = [Meditation loadDefaultMeditations];
         
         // Save the Meditation objects
-        ResourceContext* resourceContext = [ResourceContext instance];
         [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
         
         // Create user default settings for sequence completion, last position, and logged in check
@@ -85,7 +132,6 @@
     }
     else {
         //we load them the meditations from the ResourceContext
-        ResourceContext* resourceContext = [ResourceContext instance];
         self.meditations = [resourceContext resourcesWithType:MEDITATION];
         
         // Check to see if all meditation objects in the array have been completed at least once
@@ -408,6 +454,10 @@ machineNameSettingsFeedback()
         
         // Hide the page indicator
         [self.pageControl setHidden:YES];
+        
+        // Hide the scroll buttons
+        [self.btn_pageLeft setHidden:YES];
+        [self.btn_pageRight setHidden:YES];
     }
     else {
         // Paused
@@ -416,6 +466,23 @@ machineNameSettingsFeedback()
         
         // Show the page indicator
         [self.pageControl setHidden:NO];
+
+        // Show the scroll buttons
+        NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
+        NSInteger numPages = [self numberOfPagesInScrollView];
+        
+        if (currentPage == 0) {
+            [self.btn_pageLeft setHidden:YES];
+            [self.btn_pageRight setHidden:NO];
+        }
+        else if (currentPage == (numPages-1)) {
+            [self.btn_pageLeft setHidden:NO];
+            [self.btn_pageRight setHidden:YES];
+        }
+        else {
+            [self.btn_pageLeft setHidden:NO];
+            [self.btn_pageRight setHidden:NO];
+        }
     }
 }
 
@@ -429,6 +496,10 @@ machineNameSettingsFeedback()
     
     // Hide the page indicator
     [self.pageControl setHidden:YES];
+    
+    // Hide the scroll buttons
+    [self.btn_pageLeft setHidden:YES];
+    [self.btn_pageRight setHidden:YES];
     
     // Get the Meditation object for the page
     NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
@@ -446,7 +517,7 @@ machineNameSettingsFeedback()
     MeditationInstance* meditationInstance = [MeditationInstance createInstanceOfMeditation:meditation.objectid forUserID:loggedInUserID withState:[NSNumber numberWithInt:kINPROGRESS] withScheduledDate:[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]]];
     
     // Save new meditation instance
-    ResourceContext* resourceContext = [ResourceContext instance];
+    ResourceContext *resourceContext = [ResourceContext instance];
         
     // Increment the counter for the number of times this meditation has been started
     NSInteger numTimesStarted = [meditation.numtimesstarted intValue] + 1;
@@ -473,8 +544,24 @@ machineNameSettingsFeedback()
     // Show the page indicator
     [self.pageControl setHidden:NO];
     
-    // Get the Meditation object for the page
+    // Show the scroll buttons
     NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
+    NSInteger numPages = [self numberOfPagesInScrollView];
+    
+    if (currentPage == 0) {
+        [self.btn_pageLeft setHidden:YES];
+        [self.btn_pageRight setHidden:NO];
+    }
+    else if (currentPage == (numPages-1)) {
+        [self.btn_pageLeft setHidden:NO];
+        [self.btn_pageRight setHidden:YES];
+    }
+    else {
+        [self.btn_pageLeft setHidden:NO];
+        [self.btn_pageRight setHidden:NO];
+    }
+    
+    // Get the Meditation object for the page
     Meditation *meditation = [self.meditations objectAtIndex:currentPage];
     
     // Get the associated MeditationInstance

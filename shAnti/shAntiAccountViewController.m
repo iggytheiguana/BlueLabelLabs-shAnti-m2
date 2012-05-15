@@ -140,6 +140,7 @@ machineNameSettings()
     // Get version information about the app and phone to prepopulate in the email
     NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString* appVersionNum = [infoDict objectForKey:@"CFBundleShortVersionString"];
+    NSString* appBundleVersionNum = [infoDict objectForKey:@"CFBundleVersion"];
     NSString* appName = [infoDict objectForKey:@"CFBundleDisplayName"];
     NSString* deviceType = machineNameSettings();
     NSString* currSysVer = [[UIDevice currentDevice] systemVersion];
@@ -156,7 +157,7 @@ machineNameSettings()
     NSArray *toRecipients = [NSArray arrayWithObjects:@"aarora1@stanford.edu", nil];
     [picker setToRecipients:toRecipients];
     
-    NSString *messageHeader = [NSString stringWithFormat:@"I'm using %@ version %@ on my %@ running iOS %@, %@.<br><br>--- Please add your message below this line ---", appName, appVersionNum, deviceType, currSysVer, [loggedInUserID stringValue]];
+    NSString *messageHeader = [NSString stringWithFormat:@"I'm using %@ version %@ (%@), on my %@ running iOS %@, %@.<br><br>--- Please add your message below this line ---", appName, appVersionNum, appBundleVersionNum, deviceType, currSysVer, [loggedInUserID stringValue]];
     [picker setMessageBody:messageHeader isHTML:YES];
     
     // Present the mail composition interface

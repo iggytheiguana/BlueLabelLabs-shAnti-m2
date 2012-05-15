@@ -23,3 +23,4 @@ extern NSString* const setting_ISFIRSTRUN;
 extern NSString* const setting_HASCOMPLETEDSEQUENCE;
 extern NSString* const setting_LASTPOSITION;
 extern NSString* const setting_DIDSKIPLOGIN;
+extern NSString* const setting_APPVERSION;

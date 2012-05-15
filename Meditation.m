@@ -49,7 +49,7 @@
 {
     NSMutableArray *retVal = [[[NSMutableArray alloc]init]autorelease];
     
-    NSArray *titlesArray = [NSArray arrayWithObjects:@"Just breathe", @"Feel your body", @"A mindful walk", @"A mindful gaze", @"Mindful eating – just a few bites", nil];
+    NSArray *titlesArray = [NSArray arrayWithObjects:@"Just breathe", @"Feel your body", @"A mindful walk", @"A mindful gaze", @"Mindful eating", nil];
     
     NSString *audioURL1 = [[NSURL fileURLWithPath:[[NSBundle mainBundle]
                                                   pathForResource:@"MindfulBreathing"
@@ -73,10 +73,6 @@
     
     NSArray *audioArray = [NSArray arrayWithObjects:audioURL1, audioURL2, audioURL3, audioURL4, audioURL5, nil];
     
-    //NSString *imageURL = [[NSURL fileURLWithPath:[[NSBundle mainBundle]
-    //                                              pathForResource:@"stock-photo-2038361-moon-meditation"
-    //                                              ofType:@"jpg"]] absoluteString];
-    //NSString *imageURL = @"background-04.png";
     NSString *imageURL = @"flower_background--shadowed.png";
     
     for (int i = 0; i < 5; i++) {
