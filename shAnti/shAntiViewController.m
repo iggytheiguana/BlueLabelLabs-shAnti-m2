@@ -45,10 +45,10 @@
         [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
         
         // Add shadow to the page control indicator
-        self.pageControl.layer.shadowColor = [UIColor blackColor].CGColor;
+        /*self.pageControl.layer.shadowColor = [UIColor blackColor].CGColor;
         self.pageControl.layer.shadowOffset = CGSizeMake(0.0, 0.0);
         self.pageControl.layer.shadowOpacity = 1.0;   
-        self.pageControl.layer.shadowRadius = 5.0;
+        self.pageControl.layer.shadowRadius = 5.0;*/
         
     }
     return self;
@@ -242,7 +242,31 @@
 {
     [super viewWillAppear:animated];
     
-    // Check to see if we are on the last page or first page to hide unneeded chevrons
+    // Make sure the slider is enabled and controls are visible
+    // Unlock the slider
+    [self.sv_pageViewSlider setScrollEnabled:YES];
+    
+    // Show the page indicator
+    [self.pageControl setHidden:NO];
+    
+    // Show the scroll buttons
+    NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
+    NSInteger numPages = [self numberOfPagesInScrollView];
+    
+    if (currentPage == 0) {
+        [self.btn_pageLeft setHidden:YES];
+        [self.btn_pageRight setHidden:NO];
+    }
+    else if (currentPage == (numPages-1)) {
+        [self.btn_pageLeft setHidden:NO];
+        [self.btn_pageRight setHidden:YES];
+    }
+    else {
+        [self.btn_pageLeft setHidden:NO];
+        [self.btn_pageRight setHidden:NO];
+    }
+    
+    /*// Check to see if we are on the last page or first page to hide unneeded chevrons
     NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
     NSInteger numPages = [self numberOfPagesInScrollView];
     
@@ -255,7 +279,7 @@
     else {
         [self.btn_pageLeft setHidden:NO];
         [self.btn_pageRight setHidden:NO];
-    }
+    }*/
 }
 
 - (void)viewDidUnload
@@ -378,7 +402,7 @@ machineNameSettingsFeedback()
         
         meditationView.lbl_titleLabel.text = meditation.title;
         
-        meditationView.iv_background.image = [UIImage imageNamed:meditation.imageurl];
+        //meditationView.iv_background.image = [UIImage imageNamed:meditation.imageurl];
         
         NSURL *audioFileURL = [NSURL URLWithString:meditation.audiourl];
         
