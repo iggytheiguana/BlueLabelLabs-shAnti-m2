@@ -75,12 +75,31 @@
     NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString* appVersionCurrent = [infoDict objectForKey:@"CFBundleVersion"];
     //NSString* appVersionCurrent = [infoDict objectForKey:@"CFBundleShortVersionString"];
+    NSString* appVersionUser = [userDefaults objectForKey:setting_APPVERSION];
     
-    if ([userDefaults objectForKey:setting_APPVERSION] == nil) {
+    if (appVersionUser == nil || (![appVersionCurrent isEqualToString:appVersionUser])) {
+        // This is the first run of the app, or the first run after an app update.
+        // Users local data is from a different app version, we need to reset to first run experience
+        
+        // Save the current app version
+        [userDefaults setObject:appVersionCurrent forKey:setting_APPVERSION];
+        
+        // Mark user defaults as first run
+        [userDefaults setObject:[NSNumber numberWithBool:YES] forKey:setting_ISFIRSTRUN];
+        
+        // Delete all the previous meditation objects
+        NSArray *meditations = [resourceContext resourcesWithType:MEDITATION];
+        
+        for (Meditation *meditation in meditations) {
+            [resourceContext delete:meditation.objectid withType:meditation.objecttype];
+        }
+    }
+    
+    /*if ([userDefaults objectForKey:setting_APPVERSION] == nil) {
         // This is the first run of the app, save the current app version
         [userDefaults setObject:appVersionCurrent forKey:setting_APPVERSION];
         
-        // Make user defaults as first run
+        // Mark user defaults as first run
         [userDefaults setObject:[NSNumber numberWithBool:YES] forKey:setting_ISFIRSTRUN];
         
         // Delete all the previous meditation objects
@@ -95,10 +114,9 @@
     }
     else {
         NSString* appVersionUser = [userDefaults objectForKey:setting_APPVERSION];
-        //NSString* appVersionUser = [userDefaults objectForKey:setting_APPVERSION];
         
         if (![appVersionCurrent isEqualToString:appVersionUser]) {
-            // Users local data is from a different app version we need to reset to furst run experience
+            // Users local data is from a different app version we need to reset to first run experience
             [userDefaults setObject:[NSNumber numberWithBool:YES] forKey:setting_ISFIRSTRUN];
             
             // Delete all the previous meditation objects
@@ -111,7 +129,7 @@
                 [resourceContext delete:meditation.objectid withType:MEDITATION];
             }
         }
-    }
+    }*/
     [userDefaults synchronize];
     
     
@@ -135,26 +153,41 @@
         self.meditations = [resourceContext resourcesWithType:MEDITATION];
         
         // Check to see if all meditation objects in the array have been completed at least once
-        Meditation *meditation = [Meditation alloc];
-        for (int i = 0; i < self.meditations.count; i++) {
-            meditation = [self.meditations objectAtIndex:i];
+        //Meditation *meditation = [Meditation alloc];
+        //for (int i = 0; i < self.meditations.count; i++) {
+        BOOL hasCompletedSequece = YES;
+        for (Meditation *meditation in self.meditations) {
+            //meditation = [self.meditations objectAtIndex:i];
             
             if ([meditation.numtimescompleted intValue] == 0) {
                 // If just one of the meditations has not been completed yet,
                 // we reset hascompletedsequence to FALSE and
                 // set the last position to this incompleted meditation
-                [userDefaults setBool:NO forKey:setting_HASCOMPLETEDSEQUENCE];
-                [userDefaults setInteger:i forKey:setting_LASTPOSITION];
+                //[userDefaults setBool:NO forKey:setting_HASCOMPLETEDSEQUENCE];
+                hasCompletedSequece = NO;
+                [userDefaults setInteger:[meditation.position intValue] forKey:setting_LASTPOSITION];
                 
                 if ([self.authenticationManager isUserAuthenticated]) {
-                    self.loggedInUser.lastposition = [NSNumber numberWithInt:i];
+                    self.loggedInUser.lastposition = [NSNumber numberWithInt:[meditation.position intValue]];
+                    
+                    // Save change on user object
+                    [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
                 }
                 break;
             }
-            else {
-                [userDefaults setBool:YES forKey:setting_HASCOMPLETEDSEQUENCE];
-            }
+            /*else {
+                //[userDefaults setBool:YES forKey:setting_HASCOMPLETEDSEQUENCE];
+                [userDefaults setObject:[NSNumber numberWithInt:0] forKey:setting_LASTPOSITION];
+            }*/
         }
+        
+        // We set value for hascompletedsequence
+        [userDefaults setBool:hasCompletedSequece forKey:setting_HASCOMPLETEDSEQUENCE];
+        
+        /*if (hasCompletedSequece) {
+            // If the sequence has been completed, set the last position to 0
+            [userDefaults setObject:[NSNumber numberWithInt:0] forKey:setting_LASTPOSITION];
+        }*/
         
         // Set login check back to default
         [userDefaults setBool:NO forKey:setting_DIDSKIPLOGIN];
@@ -195,6 +228,10 @@
     else {
         // User has fully completed sequence, load first page of shuffled meditations array
         [self.sv_pageViewSlider loadVisiblePages];
+        [self.sv_pageViewSlider goToPageAtIndex:0 animated:NO];
+        
+        [userDefaults setObject:[NSNumber numberWithInt:0] forKey:setting_LASTPOSITION];
+        [userDefaults synchronize];
     }
     
     // Load the bell sound used at the end of mediations
@@ -204,6 +241,35 @@
     
     AudioServicesCreateSystemSoundID(bellURL, &bellSound);
     
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // Make sure the slider is enabled and controls are visible
+    // Unlock the slider
+    [self.sv_pageViewSlider setScrollEnabled:YES];
+    
+    // Show the page indicator
+    [self.pageControl setHidden:NO];
+    
+    // Show the scroll buttons
+    NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
+    NSInteger numPages = [self numberOfPagesInScrollView];
+    
+    if (currentPage == 0) {
+        [self.btn_pageLeft setHidden:YES];
+        [self.btn_pageRight setHidden:NO];
+    }
+    else if (currentPage == (numPages-1)) {
+        [self.btn_pageLeft setHidden:NO];
+        [self.btn_pageRight setHidden:YES];
+    }
+    else {
+        [self.btn_pageLeft setHidden:NO];
+        [self.btn_pageRight setHidden:NO];
+    }
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -235,51 +301,6 @@
         [self presentModalViewController:navigationController animated:YES];
         [navigationController release];
     }
-    
-}
-
-- (void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    // Make sure the slider is enabled and controls are visible
-    // Unlock the slider
-    [self.sv_pageViewSlider setScrollEnabled:YES];
-    
-    // Show the page indicator
-    [self.pageControl setHidden:NO];
-    
-    // Show the scroll buttons
-    NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
-    NSInteger numPages = [self numberOfPagesInScrollView];
-    
-    if (currentPage == 0) {
-        [self.btn_pageLeft setHidden:YES];
-        [self.btn_pageRight setHidden:NO];
-    }
-    else if (currentPage == (numPages-1)) {
-        [self.btn_pageLeft setHidden:NO];
-        [self.btn_pageRight setHidden:YES];
-    }
-    else {
-        [self.btn_pageLeft setHidden:NO];
-        [self.btn_pageRight setHidden:NO];
-    }
-    
-    /*// Check to see if we are on the last page or first page to hide unneeded chevrons
-    NSInteger currentPage = [self.sv_pageViewSlider currentVisiblePageIndex];
-    NSInteger numPages = [self numberOfPagesInScrollView];
-    
-    if (currentPage == 0) {
-        [self.btn_pageLeft setHidden:YES];
-    }
-    else if (currentPage == (numPages-1)) {
-        [self.btn_pageRight setHidden:YES];
-    }
-    else {
-        [self.btn_pageLeft setHidden:NO];
-        [self.btn_pageRight setHidden:NO];
-    }*/
 }
 
 - (void)viewDidUnload
@@ -514,7 +535,7 @@ machineNameSettingsFeedback()
     
 }
 
--(void)meditationDidStart {
+-(void)meditationDidStartAsNewInstance:(BOOL)isNewInstance {
     // Lock the slider
     [self.sv_pageViewSlider setScrollEnabled:NO];
     
@@ -537,27 +558,33 @@ machineNameSettingsFeedback()
         loggedInUserID = nil;
     }
     
-    // Create a new meditation instance
-    MeditationInstance* meditationInstance = [MeditationInstance createInstanceOfMeditation:meditation.objectid forUserID:loggedInUserID withState:[NSNumber numberWithInt:kINPROGRESS] withScheduledDate:[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]]];
-    
-    // Save new meditation instance
     ResourceContext *resourceContext = [ResourceContext instance];
         
     // Increment the counter for the number of times this meditation has been started
     NSInteger numTimesStarted = [meditation.numtimesstarted intValue] + 1;
     meditation.numtimesstarted = [NSNumber numberWithInt:numTimesStarted];
     
-    // Mark the last position of the user to this meditation
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setInteger:[meditation.position intValue] forKey:setting_LASTPOSITION];
-    
-    if ([self.authenticationManager isUserAuthenticated]) {
-        self.loggedInUser.lastposition = meditation.position;
+    if ([userDefaults objectForKey:setting_HASCOMPLETEDSEQUENCE] != nil && 
+        [userDefaults boolForKey:setting_HASCOMPLETEDSEQUENCE] == NO) {
+        
+        // Mark the last position of the user to this meditation
+        [userDefaults setInteger:[meditation.position intValue] forKey:setting_LASTPOSITION];
+        
+        if ([self.authenticationManager isUserAuthenticated]) {
+            self.loggedInUser.lastposition = meditation.position;
+        }
     }
     
-    // Store the new meditation instance locally
-    self.meditationInstanceID = meditationInstance.objectid;
+    if (isNewInstance == YES) {
+        // Create a new meditation instance
+        MeditationInstance* meditationInstance = [MeditationInstance createInstanceOfMeditation:meditation.objectid forUserID:loggedInUserID withState:[NSNumber numberWithInt:kINPROGRESS] withScheduledDate:[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]]];
+        
+        // Store the new meditation instance locally
+        self.meditationInstanceID = meditationInstance.objectid;
+    }
     
+    // Save
     [resourceContext save:YES onFinishCallback:nil trackProgressWith:nil];
 }
 

@@ -37,7 +37,7 @@
 -(void)loadAudioWithFile:(NSURL*)url {
     // Add audio file to player
     NSError *error;
-    self.audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:&error];
+    self.audioPlayer = [[[AVAudioPlayer alloc]initWithContentsOfURL:url error:&error] autorelease];
     if (error)
     {
         NSLog(@"Error in audioPlayer: %@", [error localizedDescription]);
@@ -339,13 +339,13 @@
 
 
 #pragma mark - shAntiUIMeditationView Delegate Methods
--(void)meditationDidStart {
+-(void)meditationDidStartAsNewInstance:(BOOL)isNewInstance {
     [self.btn_restart setHidden:NO];
     [self.sld_volumeControl setHidden:NO];
     [self.btn_done setHidden:YES];
     [self.lbl_swipeSkip setHidden:YES];
     
-    [self.delegate meditationDidStart];
+    [self.delegate meditationDidStartAsNewInstance:isNewInstance];
 }
 
 - (void)meditationDidFinishWithState:(NSNumber *)state {
@@ -390,7 +390,13 @@
         // Play
         [self playAudio];
         [self.btn_restart setHidden:NO];
-        [self meditationDidStart];
+        
+        if ([self.audioPlayer currentTime] == 0.0) {
+            [self meditationDidStartAsNewInstance:YES];
+        }
+        else {
+            [self meditationDidStartAsNewInstance:NO];
+        }
     }
     else {
         // Pause

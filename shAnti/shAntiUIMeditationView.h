@@ -13,7 +13,7 @@
 @protocol shAntiUIMeditationViewDelegate <NSObject>
 @required
 
--(void)meditationDidStart;
+-(void)meditationDidStartAsNewInstance:(BOOL)isNewInstance;
 -(void)meditationDidFinishWithState:(NSNumber *)state;
 -(IBAction)onPlayPauseButtonPressed:(id)sender;
 -(IBAction)onRestartButtonPressed:(id)sender;
