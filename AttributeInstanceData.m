@@ -113,7 +113,8 @@ insertIntoResourceContext:(ResourceContext *)context
     }
     
     //we lock the audiourl to prevent overwriting
-    if([lowerCaseName isEqualToString:AUDIOURL]) {
+    if([lowerCaseName isEqualToString:AUDIOURL] ||
+       [lowerCaseName isEqualToString:TITLE]) {
         retVal.islocked = [NSNumber numberWithBool:YES];
         retVal.islocal = [NSNumber numberWithBool:YES];
     }
